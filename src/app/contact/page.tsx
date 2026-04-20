@@ -9,7 +9,7 @@ export default function ContactPage() {
       {/* Simple Hero */}
       <section className="relative w-full py-16 flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-4">
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 text-foreground">
             Get in <span className="text-gradient-accent">Touch</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
@@ -27,21 +27,21 @@ export default function ContactPage() {
               <div className="p-6 rounded-2xl bg-secondary/30 border border-border flex items-start gap-4">
                 <Mail className="h-6 w-6 text-accent shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">Email Us</h3>
+                  <h3 className="font-semibold mb-1 text-foreground">Email <span className="text-gradient-accent">Us</span></h3>
                   <p className="text-sm text-muted-foreground">hello@luminapress.com</p>
                 </div>
               </div>
               <div className="p-6 rounded-2xl bg-secondary/30 border border-border flex items-start gap-4">
                 <MapPin className="h-6 w-6 text-accent shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">Visit Us</h3>
+                  <h3 className="font-semibold mb-1 text-foreground">Visit <span className="text-gradient-accent">Us</span></h3>
                   <p className="text-sm text-muted-foreground">San Francisco, CA</p>
                 </div>
               </div>
               <div className="p-6 rounded-2xl bg-secondary/30 border border-border flex items-start gap-4">
                 <Clock className="h-6 w-6 text-accent shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">Working Hours</h3>
+                  <h3 className="font-semibold mb-1 text-foreground">Working <span className="text-gradient-accent">Hours</span></h3>
                   <p className="text-sm text-muted-foreground">Mon - Fri, 9AM - 6PM</p>
                 </div>
               </div>

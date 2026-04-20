@@ -4,18 +4,20 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ShoppingCart, Heart } from "lucide-react";
+import { useAppState } from "@/context/AppStateContext";
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "Articles", href: "/#articles" },
-  { label: "Books", href: "/#knowledge" },
-  { label: "Tech", href: "/#tech" },
+  { label: "Articles", href: "/articles" },
+  { label: "Books", href: "/books" },
+  { label: "Tech", href: "/tech" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 export const Navbar = () => {
+  const { favorites, cart } = useAppState();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -46,11 +48,34 @@ export const Navbar = () => {
 
             <div className="absolute right-0 flex items-center gap-2 md:gap-3">
               <Link
-                href="/#articles"
+                href="/articles"
                 className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold shadow-accent-glow hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--accent)/0.6)] transition-all duration-300"
               >
                 Explore <ArrowUpRight className="h-4 w-4" />
               </Link>
+              <Link
+                href="/favorites"
+                className="relative h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
+                title="Favorites"
+              >
+                <Heart className={`h-5 w-5 ${favorites.length > 0 ? "fill-accent text-accent" : ""}`} />
+                {favorites.length > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white shadow-accent-glow">
+                    {favorites.length}
+                  </span>
+                )}
+              </Link>
+              <button
+                className="relative h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
+                title="Cart"
+              >
+                <ShoppingCart className={`h-5 w-5 ${cart.length > 0 ? "text-accent" : ""}`} />
+                {cart.length > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white shadow-accent-glow">
+                    {cart.length}
+                  </span>
+                )}
+              </button>
               <ThemeToggle />
               <button
                 className="lg:hidden h-10 w-10 rounded-full border border-border flex items-center justify-center"
@@ -63,7 +88,7 @@ export const Navbar = () => {
           </div>
 
           {/* Bottom row: nav links below logo */}
-          <ul className="hidden lg:flex items-center justify-center gap-2 mt-3 pt-3 border-t border-white/10">
+          <ul className="hidden lg:flex items-center justify-center gap-2 mt-3 pt-3 border-t border-border">
             {links.map((l) => (
               <li key={l.href}>
                 <Link

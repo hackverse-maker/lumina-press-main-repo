@@ -33,8 +33,8 @@ export const Testimonials = () => {
     <section className="relative py-28 md:py-36 overflow-hidden">
       <div className="container-tight text-center mb-14">
         <span className="text-accent text-sm font-semibold tracking-widest uppercase">Testimonials</span>
-        <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl">
-          Loved by <span className="text-gradient-accent">writers everywhere</span>
+        <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl text-foreground">
+          Loved by writers <span className="text-gradient-accent">everywhere</span>
         </h2>
       </div>
 

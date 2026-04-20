@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Calendar, Clock, ArrowUpRight } from "lucide-react";
 import a1 from "@/assets/article-1.jpg";
 import a2 from "@/assets/article-2.jpg";
@@ -55,7 +56,7 @@ export const Articles = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 font-display font-bold text-4xl md:text-5xl lg:text-6xl max-w-2xl"
+              className="mt-3 font-display font-bold text-4xl md:text-5xl lg:text-6xl max-w-2xl text-foreground"
             >
               Latest <span className="text-gradient-accent">Articles</span>
             </motion.h2>
@@ -69,12 +70,12 @@ export const Articles = () => {
               Hand-picked stories from writers and thinkers across the web.
             </motion.p>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/articles"
             className="inline-flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors"
           >
             View all articles <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -89,7 +90,7 @@ export const Articles = () => {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={a.img.src || a.img}
+                  src={typeof a.img === 'string' ? a.img : a.img.src}
                   alt={a.title}
                   loading="lazy"
                   width={1024}
@@ -101,8 +102,8 @@ export const Articles = () => {
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="font-display font-bold text-xl leading-snug group-hover:text-accent transition-colors">
-                  {a.title}
+                <h3 className="font-display font-bold text-xl leading-snug group-hover:text-accent transition-colors duration-300 text-foreground">
+                  {a.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{a.title.split(' ').pop()}</span>
                 </h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">
                   {a.desc}

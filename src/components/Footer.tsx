@@ -1,6 +1,7 @@
 "use client";
 
 import { Logo } from "./Logo";
+import Link from "next/link";
 import { Twitter, Github, Instagram, Linkedin, Send } from "lucide-react";
 
 const social = [
@@ -8,6 +9,36 @@ const social = [
   { icon: Github, href: "#" },
   { icon: Instagram, href: "#" },
   { icon: Linkedin, href: "#" },
+];
+
+const footerLinks = [
+  { 
+    title: "Product", 
+    links: [
+      { label: "Articles", href: "/articles" },
+      { label: "Editor", href: "#" },
+      { label: "Tech", href: "/tech" },
+      { label: "Pricing", href: "#" }
+    ] 
+  },
+  { 
+    title: "Company", 
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "#" },
+      { label: "Press", href: "#" },
+      { label: "Contact", href: "/contact" }
+    ] 
+  },
+  { 
+    title: "Resources", 
+    links: [
+      { label: "Help Center", href: "#" },
+      { label: "Guides", href: "#" },
+      { label: "Community", href: "#" },
+      { label: "Status", href: "#" }
+    ] 
+  },
 ];
 
 export const Footer = () => {
@@ -41,19 +72,15 @@ export const Footer = () => {
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {[
-              { title: "Product", links: ["Articles", "Editor", "Tech", "Pricing"] },
-              { title: "Company", links: ["About", "Careers", "Press", "Contact"] },
-              { title: "Resources", links: ["Help Center", "Guides", "Community", "Status"] },
-            ].map((col) => (
+            {footerLinks.map((col) => (
               <div key={col.title}>
-                <h4 className="font-display font-semibold text-white text-sm tracking-wider uppercase">{col.title}</h4>
+                <h4 className="font-display font-semibold text-sm tracking-wider uppercase text-white">{col.title}</h4>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="text-sm text-footer-foreground/70 hover:text-accent transition-colors">
-                        {l}
-                      </a>
+                    <li key={l.label}>
+                      <Link href={l.href} className="text-sm text-footer-foreground/70 hover:text-accent transition-colors">
+                        {l.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>

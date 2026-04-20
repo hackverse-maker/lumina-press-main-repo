@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Lightbulb, Compass } from "lucide-react";
+import Link from "next/link";
+import { BookOpen, Lightbulb, Compass, ArrowUpRight } from "lucide-react";
 import knowledgeImg from "@/assets/knowledge.jpg";
 
 const blocks = [
@@ -25,7 +26,7 @@ export const Knowledge = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-card-hover">
               <img
-                src={knowledgeImg.src || knowledgeImg}
+                src={typeof knowledgeImg === 'string' ? knowledgeImg : knowledgeImg.src}
                 alt="Knowledge"
                 loading="lazy"
                 width={1280}
@@ -58,9 +59,9 @@ export const Knowledge = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="mt-3 font-display font-bold text-4xl md:text-5xl"
+              className="mt-3 font-display font-bold text-4xl md:text-5xl text-foreground"
             >
-              Learn something that <span className="text-gradient-accent">stays</span>.
+              Learn something <span className="text-gradient-accent">that stays.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -71,6 +72,20 @@ export const Knowledge = () => {
             >
               We turn the best ideas from books, essays and people into compact insights you can apply this week.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="mt-8"
+            >
+              <Link
+                href="/books"
+                className="inline-flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors"
+              >
+                View full library <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </motion.div>
           </div>
         </div>
 
@@ -89,7 +104,9 @@ export const Knowledge = () => {
                 <b.icon className="h-5 w-5 text-accent-foreground" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-lg">{b.title}</h3>
+                <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
+                  {b.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{b.title.split(' ').pop()}</span>
+                </h3>
                 <p className="text-muted-foreground text-sm mt-1">{b.text}</p>
               </div>
             </motion.div>

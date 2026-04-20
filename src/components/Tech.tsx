@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Zap, Code2 } from "lucide-react";
+import Link from "next/link";
+import { Cpu, Zap, Code2, ArrowUpRight } from "lucide-react";
 const techVideo = "/videos/tech-video.mp4";
 
 const items = [
@@ -23,12 +24,26 @@ export const Tech = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <span className="text-accent text-sm font-semibold tracking-widest uppercase">Blog Tech</span>
-            <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl leading-tight">
+            <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl leading-tight text-foreground">
               Learn the tech behind <span className="text-gradient-accent">great writing</span>
             </h2>
             <p className="mt-5 text-muted-foreground text-lg">
               Deep dives, tutorials, and insights into the tools and ideas shaping the modern web — written for the curious mind.
             </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="mt-6"
+            >
+              <Link
+                href="/tech"
+                className="inline-flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors"
+              >
+                Discover more tech <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </motion.div>
 
             <div className="mt-8 space-y-5">
               {items.map((it, i) => (
@@ -44,7 +59,9 @@ export const Tech = () => {
                     <it.icon className="h-5 w-5 text-accent-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-lg">{it.title}</h3>
+                    <h3 className="text-xl font-display font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+                      {it.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{it.title.split(' ').slice(-1).join(' ')}</span>
+                    </h3>
                     <p className="mt-1 text-muted-foreground text-sm leading-relaxed">{it.text}</p>
                   </div>
                 </motion.div>

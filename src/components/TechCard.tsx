@@ -1,0 +1,49 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { LucideIcon, Cpu, Zap, Code2, Box } from "lucide-react";
+import type { TechItem } from "@/lib/data";
+
+const iconMap: Record<string, LucideIcon> = {
+  cpu: Cpu,
+  zap: Zap,
+  "code-2": Code2,
+  box: Box,
+};
+
+interface TechCardProps {
+  item: TechItem;
+  index?: number;
+}
+
+export const TechCard = ({ item, index = 0 }: TechCardProps) => {
+  const Icon = item.icon ? iconMap[item.icon] : Code2;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group p-8 rounded-[2rem] bg-card border border-border hover:border-accent/40 hover:shadow-card-soft transition-all duration-500"
+    >
+      <div className="h-16 w-16 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-accent-glow group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+        <Icon className="h-8 w-8 text-accent-foreground" />
+      </div>
+      
+      <h3 className="mt-8 font-display font-bold text-2xl group-hover:text-accent transition-colors duration-300 text-foreground">
+        {item.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{item.title.split(' ').pop()}</span>
+      </h3>
+      
+      <p className="mt-4 text-muted-foreground leading-relaxed">
+        {item.description}
+      </p>
+      
+      <div className="mt-8 pt-8 border-t border-border">
+        <button className="text-xs font-bold uppercase tracking-widest text-accent hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+          Explore documentation &rarr;
+        </button>
+      </div>
+    </motion.div>
+  );
+};
