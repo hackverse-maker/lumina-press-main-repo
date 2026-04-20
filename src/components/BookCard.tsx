@@ -12,6 +12,13 @@ interface BookCardProps {
   showButtons?: boolean;
 }
 
+const keyPoints = [
+  "Cyber Awareness",
+  "Data Protection",
+  "Digital Security",
+  "Human Behavior",
+];
+
 export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps) => {
   const { toggleFavorite, addToCart, isFavorite, cart } = useAppState();
   const [added, setAdded] = useState(false);
@@ -60,6 +67,24 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
         <p className="mt-3 text-sm text-muted-foreground line-clamp-2 leading-relaxed">
           {book.description}
         </p>
+
+        {/* Key Points - Horizontal scrollable row */}
+        <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          {keyPoints.map((point, i) => (
+            <motion.div
+              key={point}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+              className="group flex-shrink-0 px-3 py-2 rounded-lg border border-border hover:border-accent/50 hover:shadow-sm transition-all duration-300 cursor-pointer"
+            >
+              <span className="text-xs font-medium text-muted-foreground group-hover:text-accent transition-colors text-nowrap">
+                {point}
+              </span>
+            </motion.div>
+          ))}
+        </div>
 
         {showButtons && (
           <div className="mt-6 flex items-center gap-3">

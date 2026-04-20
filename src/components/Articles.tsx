@@ -1,124 +1,99 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Calendar, Clock, ArrowUpRight } from "lucide-react";
-import a1 from "@/assets/article-1.jpg";
-import a2 from "@/assets/article-2.jpg";
-import a3 from "@/assets/article-3.jpg";
-
-const articles = [
-  {
-    img: a1,
-    cat: "Writing",
-    title: "The Quiet Craft of Writing Every Day",
-    desc: "Small daily rituals that turn writing from a chore into a craft you'll never want to stop refining.",
-    author: "Maya Aldrin",
-    date: "Apr 12, 2026",
-    read: "6 min",
-  },
-  {
-    img: a2,
-    cat: "Tech",
-    title: "Why Edge Computing Will Reshape The Web",
-    desc: "How moving compute closer to users is rewriting the rules of performance, privacy, and product design.",
-    author: "Daniel Cho",
-    date: "Apr 09, 2026",
-    read: "9 min",
-  },
-  {
-    img: a3,
-    cat: "Knowledge",
-    title: "How Reading Slowly Changes Your Mind",
-    desc: "The neuroscience of deep reading — and why slowing down may be the most radical productivity hack.",
-    author: "Iris Bennett",
-    date: "Apr 02, 2026",
-    read: "5 min",
-  },
-];
 
 export const Articles = () => {
+  const article = {
+    title: "As Cyber Threats Accelerate, Human Awareness Remains the Critical Weakness",
+    author: "Muhammad Raza",
+    date: "Apr 21, 2026",
+    description: "Discover why human awareness is the most critical defense against evolving cyber threats and how organizations can build stronger security cultures.",
+  };
+
   return (
-    <section id="articles" className="relative py-28 md:py-36">
-      <div className="container-tight">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
-          <div>
+    <section id="articles" className="relative min-h-screen flex items-center py-20 md:py-0">
+      <div className="w-full">
+        <div className="flex flex-col md:flex-row items-center gap-0">
+          {/* LEFT SIDE - 40% */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="w-full md:w-2/5 px-6 md:px-12 py-16 md:py-20 flex flex-col justify-center"
+          >
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block text-accent text-sm font-semibold tracking-widest uppercase"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-block text-accent text-sm font-semibold tracking-widest uppercase w-fit"
             >
-              Featured
+              Featured Article
             </motion.span>
-            <motion.h2
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="mt-3 font-display font-bold text-4xl md:text-5xl lg:text-6xl max-w-2xl text-foreground"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 font-display font-bold text-4xl md:text-5xl leading-tight text-foreground"
             >
-              Latest <span className="text-gradient-accent">Articles</span>
-            </motion.h2>
+              {article.title}
+            </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="mt-4 text-muted-foreground max-w-xl"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-6 text-muted-foreground leading-relaxed text-lg max-w-md"
             >
-              Hand-picked stories from writers and thinkers across the web.
+              {article.description}
             </motion.p>
-          </div>
-          <Link
-            href="/articles"
-            className="inline-flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors"
-          >
-            View all articles <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {articles.map((a, i) => (
-            <motion.article
-              key={a.title}
-              initial={{ opacity: 0, y: 50 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative bg-card rounded-2xl overflow-hidden border border-border shadow-card-soft hover:shadow-card-hover hover:-translate-y-2 transition-all duration-500"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 flex flex-col gap-2 text-sm"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={typeof a.img === 'string' ? a.img : a.img.src}
-                  alt={a.title}
-                  loading="lazy"
-                  width={1024}
-                  height={640}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">
-                  {a.cat}
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display font-bold text-xl leading-snug group-hover:text-accent transition-colors duration-300 text-foreground">
-                  {a.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{a.title.split(' ').pop()}</span>
-                </h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">
-                  {a.desc}
-                </p>
-                <div className="mt-5 flex items-center justify-between text-sm text-muted-foreground">
-                  <span className="font-medium text-foreground">{a.author}</span>
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1"><Calendar className="h-3.5 w-3.5" /> {a.date}</span>
-                    <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {a.read}</span>
-                  </div>
-                </div>
-              </div>
-              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </motion.article>
-          ))}
+              <p className="text-foreground font-semibold">
+                By <span className="text-accent">{article.author}</span>
+              </p>
+              <p className="text-muted-foreground">
+                Published on {article.date}
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT SIDE - 60% */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            className="w-full md:w-3/5 h-full min-h-[400px] md:min-h-screen relative overflow-hidden"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="w-full h-full relative"
+            >
+              <img
+                src="/images/article.jpg"
+                alt={article.title}
+                className="w-full h-full object-cover"
+              />
+              {/* Glow overlay */}
+              <motion.div
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
