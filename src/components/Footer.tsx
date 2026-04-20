@@ -91,7 +91,7 @@ export const Footer = () => {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-footer-foreground/60">
-            © {new Date().getFullYear()} Inkwell. Crafted for storytellers.
+            © {new Date().getFullYear()} Twelve Lords. Crafted for thinkers and creators.
           </p>
           <div className="flex items-center gap-2">
             {social.map((s, i) => (

@@ -17,8 +17,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Lumina Press | Modern Publishing & Knowledge Sharing",
+  title: "Twelve Lords | Modern Publishing & Knowledge Sharing",
   description: "Redefining modern publishing through knowledge sharing and deep tech insights.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
