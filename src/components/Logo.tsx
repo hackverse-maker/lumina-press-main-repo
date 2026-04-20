@@ -1,12 +1,10 @@
-import Link from "next/link";
-import logo from "@/assets/logo.png";
-
 export const Logo = () => (
-  <Link href="/" className="flex items-center group transition-transform hover:scale-105 active:scale-95 duration-300">
+  <div className="flex items-center gap-2.5 group transition-transform hover:scale-105 active:scale-95 duration-300">
     <img 
-      src={logo.src} 
-      alt="Twelve Lords Logo" 
-      className="h-12 w-auto object-contain"
+      src="/maha-roofing-logo.jpg" 
+      alt="Maha Roofing Logo" 
+      className="h-10 w-auto object-contain"
     />
-  </Link>
+    <span className="hidden sm:inline text-lg font-bold text-foreground">Maha Roofing</span>
+  </div>
 );
