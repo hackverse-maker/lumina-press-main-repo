@@ -31,26 +31,22 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-2" : "py-4"
+        scrolled ? "py-3" : "py-5"
       }`}
     >
       <div className="container-tight">
         <nav
-          className={`relative rounded-2xl px-4 md:px-6 py-4 transition-all duration-500 backdrop-blur-xl ${
+          className={`relative rounded-2xl px-4 md:px-6 py-3 transition-all duration-500 backdrop-blur-xl ${
             scrolled
               ? "glass shadow-glass border border-white/10"
               : "bg-background/30 border border-white/5"
           }`}
         >
-          {/* Top row: logo left on mobile, centered on desktop with action buttons */}
-          <div className="flex items-center justify-between md:flex-col md:gap-4">
-            {/* Logo - left on mobile, centered on desktop */}
-            <div className="flex-shrink-0">
-              <Logo />
-            </div>
+          {/* Top row: logo centered, actions on the right */}
+          <div className="relative flex items-center justify-center">
+            <Logo />
 
-            {/* Right side buttons - always on the right */}
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="absolute right-0 flex items-center gap-2 md:gap-3">
               <Link
                 href="/articles"
                 className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold shadow-accent-glow hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--accent)/0.6)] transition-all duration-300"
@@ -91,8 +87,8 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop navigation: centered below logo */}
-          <ul className="hidden lg:flex items-center justify-center gap-2 mt-4 pt-4 border-t border-border">
+          {/* Bottom row: nav links below logo */}
+          <ul className="hidden lg:flex items-center justify-center gap-2 mt-3 pt-3 border-t border-border">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
@@ -107,7 +103,6 @@ export const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Mobile dropdown menu */}
         {open && (
           <div className="lg:hidden mt-2 glass rounded-2xl p-4 animate-fade-in">
             <ul className="flex flex-col gap-1">
