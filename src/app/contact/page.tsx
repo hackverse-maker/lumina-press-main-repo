@@ -1,7 +1,26 @@
 "use client";
 
 import React from "react";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail } from "lucide-react";
+import { motion } from "framer-motion";
+
+const emails = [
+  {
+    title: "Tech Inquiries",
+    email: "Tech@twelvelords.com",
+    description: "Technical questions and support",
+  },
+  {
+    title: "Books & Publications",
+    email: "Books@twelvelords.com",
+    description: "Book orders and inquiries",
+  },
+  {
+    title: "General Information",
+    email: "Info@twelvelords.com",
+    description: "General questions and partnerships",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -18,69 +37,117 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Email Cards Section */}
       <section className="py-20 px-4">
-        <div className="container-tight max-w-5xl">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Info Cards */}
-            <div className="lg:col-span-1 space-y-6">
-              <div className="p-6 rounded-2xl bg-secondary/30 border border-border flex items-start gap-4">
-                <Mail className="h-6 w-6 text-accent shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-1 text-foreground">Email <span className="text-gradient-accent">Us</span></h3>
-                  <p className="text-sm text-muted-foreground">hello@luminapress.com</p>
-                </div>
-              </div>
-              <div className="p-6 rounded-2xl bg-secondary/30 border border-border flex items-start gap-4">
-                <MapPin className="h-6 w-6 text-accent shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-1 text-foreground">Visit <span className="text-gradient-accent">Us</span></h3>
-                  <p className="text-sm text-muted-foreground">San Francisco, CA</p>
-                </div>
-              </div>
-              <div className="p-6 rounded-2xl bg-secondary/30 border border-border flex items-start gap-4">
-                <Clock className="h-6 w-6 text-accent shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-1 text-foreground">Working <span className="text-gradient-accent">Hours</span></h3>
-                  <p className="text-sm text-muted-foreground">Mon - Fri, 9AM - 6PM</p>
-                </div>
-              </div>
-            </div>
+        <div className="container-tight">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20">
+            {emails.map((item, i) => (
+              <motion.a
+                key={item.email}
+                href={`mailto:${item.email}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/50 hover:bg-secondary/30 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 cursor-pointer"
+              >
+                <motion.div
+                  animate={{ rotate: [0, 3, -3, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="h-12 w-12 rounded-lg bg-gradient-accent/20 flex items-center justify-center mb-4 group-hover:bg-gradient-accent/30 transition-colors"
+                >
+                  <Mail className="h-6 w-6 text-accent" />
+                </motion.div>
 
-            {/* Form */}
-            <div className="lg:col-span-2">
-              <form className="glass rounded-3xl p-8 border border-border" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Email</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
-                      placeholder="Email address"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2 mb-6">
-                  <label className="text-sm font-medium">Message</label>
-                  <textarea
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none resize-none"
-                    placeholder="How can we help?"
+                <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+                  {item.title}
+                </h3>
+
+                <p className="text-accent font-semibold text-sm mb-2">
+                  {item.email}
+                </p>
+
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
+
+                {/* Hover glow effect */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute -inset-4 bg-accent/5 rounded-2xl -z-10 blur-xl"
+                />
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Contact Form */}
+          <div className="max-w-2xl mx-auto">
+            <form className="glass rounded-3xl p-8 border border-border" onSubmit={(e) => e.preventDefault()}>
+              <h2 className="text-2xl md:text-3xl font-display font-bold mb-8 text-foreground text-center">
+                Send us a <span className="text-gradient-accent">Message</span>
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-2"
+                >
+                  <label className="text-sm font-medium">Name</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
+                    placeholder="Your name"
                   />
-                </div>
-                <button className="w-full py-4 rounded-xl bg-accent text-accent-foreground font-bold hover:shadow-accent-glow transition-all">
-                  Send Message
-                </button>
-              </form>
-            </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="space-y-2"
+                >
+                  <label className="text-sm font-medium">Email</label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
+                    placeholder="Email address"
+                  />
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-2 mb-6"
+              >
+                <label className="text-sm font-medium">Message</label>
+                <textarea
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none resize-none"
+                  placeholder="How can we help?"
+                />
+              </motion.div>
+
+              <motion.button
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-4 rounded-xl bg-accent text-accent-foreground font-bold hover:shadow-accent-glow transition-all"
+              >
+                Send Message
+              </motion.button>
+            </form>
           </div>
         </div>
       </section>
