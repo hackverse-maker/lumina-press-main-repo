@@ -42,9 +42,11 @@ export const Navbar = () => {
               : "bg-background/30 border border-white/5"
           }`}
         >
-          {/* Top row: logo centered, actions on the right */}
-          <div className="relative flex items-center justify-center">
-            <Logo />
+          {/* Top row: logo (left on mobile, centered on desktop), actions on the right */}
+          <div className="relative flex items-center justify-between md:justify-center">
+            <div className="md:absolute md:left-1/2 md:-translate-x-1/2">
+              <Logo />
+            </div>
 
             <div className="absolute right-0 flex items-center gap-2 md:gap-3">
               <Link
