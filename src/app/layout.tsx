@@ -17,10 +17,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Maha Roofing | Professional Roofing Solutions",
-  description: "Expert roofing installation, repair, and maintenance services. Licensed, insured, and trusted for over 25 years.",
+  title: "Twelve Lords | Modern Publishing & Knowledge Sharing",
+  description: "Redefining modern publishing through knowledge sharing and deep tech insights.",
   icons: {
-    icon: "/favicon.jpg",
+    icon: "/favicon.png",
   },
 };
 

@@ -2,73 +2,76 @@
 
 import { Logo } from "./Logo";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Phone, Mail, MapPin } from "lucide-react";
+import { Twitter, Github, Instagram, Linkedin, Send } from "lucide-react";
 
 const social = [
-  { icon: Facebook, href: "#" },
-  { icon: Instagram, href: "#" },
   { icon: Twitter, href: "#" },
+  { icon: Github, href: "#" },
+  { icon: Instagram, href: "#" },
+  { icon: Linkedin, href: "#" },
 ];
 
 const footerLinks = [
   { 
-    title: "Services", 
+    title: "Product", 
     links: [
-      { label: "New Roof Installation", href: "#" },
-      { label: "Roof Repair", href: "#" },
-      { label: "Maintenance Plans", href: "#" },
-      { label: "Emergency Services", href: "#" }
+      { label: "Articles", href: "/articles" },
+      { label: "Editor", href: "#" },
+      { label: "Tech", href: "/tech" },
+      { label: "Pricing", href: "#" }
     ] 
   },
   { 
     title: "Company", 
     links: [
-      { label: "About Us", href: "#about" },
-      { label: "Our Team", href: "#" },
-      { label: "Testimonials", href: "#" },
-      { label: "Contact", href: "#contact" }
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "#" },
+      { label: "Press", href: "#" },
+      { label: "Contact", href: "/contact" }
+    ] 
+  },
+  { 
+    title: "Resources", 
+    links: [
+      { label: "Help Center", href: "#" },
+      { label: "Guides", href: "#" },
+      { label: "Community", href: "#" },
+      { label: "Status", href: "#" }
     ] 
   },
 ];
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="relative bg-footer text-footer-foreground pt-20 pb-10">
+    <footer id="footer" className="relative bg-footer text-footer-foreground pt-20 pb-10 mt-10">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
       <div className="container-tight">
-        <div className="grid lg:grid-cols-12 gap-12 mb-12">
+        <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <Logo />
             <p className="mt-5 text-sm text-footer-foreground/70 max-w-sm leading-relaxed">
-              Professional roofing services with integrity and quality craftsmanship. Serving the community for over 25 years with licensed and insured expertise.
+              A modern publishing platform for thinkers, writers and creators. Beautiful by design, fast by default.
             </p>
 
-            <div className="mt-8 space-y-4">
-              <div className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                <div className="text-sm">
-                  <p className="font-semibold text-footer-foreground">Call Us</p>
-                  <p className="text-footer-foreground/70">(555) 123-4567</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                <div className="text-sm">
-                  <p className="font-semibold text-footer-foreground">Email</p>
-                  <p className="text-footer-foreground/70">info@maharoofing.com</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
-                <div className="text-sm">
-                  <p className="font-semibold text-footer-foreground">Address</p>
-                  <p className="text-footer-foreground/70">123 Main Street, City, State 12345</p>
-                </div>
-              </div>
-            </div>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="mt-8 flex items-center gap-2 p-1.5 rounded-full bg-white/5 border border-white/10 max-w-md backdrop-blur-md"
+            >
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 bg-transparent px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="inline-flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold hover:scale-105 transition-transform"
+              >
+                Subscribe <Send className="h-3.5 w-3.5" />
+              </button>
+            </form>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {footerLinks.map((col) => (
               <div key={col.title}>
                 <h4 className="font-display font-semibold text-sm tracking-wider uppercase text-white">{col.title}</h4>
@@ -86,9 +89,9 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-footer-foreground/60">
-            © {new Date().getFullYear()} Maha Roofing. All rights reserved. Licensed & Insured.
+            © {new Date().getFullYear()} Twelve Lords. Crafted for thinkers and creators.
           </p>
           <div className="flex items-center gap-2">
             {social.map((s, i) => (
