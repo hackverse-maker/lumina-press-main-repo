@@ -6,10 +6,12 @@ import { Book } from "@/lib/data";
 interface AppState {
   favorites: Book[];
   cart: Book[];
+  isCartOpen: boolean;
+  setIsCartOpen: (open: boolean) => void;
   toggleFavorite: (book: Book) => void;
   addToCart: (book: Book) => void;
-  removeFromCart: (title: string) => void;
-  isFavorite: (title: string) => boolean;
+  removeFromCart: (id: string) => void;
+  isFavorite: (id: string) => boolean;
 }
 
 const AppStateContext = createContext<AppState | undefined>(undefined);
@@ -17,50 +19,67 @@ const AppStateContext = createContext<AppState | undefined>(undefined);
 export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [favorites, setFavorites] = useState<Book[]>([]);
   const [cart, setCart] = useState<Book[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Load from localStorage on mount
   useEffect(() => {
     const savedFavs = localStorage.getItem("lumina_favs");
     const savedCart = localStorage.getItem("lumina_cart");
-    if (savedFavs) setFavorites(JSON.parse(savedFavs));
-    if (savedCart) setCart(JSON.parse(savedCart));
+    if (savedFavs) {
+      try {
+        setFavorites(JSON.parse(savedFavs));
+      } catch (e) {
+        console.error("Failed to parse favorites", e);
+      }
+    }
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (e) {
+        console.error("Failed to parse cart", e);
+      }
+    }
   }, []);
 
   // Sync to localStorage
   useEffect(() => {
-    localStorage.setItem("lumina_favs", JSON.stringify(favorites));
+    if (favorites.length > 0) {
+      localStorage.setItem("lumina_favs", JSON.stringify(favorites));
+    }
   }, [favorites]);
 
   useEffect(() => {
-    localStorage.setItem("lumina_cart", JSON.stringify(cart));
+    if (cart.length > 0) {
+      localStorage.setItem("lumina_cart", JSON.stringify(cart));
+    }
   }, [cart]);
 
   const toggleFavorite = (book: Book) => {
     setFavorites(prev => {
-      const exists = prev.find(b => b.title === book.title);
+      const exists = prev.find(b => b.id === book.id);
       if (exists) {
-        return prev.filter(b => b.title !== book.title);
+        return prev.filter(b => b.id !== book.id);
       }
       return [...prev, book];
     });
   };
 
-  const isFavorite = (title: string) => favorites.some(b => b.title === title);
+  const isFavorite = (id: string) => favorites.some(b => b.id === id);
 
   const addToCart = (book: Book) => {
     setCart(prev => {
-      const exists = prev.find(b => b.title === book.title);
+      const exists = prev.find(b => b.id === book.id);
       if (exists) return prev;
       return [...prev, book];
     });
   };
 
-  const removeFromCart = (title: string) => {
-    setCart(prev => prev.filter(b => b.title !== title));
+  const removeFromCart = (id: string) => {
+    setCart(prev => prev.filter(b => b.id !== id));
   };
 
   return (
-    <AppStateContext.Provider value={{ favorites, cart, toggleFavorite, addToCart, removeFromCart, isFavorite }}>
+    <AppStateContext.Provider value={{ favorites, cart, isCartOpen, setIsCartOpen, toggleFavorite, addToCart, removeFromCart, isFavorite }}>
       {children}
     </AppStateContext.Provider>
   );

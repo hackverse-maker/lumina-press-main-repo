@@ -87,22 +87,31 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
         </div>
 
         {showButtons && (
-          <div className="mt-6 flex items-center gap-3">
-            <button 
-              onClick={handleAddToCart}
-              disabled={cart.some(b => b.title === book.title)}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          <div className="mt-6 flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <button 
+                onClick={handleAddToCart}
+                disabled={cart.some(b => b.id === book.id)}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-bold hover:shadow-accent-glow transition-all disabled:opacity-50"
+              >
+                {added ? <Check className="h-4 w-4" /> : <ShoppingCart className="h-4 w-4" />}
+                {cart.some(b => b.id === book.id) ? "In Cart" : "Buy Now"}
+              </button>
+              <button 
+                onClick={() => toggleFavorite(book)}
+                className={`inline-flex items-center justify-center h-10 w-10 rounded-lg border border-border hover:bg-secondary transition-all ${isFavorite(book.id) ? "bg-accent/10 border-accent/30" : ""}`}
+                title={isFavorite(book.id) ? "Remove from Favorites" : "Add to Favorites"}
+              >
+                <Heart className={`h-4 w-4 transition-colors ${isFavorite(book.id) ? "fill-accent text-accent" : "text-muted-foreground hover:text-accent"}`} />
+              </button>
+            </div>
+            
+            <a 
+              href={`/books/${book.id}`}
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-border text-xs font-bold text-muted-foreground hover:text-accent hover:border-accent/40 transition-all"
             >
-              {added ? <Check className="h-4 w-4" /> : <ShoppingCart className="h-4 w-4" />}
-              {cart.some(b => b.title === book.title) ? "In Cart" : "Buy Now"}
-            </button>
-            <button 
-              onClick={() => toggleFavorite(book)}
-              className={`inline-flex items-center justify-center h-9 w-9 rounded-lg border border-border hover:bg-secondary transition-all ${isFavorite(book.title) ? "bg-accent/10 border-accent/30" : ""}`}
-              title={isFavorite(book.title) ? "Remove from Favorites" : "Add to Favorites"}
-            >
-              <Heart className={`h-4 w-4 transition-colors ${isFavorite(book.title) ? "fill-accent text-accent" : "text-muted-foreground hover:text-accent"}`} />
-            </button>
+              View Full Details
+            </a>
           </div>
         )}
       </div>

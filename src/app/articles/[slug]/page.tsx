@@ -43,13 +43,22 @@ export default function ArticlePage() {
           </div>
 
           <MidArticleImage
-            imagePath="/images/data-breach.jpg"
-            caption="The human factor in cybersecurity breaches continues to be the primary attack vector"
+            imagePath="/data-breach-alert.png"
+            caption="A system alert indicating a critical data breach — the nightmare scenario for any organization."
           />
 
           <div className="space-y-6 text-muted-foreground leading-relaxed mt-12">
             <p>
-              The challenge lies not just in the technical implementation of security measures, but in the cultural shift required to make cybersecurity awareness a fundamental part of organizational DNA. This requires:
+              The challenge lies not just in the technical implementation of security measures, but in the cultural shift required to make cybersecurity awareness a fundamental part of organizational DNA.
+            </p>
+
+            <MidArticleImage
+              imagePath="/phishing-example.png"
+              caption="Phishing scams often use scare tactics and suspicious links to trick users into revealing sensitive data."
+            />
+
+            <p>
+              This requires:
             </p>
 
             <ul className="list-disc list-inside space-y-3 ml-4">
@@ -66,6 +75,45 @@ export default function ArticlePage() {
             <p>
               As cyber threats continue to accelerate in sophistication and scale, the path forward is clear: we must place the human element at the center of our cybersecurity strategy. Not as a liability to be contained, but as the strongest asset we possess—when properly informed, empowered, and supported.
             </p>
+          </div>
+
+          {/* Detailed Threat Analysis Section */}
+          <div className="mt-20 pt-12 border-t border-border/50">
+            <h2 className="text-3xl font-display font-bold mb-8 text-foreground">
+              Detailed Threat <span className="text-blue-500">Analysis</span>
+            </h2>
+            
+            <div className="space-y-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-foreground">Visualizing a Data Breach</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    When a breach occurs, the immediate impact is often felt through system alerts. 
+                    This visualization represents the critical moment a security perimeter is compromised, 
+                    triggering organization-wide protocols.
+                  </p>
+                </div>
+                <MidArticleImage
+                  imagePath="/data-breach-detail.png"
+                  caption="A high-intensity visualization of a data breach alert system."
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <MidArticleImage
+                  imagePath="/phishing-detail.png"
+                  caption="Deconstructing a typical mobile phishing attack."
+                />
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-foreground">Anatomy of a Phishing Scam</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Modern phishing scams are meticulously designed to exploit psychology. 
+                    By utilizing "Scare Tactics" and spoofed URLs, attackers create a false 
+                    sense of urgency that leads even experienced users to make critical errors.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

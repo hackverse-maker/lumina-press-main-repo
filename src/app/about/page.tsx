@@ -32,50 +32,31 @@ export default function AboutPage() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-foreground">
-                  Our <span className="text-gradient-accent">Story</span>
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-foreground">
+                  Our <span className="text-gradient-accent">Purpose</span>
                 </h2>
-                <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-                  Lumina Press started as a small project to help writers share complex ideas in a simple, beautiful format. Today, it grew into a global community of creators dedicated to high-quality knowledge sharing and modern publishing.
-                </p>
-              </div>
-
-              <div className="grid gap-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="p-6 rounded-2xl bg-secondary/30 border border-border hover:border-accent/50 hover:bg-secondary/50 transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-                      <Target className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-semibold text-lg text-foreground">Our <span className="text-gradient-accent">Mission</span></h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    To turn the best ideas into compact, actionable frameworks that everyone can learn from.
+                
+                <div className="space-y-6 text-muted-foreground leading-relaxed text-base md:text-lg font-medium">
+                  <p>
+                    Twelve Lords is driven by a singular mission: to educate, inform, and elevate. We are committed to providing accurate, well-researched knowledge that empowers individuals with clarity, self-awareness, and a defined path toward personal and intellectual development.
                   </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="p-6 rounded-2xl bg-secondary/30 border border-border hover:border-accent/50 hover:bg-secondary/50 transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-                      <Eye className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-semibold text-lg text-foreground">Our <span className="text-gradient-accent">Vision</span></h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    A world where deep knowledge is accessible, engaging, and beautiful by default.
+                  
+                  <p>
+                    Our work spans across current affairs, history, philosophy, and technology, delivered through thoughtfully crafted articles, books, and video content. Whether through daily publications or long-form works, our goal is to translate complex ideas into accessible, practical insight that can be applied in everyday life.
                   </p>
-                </motion.div>
+                  
+                  <p>
+                    Beyond knowledge, Twelve Lords is also at the forefront of technological innovation. Our dedicated tech team is actively developing modern hardware solutions embedded with secure cybersecurity frameworks. We believe that security should not be an afterthought, but a fundamental component of every product.
+                  </p>
+                  
+                  <p>
+                    What sets us apart from contemporary industries is our unwavering emphasis on data protection and user safety, even in everyday technology. Through our products, we aim not only to provide functionality, but also to educate users on cybersecurity awareness, fostering a deeper understanding of digital risks and the importance of data integrity.
+                  </p>
+                  
+                  <p>
+                    At Twelve Lords, we do not simply create content or products—we build systems of knowledge and security designed to strengthen both the mind and the modern digital life.
+                  </p>
+                </div>
               </div>
             </motion.div>
 
