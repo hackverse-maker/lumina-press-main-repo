@@ -13,101 +13,78 @@ const blocks = [
 
 export const Knowledge = () => {
   return (
-    <section id="knowledge" className="relative py-28 md:py-36 bg-secondary/40 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial opacity-60" />
+    <section id="knowledge" className="section-padding bg-secondary/20 relative overflow-hidden">
       <div className="container-tight relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-card-hover">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft border border-border">
               <img
                 src={typeof knowledgeImg === 'string' ? knowledgeImg : knowledgeImg.src}
-                alt="Knowledge"
+                alt="Knowledge Repository"
                 loading="lazy"
                 width={1280}
                 height={800}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 glass rounded-2xl p-5 shadow-glass animate-float">
-              <div className="text-3xl font-display font-bold text-accent">+240</div>
-              <div className="text-xs text-muted-foreground mt-1">books reviewed</div>
-            </div>
-            <div className="absolute -top-4 -left-4 glass rounded-2xl px-4 py-3 shadow-glass animate-float" style={{ animationDelay: "1.5s" }}>
-              <div className="text-xs text-muted-foreground">Reading streak</div>
-              <div className="font-display font-bold text-accent">21 days 🔥</div>
+            {/* Minimal Stat Badge */}
+            <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-xl p-6 shadow-premium">
+              <div className="text-3xl font-extrabold text-primary tracking-tight">+240</div>
+              <div className="text-xs font-bold text-foreground/60 uppercase tracking-widest mt-1">Deep Analysis</div>
             </div>
           </motion.div>
 
-          <div>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-accent text-sm font-semibold tracking-widest uppercase"
-            >
-              Knowledge & Books
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="mt-3 font-display font-bold text-4xl md:text-5xl text-foreground"
-            >
-              Learn something <span className="text-gradient-accent">that stays.</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="mt-5 text-lg text-muted-foreground max-w-lg"
-            >
-              We turn the best ideas from books, essays and people into compact insights you can apply this week.
-            </motion.p>
+          <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="mt-8"
             >
-              <Link
-                href="/books"
-                className="inline-flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors"
-              >
-                View full library <ArrowUpRight className="h-4 w-4" />
-              </Link>
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
+                Research & Development
+              </span>
+              <h2 className="text-balance">Security insights that build lasting resilience.</h2>
+              <p className="max-w-xl">
+                We distill complex security concepts and industry trends into actionable 
+                knowledge blocks designed for modern technical teams and decision-makers.
+              </p>
+              
+              <div className="pt-4">
+                <Link
+                  href="/books"
+                  className="btn-outline inline-flex items-center gap-2 text-sm"
+                >
+                  Explore Knowledge Base <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
 
-        {/* FEATURE CARDS SECTION (Updated layout) */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Feature Grid */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
           {blocks.map((b, i) => (
             <motion.div
               key={b.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 + i * 0.1 }}
-              className="group flex gap-5 p-5 rounded-2xl bg-card border border-border hover:border-accent/50 hover:shadow-card-soft transition-all duration-500"
+              transition={{ delay: i * 0.1 }}
+              className="card-premium flex flex-col gap-6"
             >
-              <div className="shrink-0 h-12 w-12 rounded-xl bg-gradient-accent flex items-center justify-center shadow-accent-glow group-hover:scale-110 transition-transform">
-                <b.icon className="h-5 w-5 text-accent-foreground" />
+              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <b.icon className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
-                  {b.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{b.title.split(' ').pop()}</span>
-                </h3>
-                <p className="text-muted-foreground text-sm mt-1">{b.text}</p>
+                <h3 className="text-xl font-bold mb-3">{b.title}</h3>
+                <p className="text-sm text-foreground/70 mb-0 leading-relaxed">{b.text}</p>
               </div>
             </motion.div>
           ))}

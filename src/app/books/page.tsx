@@ -1,39 +1,62 @@
-"use client";
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { books as localBooks } from "@/lib/data";
+import { ArrowRight } from "lucide-react";
 
-import { PageHero } from "@/components/PageHero";
-import { FeaturedBook } from "@/components/FeaturedBook";
-import { BookCard } from "@/components/BookCard";
-import { books } from "@/lib/data";
+export const metadata: Metadata = {
+  title: "Books | Twelve Lords Publishing",
+  description: "Curated insights from philosophy, technology, and modern strategy.",
+};
 
-export default function BooksPage() {
-  const featuredBook = books.find(b => b.featured) || books[0];
-  const regularBooks = books.filter(b => !b.featured);
+// Types for Google Books API
+interface GoogleBook {
+  id: string;
+  volumeInfo: {
+    title: string;
+    authors?: string[];
+    description?: string;
+    imageLinks?: {
+      thumbnail: string;
+    };
+    infoLink: string;
+  };
+}
 
+async function getExternalBooks() {
+  try {
+    // Fetching relevant books from Google Books API
+    const res = await fetch(
+      "https://www.googleapis.com/books/v1/volumes?q=subject:philosophy+cybersecurity&maxResults=10",
+      { next: { revalidate: 3600 } } // Cache for 1 hour
+    );
+    const data = await res.json();
+    return data.items || [];
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    return [];
+  }
+}
+
+import { BookList } from "@/components/BookList";
+
+export default async function BooksPage() {
   return (
-    <main className="min-h-screen pb-20">
-      <PageHero 
-        title="Knowledge Library" 
-        subtitle="Deep dives into psychology, philosophy, and the human condition."
-        type="books" 
-      />
-      
-      <FeaturedBook book={featuredBook} />
+    <main className="min-h-screen bg-background text-foreground pt-[140px] pb-24">
+      {/* Header */}
+      <header className="container-tight px-6 mb-32 text-center">
+        <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 uppercase">
+          Bookshelf
+        </h1>
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          The best ideas from philosophy, psychology, and modern strategy, 
+          distilled into in-depth analysis and practical wisdom.
+        </p>
+      </header>
 
-      <section className="py-24">
-        <div className="container-tight">
-          <div className="flex flex-col items-center text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">More to <span className="text-gradient-accent">Explore</span></h2>
-            <p className="text-muted-foreground text-lg max-w-2xl">
-              Curated reading for the curious mind. Each book is hand-picked for its depth and lasting impact.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regularBooks.map((book, i) => (
-              <BookCard key={book.title} book={book} index={i} showButtons={true} />
-            ))}
-          </div>
-        </div>
+      {/* Books List Section */}
+      <section className="container-tight px-6">
+        <BookList books={localBooks} />
       </section>
     </main>
   );

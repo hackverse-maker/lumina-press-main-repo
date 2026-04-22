@@ -63,10 +63,10 @@ export default function BookDetailPage() {
           <Button 
             onClick={() => router.back()} 
             variant="ghost" 
-            className="group text-muted-foreground hover:text-accent transition-colors px-0"
+            className="group text-muted-foreground hover:bg-primary hover:text-white transition-all px-6 py-3 rounded-xl mt-5 flex items-center gap-2"
           >
-            <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" /> 
-            Back
+            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> 
+            <span className="font-bold uppercase tracking-widest text-sm">Back to Library</span>
           </Button>
         </motion.div>
 

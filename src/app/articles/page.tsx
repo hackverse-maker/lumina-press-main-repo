@@ -7,7 +7,8 @@ import { articles } from "@/lib/data";
 
 export default function ArticlesPage() {
   return (
-    <main className="min-h-screen pb-20">
+    <main className="min-h-screen bg-background text-foreground pb-20">
+      {/* Latest Article (Unchanged) */}
       <ArticleHighlight
         heading="Latest Article"
         articleTitle="As Cyber Threats Accelerate, Human Awareness Remains the Critical Weakness"
@@ -16,21 +17,26 @@ export default function ArticlesPage() {
         link="/articles/cyber-threats-awareness"
         showMoreLink={false}
       />
-      <PageHero 
-        title="Thinking Aloud" 
-        subtitle="Insights, essays, and stories about building, thinking, and being."
-        type="articles" 
+
+      {/* New Article (Added Below) */}
+      <ArticleHighlight
+        heading="Social Analysis"
+        articleTitle="A Generation Under Fear: How Corporal Punishment Is Quietly Damaging Pakistan’s Youth"
+        description="Every generation is told it is the future of the nation. But what happens when that future is shaped not by curiosity and confidence, but by fear? Across many schools and madrassas in Pakistan, corporal punishment remains an embedded part of discipline, leaving lasting psychological scars on the nation's youth."
+        imagePath="/images/article.jpg"
+        link="/articles/pakistan-corporal-punishment"
+        showMoreLink={false}
       />
 
-      <section className="py-12">
-        <div className="container-tight">
-          <div className="space-y-4">
-            {articles.map((article, i) => (
-              <ArticleCard key={article.title} article={article} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Article 3 (Added Below) */}
+      <ArticleHighlight
+        heading="Educational Critique"
+        articleTitle="9AM Exams Are Failing Students — And We Know It"
+        description="At 9:00 a.m. sharp, millions of students sit in a heavy silence, staring at exam papers that will shape their lives. But is this standardised system truly fair, or is it merely testing how well a student can perform while half-asleep?"
+        imagePath="/images/article.jpg"
+        link="/articles/9am-exams-failing-students"
+        showMoreLink={false}
+      />
     </main>
   );
 }

@@ -10,17 +10,19 @@ const testimonials = [
 ];
 
 const Card = ({ t }: { t: typeof testimonials[number] }) => (
-  <div className="w-[340px] shrink-0 glass rounded-2xl p-6 mx-3 shadow-glass">
-    <Quote className="h-7 w-7 text-accent mb-3" />
-    <p className="text-foreground/90 text-[15px] leading-relaxed">"{t.text}"</p>
-    <div className="mt-5 flex items-center justify-between">
+  <div className="w-[340px] shrink-0 card-premium mx-3 flex flex-col justify-between">
+    <div>
+      <Quote className="h-6 w-6 text-primary mb-6" />
+      <p className="text-foreground/80 text-base leading-relaxed italic">"{t.text}"</p>
+    </div>
+    <div className="mt-8 flex items-center justify-between border-t border-border pt-6">
       <div>
-        <div className="font-semibold">{t.name}</div>
-        <div className="text-xs text-muted-foreground">{t.role}</div>
+        <div className="font-bold text-[15px]">{t.name}</div>
+        <div className="text-xs font-semibold text-primary/70 uppercase tracking-wider">{t.role}</div>
       </div>
-      <div className="flex gap-0.5 text-accent">
+      <div className="flex gap-0.5 text-primary">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} className="h-3.5 w-3.5 fill-current" />
+          <Star key={i} className="h-3 w-3 fill-current" />
         ))}
       </div>
     </div>
@@ -30,22 +32,23 @@ const Card = ({ t }: { t: typeof testimonials[number] }) => (
 export const Testimonials = () => {
   const row = [...testimonials, ...testimonials];
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden">
-      <div className="container-tight text-center mb-14">
-        <span className="text-accent text-sm font-semibold tracking-widest uppercase">Testimonials</span>
-        <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl text-foreground">
-          Loved by writers <span className="text-gradient-accent">everywhere</span>
-        </h2>
+    <section className="section-padding bg-secondary/10 overflow-hidden">
+      <div className="container-tight text-center mb-16">
+        <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
+          Client Success
+        </span>
+        <h2 className="text-balance">Trusted by world-class security professionals.</h2>
       </div>
 
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        {/* Fade edges */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary/10 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-secondary/10 to-transparent z-10 pointer-events-none" />
 
-        <div className="flex animate-marquee">
+        <div className="flex animate-marquee-slow">
           {row.map((t, i) => <Card key={i} t={t} />)}
         </div>
-        <div className="flex animate-marquee mt-6" style={{ animationDirection: "reverse", animationDuration: "50s" }}>
+        <div className="flex animate-marquee-slow mt-8" style={{ animationDirection: "reverse" }}>
           {row.map((t, i) => <Card key={`b-${i}`} t={t} />)}
         </div>
       </div>

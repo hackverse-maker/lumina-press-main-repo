@@ -55,67 +55,58 @@ export const books: Book[] = [
     ]
   },
   {
-    id: "cyber-cable",
-    title: "Twelve Lords Cyber Cable",
-    subtitle: "Secure Charging. Controlled Data. Total Protection.",
-    author: "Twelve Lords Tech",
-    genre: "Hardware / Security",
-    publishDate: "2026",
-    description: "At Twelve Lords, we design hardware with security at its core. The Cyber Cable is built to address a fundamental weakness in modern connectivity: the automatic trust placed in USB connections. Conventional cables allow unrestricted power and data flow, exposing devices to potential threats the moment they are plugged into an unknown source.",
-    benefits: [
-      "Default Charge-Only Mode",
-      "Controlled Data Enablement",
-      "Hardware-Level Enforcement"
-    ],
-    image: "/images/cable-new.png",
-    featured: true,
-    sections: [
-      {
-        title: "Development Philosophy",
-        content: [
-          "The Cyber Cable was developed by a team of cybersecurity engineers and hardware specialists focused on real-world attack vectors affecting everyday users.",
-          "Through analysis of public charging environments such as airports, hotels, and shared workspaces, we identified a consistent risk: devices are vulnerable at the point of connection, before any software-based defenses can intervene.",
-          "To address this, we engineered a cable that enforces security at the physical layer. By controlling the internal data pathways, the Cyber Cable eliminates unauthorized communication at the source, providing protection that does not depend on the device’s operating system or user awareness."
-        ]
-      },
-      {
-        title: "Threat Landscape",
-        content: [
-          "Public and untrusted USB connections can be exploited through multiple attack methods:",
-          "• Juice Jacking: Malicious charging stations can attempt to install malware during charging.",
-          "• HID Injection: A comprised connection may emulate keyboards to execute unauthorized commands.",
-          "• Data Interception: Unsecured connections can allow data to be monitored or captured during transfer."
-        ]
-      },
-      {
-        title: "Product Specifications",
-        content: [
-          "• Variants: USB-A to Lightning, USB-A to USB-C, USB-C to Lightning, USB-C to USB-C",
-          "• Power Delivery: Up to 60W fast charging",
-          "• Length: 1 meter / 2 meters",
-          "• Build Quality: Reinforced structure with high-quality internal shielding",
-          "• Modes: Charge-Only (Default), Data Mode (User Controlled)"
-        ]
-      }
-    ]
-  },
-  {
-    id: "echoes-of-eternity",
-    title: "Echos of Eternity",
-    author: "Elena Vance",
-    publishDate: "Dec 2025",
-    genre: "Philosophy",
-    description: "A journey through the cyclic nature of time and the human experience.",
-    image: "/images/books/echoes.jpg"
-  },
-  {
-    id: "digital-stoic",
-    title: "The Digital Stoic",
-    author: "Marcus Aurelius II",
-    publishDate: "Jan 2026",
+    id: "subtle-art",
+    title: "The Subtle Art of Not Giving a F*ck",
+    author: "Mark Manson",
+    publishDate: "2016",
     genre: "Self-Help",
-    description: "Applying ancient principles to the modern noise of the digital age.",
-    image: "/images/books/stoic.jpg"
+    description: "The mega bestseller. The self-help book for people who hate self-help books. The Subtle Art of Not Giving a F*ck is all about self-improvement not through avoiding problems or always being happy, but rather through improving upon problems and learning to accept the occasional unhappiness.",
+    image: "/images/books/subtle-art.png"
+  },
+  {
+    id: "everything-is-fucked",
+    title: "Everything Is F*cked: A Book About Hope",
+    author: "Mark Manson",
+    publishDate: "2019",
+    genre: "Philosophy / Psychology",
+    description: "In Everything Is F*cked, Mark Manson turns his gaze from the inevitable flaws within each individual self to the endless calamities taking place in the world around us. Drawing on mountains of psychological research, as well as the timeless wisdom of philosophers such as Plato and Nietzsche.",
+    image: "/images/books/everything-is-fucked.png"
+  },
+  {
+    id: "will",
+    title: "Will",
+    author: "Will Smith & Mark Manson",
+    publishDate: "2021",
+    genre: "Memoir",
+    description: "Will Smith opens up fully in a brave and inspiring book, co-authored by Mark Manson, that traces his learning curve to a place where outer success, inner happiness, and human connection align. This memoir is the product of a profound journey of self-knowledge.",
+    image: "/images/books/will.png"
+  },
+  {
+    id: "models",
+    title: "Models: Attract Women Through Honesty",
+    author: "Mark Manson",
+    publishDate: "2011",
+    genre: "Self-Help",
+    description: "Models is a book on becoming an attractive man that’s based not on tricks, tactics, games or techniques, but on self-development. Its goal is to create powerful connections with women instead of trying to impress them.",
+    image: "/images/books/models.png"
+  },
+  {
+    id: "love-is-not-enough",
+    title: "Love Is Not Enough",
+    author: "Mark Manson",
+    publishDate: "2020",
+    genre: "Relationships",
+    description: "Follow the stories of five people brave enough to sit down with Mark Manson and air out their relationship problems. Wade into heavy topics like trauma, abuse, sexuality, and loss to uncover universal truths about healthy relationships.",
+    image: "/images/books/love-is-not-enough.png"
+  },
+  {
+    id: "subtle-art-journal",
+    title: "The Subtle Art of Not Giving a F*ck Journal",
+    author: "Mark Manson",
+    publishDate: "2022",
+    genre: "Self-Help / Journal",
+    description: "The Subtle Art Journal is chock full of hundreds of actionable prompts and writing exercises to help you get all your fucks in a row. Start applying the lessons from the book and watch your garden of 'no fucks given' grow.",
+    image: "/images/books/subtle-art-journal.png"
   }
 ];
 

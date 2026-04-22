@@ -5,10 +5,13 @@ import { ShieldCheck, Zap, Lock, Cpu, Activity } from "lucide-react";
 
 export const CyberCableSection = () => {
   return (
-    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-slate-950" id="cyber-cable">
+    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-background border-y border-border/50" id="cyber-cable">
+      {/* Dynamic Theme Background */}
+      <div className="absolute inset-0 dark:bg-slate-950 bg-slate-50 opacity-100" />
+      
       {/* Background Digital Grid */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
-           style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--accent)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-10 pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-tight relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-24 items-center">
@@ -96,59 +99,59 @@ export const CyberCableSection = () => {
                  className="w-full h-full relative"
                >
                  <img
-                    src="/images/cable-new.png"
+                    src="/images/cyber-cable-hero.jpg"
                     alt="Cyber Cable"
-                    className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(var(--primary-rgb),0.3)] dark:drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
                   />
                   
                   {/* LIVE ANIMATION ELEMENTS */}
                   
                   {/* Status Pulse on Connector */}
                   <motion.div
-                    animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute top-[45%] left-[51%] w-4 h-4 bg-accent rounded-full blur-[8px] z-20"
+                    animate={{ opacity: [0.2, 0.8, 0.2], scale: [1, 1.2, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute top-[48%] left-[50%] w-6 h-6 bg-primary rounded-full blur-[12px] z-20"
                   />
 
                   {/* Horizontal Scanning Laser */}
                   <motion.div
-                    animate={{ top: ['20%', '80%'] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    className="absolute left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent shadow-[0_0_15px_hsl(var(--accent))] z-30 opacity-50"
+                    animate={{ top: ['30%', '70%'] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    className="absolute left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent shadow-[0_0_20px_rgba(var(--primary-rgb),0.5)] z-30"
                   />
 
                   {/* Floating Digital Nodes */}
-                  {[...Array(5)].map((_, i) => (
+                  {[...Array(6)].map((_, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0 }}
                       animate={{ 
-                        opacity: [0, 0.4, 0],
-                        y: [-20, -60],
-                        x: Math.random() * 40 - 20
+                        opacity: [0, 0.3, 0],
+                        y: [-20, -100],
+                        x: Math.random() * 60 - 30
                       }}
                       transition={{ 
-                        duration: 3 + Math.random() * 2, 
+                        duration: 4 + Math.random() * 2, 
                         repeat: Infinity, 
-                        delay: i * 0.8 
+                        delay: i * 0.7 
                       }}
-                      className="absolute top-1/2 left-1/2 text-accent"
+                      className="absolute top-1/2 left-1/2 text-primary"
                     >
-                      <Activity className="w-4 h-4" />
+                      <Activity className="w-4 h-4 opacity-40" />
                     </motion.div>
                   ))}
                </motion.div>
             </div>
 
             {/* UI Overlays */}
-            <div className="absolute top-12 left-12 font-mono text-[9px] text-accent/40 space-y-1">
-               <div className="flex items-center gap-2"><span className="h-1 w-1 bg-accent rounded-full animate-pulse"/> SECURE_LINK_ACTIVE</div>
+            <div className="absolute top-12 left-12 font-mono text-[10px] text-primary/60 dark:text-accent/40 space-y-1">
+               <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-primary rounded-full animate-pulse"/> SECURE_LINK_ACTIVE</div>
                <div>VOLTAGE_FLUX: STABLE</div>
             </div>
             
-            <div className="absolute bottom-12 right-12 font-mono text-[9px] text-accent/40 text-right space-y-1">
+            <div className="absolute bottom-12 right-12 font-mono text-[10px] text-primary/60 dark:text-accent/40 text-right space-y-1">
                <div>PROTO: XII_LORDS_V1</div>
-               <div className="text-accent/60">ENCRYPTION: HARDWARE_FORCED</div>
+               <div className="dark:text-accent/60 text-primary/80">ENCRYPTION: HARDWARE_FORCED</div>
             </div>
           </motion.div>
         </div>

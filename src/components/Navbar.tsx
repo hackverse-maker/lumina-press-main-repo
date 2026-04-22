@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, ArrowUpRight, Heart } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { useAppState } from "@/context/AppStateContext";
 
 const links = [
@@ -12,12 +14,12 @@ const links = [
   { label: "Articles", href: "/articles" },
   { label: "Books", href: "/books" },
   { label: "Tech", href: "/tech" },
-  { label: "About Us", href: "/about" },
+  { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 export const Navbar = () => {
-  const { favorites } = useAppState();
+  const { favorites, setIsFavoritesOpen } = useAppState();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,94 +32,86 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
-        scrolled ? "py-2" : "py-4"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        scrolled ? "py-3 bg-background/70 backdrop-blur-md shadow-glass border-b border-border/50" : "py-6 bg-transparent"
       }`}
     >
-      <div className="container-tight px-4">
-        <nav
-          className={`relative rounded-3xl px-4 md:px-8 py-3 transition-all duration-500 backdrop-blur-xl ${
-            scrolled
-              ? "glass shadow-glass border border-white/10"
-              : "bg-background/20 border border-white/5"
-          }`}
-        >
-          <div className="flex items-center justify-between min-h-[60px]">
-            {/* LEFT: Logo Positioning */}
-            <div className="flex-1 flex justify-start">
-              <Logo />
-            </div>
+      <div className="container-tight px-6 flex items-center">
+        {/* LEFT: Logo */}
+        <div className="flex-shrink-0 w-48">
+          <Logo />
+        </div>
 
-            {/* CENTER: Navigation Links (Desktop) */}
-            <div className="hidden lg:absolute lg:inset-0 lg:flex lg:items-center lg:justify-center pointer-events-none">
-              <ul className="flex items-center gap-1 pointer-events-auto">
-                {links.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="relative px-5 py-2 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/70 hover:text-accent transition-all duration-300 group"
-                    >
-                      {l.label}
-                      <span className="absolute left-5 right-5 -bottom-1 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* RIGHT: Actions */}
-            <div className="flex-1 flex justify-end items-center gap-2 md:gap-4">
-              <Link
-                href="/favorites"
-                className="relative h-11 w-11 rounded-2xl border border-white/5 flex items-center justify-center hover:bg-white/5 transition-all text-foreground/80 hover:text-accent"
-                title="Favorites"
-              >
-                <Heart className={`h-5 w-5 ${favorites.length > 0 ? "fill-accent text-accent" : ""}`} />
-                {favorites.length > 0 && (
-                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[8px] font-black text-white shadow-accent-glow">
-                    {favorites.length}
-                  </span>
-                )}
-              </Link>
-              
-              <div className="hidden sm:block">
-                <ThemeToggle />
-              </div>
-
-              <button
-                className="lg:hidden h-11 w-11 rounded-2xl border border-white/5 flex items-center justify-center bg-white/5"
-                onClick={() => setOpen(!open)}
-                aria-label="Menu"
-              >
-                {open ? <X className="h-5 w-5 text-accent" /> : <Menu className="h-5 w-5" />}
-              </button>
-            </div>
-          </div>
+        {/* CENTER: Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-10 mx-auto">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="relative text-[15px] font-semibold text-foreground/70 hover:text-foreground transition-colors group"
+            >
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+            </Link>
+          ))}
         </nav>
 
-        {/* Mobile Menu */}
+        {/* RIGHT: Actions */}
+        <div className="flex items-center gap-6 w-48 justify-end">
+          <div className="hidden sm:flex items-center gap-2">
+            <button 
+              onClick={() => setIsFavoritesOpen(true)}
+              className="relative text-foreground/70 hover:text-primary transition-colors p-2 group"
+            >
+              <Heart className="h-5 w-5" />
+              {favorites.length > 0 && (
+                <span className="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center border border-background">
+                  {favorites.length}
+                </span>
+              )}
+            </button>
+            <ThemeToggle />
+          </div>
+          
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="lg:hidden h-10 w-10 flex items-center justify-center rounded-full bg-secondary text-foreground"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
         {open && (
-          <div className="lg:hidden mt-3 glass rounded-[2.5rem] p-6 animate-in slide-in-from-top-4 duration-500 border border-white/10">
-            <ul className="flex flex-col gap-2">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block px-6 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-accent/10 hover:text-accent transition-all"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-background border-b border-border overflow-hidden"
+          >
+            <div className="container-tight px-6 py-8 flex flex-col gap-6">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-lg font-semibold text-foreground/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
               ))}
-              <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Appearance</span>
+              <div className="pt-6 border-t border-border flex items-center justify-between">
                 <ThemeToggle />
               </div>
-            </ul>
-          </div>
+            </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </header>
   );
 };

@@ -9,15 +9,14 @@ export const Logo = () => (
     <motion.img 
       src={logo.src} 
       alt="Twelve Lords Logo" 
-      className="h-14 md:h-20 w-auto object-contain mix-blend-multiply dark:mix-blend-screen"
+      className="h-16 md:h-20 w-auto object-contain mix-blend-multiply dark:mix-blend-screen"
       animate={{
-        x: [0, 2, 0, -2, 0],
-        y: [-2, 0, 2, 0, -2]
+        y: [0, -2, 0]
       }}
       transition={{
         duration: 4,
         repeat: Infinity,
-        ease: "linear"
+        ease: "easeInOut"
       }}
     />
   </Link>

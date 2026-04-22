@@ -7,7 +7,9 @@ interface AppState {
   favorites: Book[];
   cart: Book[];
   isCartOpen: boolean;
+  isFavoritesOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
+  setIsFavoritesOpen: (open: boolean) => void;
   toggleFavorite: (book: Book) => void;
   addToCart: (book: Book) => void;
   removeFromCart: (id: string) => void;
@@ -20,6 +22,7 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [favorites, setFavorites] = useState<Book[]>([]);
   const [cart, setCart] = useState<Book[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -79,7 +82,7 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   return (
-    <AppStateContext.Provider value={{ favorites, cart, isCartOpen, setIsCartOpen, toggleFavorite, addToCart, removeFromCart, isFavorite }}>
+    <AppStateContext.Provider value={{ favorites, cart, isCartOpen, setIsCartOpen, isFavoritesOpen, setIsFavoritesOpen, toggleFavorite, addToCart, removeFromCart, isFavorite }}>
       {children}
     </AppStateContext.Provider>
   );

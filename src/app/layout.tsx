@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingCart } from "@/components/FloatingCart";
 import { CartDrawer } from "@/components/CartDrawer";
+import { FavoritesDrawer } from "@/components/FavoritesDrawer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +23,12 @@ export const metadata: Metadata = {
   title: "Twelve Lords | Modern Publishing & Knowledge Sharing",
   description: "Redefining modern publishing through knowledge sharing and deep tech insights.",
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
@@ -38,6 +44,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <CartDrawer />
+          <FavoritesDrawer />
           <FloatingCart />
           <Footer />
         </Providers>
