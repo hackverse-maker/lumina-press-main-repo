@@ -1,9 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Lock, Cpu, Activity } from "lucide-react";
+import { ShieldCheck, Zap, Lock, Cpu, Activity, ShoppingBag } from "lucide-react";
+import { useAppState } from "@/context/AppStateContext";
+import { books } from "@/lib/data";
+import { useRouter } from "next/navigation";
 
 export const CyberCableSection = () => {
+  const router = useRouter();
+  const { addToCart, cart, setIsCartOpen } = useAppState();
+  const cyberCable = books.find(b => b.id === "cyber-cable");
+  const isInCart = cart.some(item => item.id === "cyber-cable");
+
+  if (!cyberCable) return null;
+
+  const handleAddToCart = () => {
+    if (!isInCart) {
+      addToCart(cyberCable);
+      setIsCartOpen(true);
+    } else {
+      setIsCartOpen(true);
+    }
+  };
+
   return (
     <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-background border-y border-border/50" id="cyber-cable">
       {/* Dynamic Theme Background */}
@@ -60,12 +79,20 @@ export const CyberCableSection = () => {
                </div>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-6 flex flex-wrap gap-4">
               <button 
-                onClick={() => window.location.href = '/books/cyber-cable'}
-                className="group relative px-10 py-5 rounded-2xl bg-accent text-white font-black text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+                onClick={() => router.push('/products/cyber-cable')}
+                className="group relative px-8 py-4 rounded-2xl bg-secondary/50 backdrop-blur-sm border border-border text-foreground font-bold text-base transition-all hover:bg-secondary/80"
               >
                 Learn More
+              </button>
+
+              <button 
+                onClick={handleAddToCart}
+                className="group relative px-8 py-4 rounded-2xl bg-accent text-white font-black text-base transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] flex items-center gap-2"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                <span>{isInCart ? "In Cart" : "Add to Cart"}</span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-2xl" />
               </button>
             </div>

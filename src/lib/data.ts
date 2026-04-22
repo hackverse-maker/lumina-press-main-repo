@@ -107,6 +107,20 @@ export const books: Book[] = [
     genre: "Self-Help / Journal",
     description: "The Subtle Art Journal is chock full of hundreds of actionable prompts and writing exercises to help you get all your fucks in a row. Start applying the lessons from the book and watch your garden of 'no fucks given' grow.",
     image: "/images/books/subtle-art-journal.png"
+  },
+  {
+    id: "cyber-cable",
+    title: "Twelve Lords Cyber Cable",
+    author: "Twelve Lords",
+    publishDate: "2026",
+    genre: "Security Hardware",
+    description: "Secure Charging. Controlled Data. Total Protection.",
+    image: "/images/cyber-cable-hero.jpg",
+    benefits: [
+      "Hardware-level data isolation",
+      "60W Fast Charging",
+      "HID Injection Protection"
+    ]
   }
 ];
 
