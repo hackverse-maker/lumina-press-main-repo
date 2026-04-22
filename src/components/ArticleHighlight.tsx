@@ -185,7 +185,7 @@ export const ArticleHighlight = ({
                 <div className="pt-8">
                   <Link href={link}>
                     <button className="btn-primary px-10 py-4 flex items-center gap-3 text-base">
-                      Read Analysis <ArrowRight className="w-5 h-5" />
+                      Read Article <ArrowRight className="w-5 h-5" />
                     </button>
                   </Link>
                 </div>

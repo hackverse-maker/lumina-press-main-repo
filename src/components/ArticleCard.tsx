@@ -43,7 +43,7 @@ export const ArticleCard = ({ article, index = 0 }: ArticleCardProps) => {
         
         <div className="mt-8">
           <button className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide group/btn">
-            Read More 
+            Read Article 
             <ArrowRight className="h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
           </button>
         </div>

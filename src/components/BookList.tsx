@@ -72,7 +72,7 @@ export const BookList = ({ books }: BookListProps) => {
                 href={`/books/${book.id}`}
                 className="inline-flex items-center gap-3 border-b-2 border-primary pb-2 text-lg font-bold hover:gap-5 transition-all"
               >
-                READ ANALYSIS <ArrowRight className="h-5 w-5" />
+                READ BOOK <ArrowRight className="h-5 w-5" />
               </Link>
               
               <button 
