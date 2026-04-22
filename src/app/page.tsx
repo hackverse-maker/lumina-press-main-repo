@@ -3,6 +3,7 @@ import { ArticleHighlight } from "@/components/ArticleHighlight";
 import { Knowledge } from "@/components/Knowledge";
 import { Testimonials } from "@/components/Testimonials";
 import { Tech } from "@/components/Tech";
+import { SocialSection } from "@/components/SocialSection";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Knowledge />
       <Testimonials />
       <Tech />
+      <SocialSection />
     </main>
   );
 }

@@ -2,13 +2,12 @@
 
 import { Logo } from "./Logo";
 import Link from "next/link";
-import { Twitter, Github, Instagram, Linkedin, Send } from "lucide-react";
+import { Instagram, Facebook, Music2, Send } from "lucide-react";
 
 const social = [
-  { icon: Twitter, href: "#" },
-  { icon: Github, href: "#" },
-  { icon: Instagram, href: "#" },
-  { icon: Linkedin, href: "#" },
+  { icon: Instagram, href: "https://www.instagram.com/twelvelords" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords" },
 ];
 
 const footerLinks = [
@@ -89,21 +88,23 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-xs text-footer-foreground/60">
-            © {new Date().getFullYear()} Twelve Lords. Crafted for thinkers and creators.
-          </p>
-          <div className="flex items-center gap-2">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-8 text-center">
+          <div className="flex items-center gap-6">
             {social.map((s, i) => (
               <a
                 key={i}
                 href={s.href}
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-footer-foreground/80 hover:text-accent-foreground hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center text-footer-foreground/80 hover:text-accent-foreground hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300"
               >
-                <s.icon className="h-4 w-4" />
+                <s.icon className="h-5 w-5" />
               </a>
             ))}
           </div>
+          <p className="text-xs text-footer-foreground/60 max-w-xs">
+            © {new Date().getFullYear()} Twelve Lords. Crafted for thinkers and creators.
+          </p>
         </div>
       </div>
     </footer>
