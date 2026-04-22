@@ -36,9 +36,9 @@ export const Navbar = () => {
         scrolled ? "py-3 bg-background/70 backdrop-blur-md shadow-glass border-b border-border/50" : "py-6 bg-transparent"
       }`}
     >
-      <div className="container-tight px-6 flex items-center">
+      <div className="container-tight px-4 sm:px-6 flex items-center">
         {/* LEFT: Logo */}
-        <div className="flex-shrink-0 w-48">
+        <div className="flex-shrink-0 w-auto lg:w-48">
           <Logo />
         </div>
 
@@ -57,7 +57,7 @@ export const Navbar = () => {
         </nav>
 
         {/* RIGHT: Actions */}
-        <div className="flex items-center gap-6 w-48 justify-end">
+        <div className="flex items-center gap-3 sm:gap-6 w-auto lg:w-48 justify-end">
           <div className="hidden sm:flex items-center gap-2">
             <button 
               onClick={() => setIsFavoritesOpen(true)}

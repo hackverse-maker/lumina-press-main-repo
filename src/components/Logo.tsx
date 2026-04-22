@@ -9,7 +9,7 @@ export const Logo = () => (
     <motion.img 
       src={logo.src} 
       alt="Twelve Lords Logo" 
-      className="h-16 md:h-20 w-auto object-contain mix-blend-multiply dark:mix-blend-screen"
+      className="h-[60px] sm:h-[74px] md:h-[90px] max-w-[150px] sm:max-w-none w-auto object-contain mix-blend-multiply dark:mix-blend-screen"
       animate={{
         y: [0, -2, 0]
       }}
