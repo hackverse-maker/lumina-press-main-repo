@@ -56,7 +56,7 @@ export default async function BooksPage() {
 
       {/* Books List Section */}
       <section className="container-tight px-6">
-        <BookList books={localBooks} />
+        <BookList books={localBooks.filter(book => book.id !== "cyber-cable")} />
       </section>
     </main>
   );
