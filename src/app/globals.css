@@ -156,6 +156,6 @@
 
 @media (max-width: 640px) {
   .animate-marquee-slow {
-    animation-duration: 40s !important;
+    animation-duration: 30s !important;
   }
 }
