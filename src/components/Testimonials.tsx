@@ -45,10 +45,10 @@ export const Testimonials = () => {
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary/10 to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-secondary/10 to-transparent z-10 pointer-events-none" />
 
-        <div className="flex animate-marquee-slow overflow-x-auto scroll-smooth">
+        <div className="flex animate-marquee-slow overflow-x-auto scroll-smooth no-scrollbar">
           {row.map((t, i) => <Card key={i} t={t} />)}
         </div>
-        <div className="flex animate-marquee-slow mt-8 overflow-x-auto scroll-smooth" style={{ animationDirection: "reverse" }}>
+        <div className="flex animate-marquee-slow mt-8 overflow-x-auto scroll-smooth no-scrollbar" style={{ animationDirection: "reverse" }}>
           {row.map((t, i) => <Card key={`b-${i}`} t={t} />)}
         </div>
       </div>
