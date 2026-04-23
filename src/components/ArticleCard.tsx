@@ -34,7 +34,7 @@ export const ArticleCard = ({ article, index = 0 }: ArticleCardProps) => {
           <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {article.readTime}</span>
         </div>
         
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold leading-tight group-hover:text-accent transition-colors duration-300 text-foreground">
+        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-display font-bold leading-tight group-hover:text-accent transition-colors duration-300 text-foreground">
           {article.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{article.title.split(' ').pop()}</span>
         </h2>
         

@@ -30,7 +30,7 @@ export const ArticleHero = ({
             className="space-y-6"
           >
             <div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight text-foreground">
+              <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-display font-bold leading-tight text-foreground">
                 {title.split(' ').slice(0, -1).join(' ')} 
                 <span className="text-gradient-accent"> {title.split(' ').pop()}</span>
               </h1>

@@ -62,12 +62,12 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                     <span className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
                   </motion.div>
 
-                  <h2 className="text-4xl md:text-6xl font-display font-black leading-tight text-foreground tracking-tighter">
+                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-display font-black leading-tight text-foreground tracking-tighter">
                     {book.title.split(' ').slice(0, -1).join(' ')} <span className="text-accent underline decoration-accent/20 underline-offset-8 decoration-4">{book.title.split(' ').pop()}</span>
                   </h2>
 
                   {book.subtitle && (
-                    <p className="mt-6 text-xl md:text-2xl text-muted-foreground font-semibold leading-snug">
+                    <p className="mt-6 text-base sm:text-lg md:text-2xl text-muted-foreground font-semibold leading-snug">
                       {book.subtitle}
                     </p>
                   )}

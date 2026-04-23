@@ -175,7 +175,7 @@ export const ArticleHighlight = ({
                   <span>Security Protocol Verified</span>
                 </motion.div>
 
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
+                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
                   {articleTitle}
                 </h3>
 
