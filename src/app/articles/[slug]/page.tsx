@@ -14,7 +14,7 @@ export default function ArticlePage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-20">
+    <main className="min-h-screen bg-background pt-28">
       <ArticleHero
         title={article.title}
         author={article.author}

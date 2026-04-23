@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export const ThemeProvider = ({ children }: { children: ReactNode }) => (
   <NextThemesProvider
     attribute="class"
-    defaultTheme="dark"
+    defaultTheme="light"
     enableSystem={false}
     disableTransitionOnChange={false}
     storageKey="inkwell-theme"

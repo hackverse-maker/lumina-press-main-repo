@@ -2,12 +2,14 @@
 
 import { Logo } from "./Logo";
 import Link from "next/link";
-import { Instagram, Facebook, Music2, Send } from "lucide-react";
+import { Instagram, Facebook, Music2, Send, Music, Podcast } from "lucide-react";
 
 const social = [
-  { icon: Instagram, href: "https://www.instagram.com/twelvelords" },
-  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/" },
-  { icon: Music2, href: "https://www.tiktok.com/@twelvelords" },
+  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok" },
+  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify" },
+  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast" },
 ];
 
 const footerLinks = [
@@ -96,6 +98,7 @@ export const Footer = () => {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={s.label}
                 className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center text-footer-foreground/80 hover:text-accent-foreground hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300"
               >
                 <s.icon className="h-5 w-5" />

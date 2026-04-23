@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Music2 as TikTok } from "lucide-react";
+import { Instagram, Facebook, Music2 as TikTok, Music, Podcast } from "lucide-react";
 
 const socialLinks = [
   { 
@@ -21,6 +21,18 @@ const socialLinks = [
     icon: TikTok, 
     href: "https://www.tiktok.com/@twelvelords",
     color: "hover:text-[#000000] dark:hover:text-[#FFFFFF]" 
+  },
+  { 
+    name: "Spotify", 
+    icon: Music, 
+    href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76",
+    color: "hover:text-[#1DB954]" 
+  },
+  { 
+    name: "Apple Podcast", 
+    icon: Podcast, 
+    href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412",
+    color: "hover:text-[#872EC4]" 
   },
 ];
 
@@ -51,6 +63,7 @@ export const SocialSection = () => {
                 whileHover={{ y: -5 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
+                aria-label={social.name}
                 className={`group flex flex-col items-center gap-3 transition-colors ${social.color}`}
               >
                 <div className="h-16 w-16 md:h-20 md:w-20 rounded-2xl bg-background shadow-premium border border-border flex items-center justify-center group-hover:border-primary/50 transition-colors">

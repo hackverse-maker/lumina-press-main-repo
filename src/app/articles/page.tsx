@@ -7,7 +7,7 @@ import { articles } from "@/lib/data";
 
 export default function ArticlesPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground pb-20">
+    <main className="min-h-screen bg-background text-foreground pt-28 pb-20">
       {/* Latest Article (Unchanged) */}
       <ArticleHighlight
         heading="Latest Article"

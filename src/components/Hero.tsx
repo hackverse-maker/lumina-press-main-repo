@@ -11,7 +11,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden mt-[90px]"
+      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden mt-[120px]"
     >
       <CinematicBackground />
 

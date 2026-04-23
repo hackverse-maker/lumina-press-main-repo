@@ -4,10 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, Instagram, Facebook, Music2, Music, Podcast } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useAppState } from "@/context/AppStateContext";
+
+const social = [
+  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok" },
+  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify" },
+  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast" },
+];
 
 const links = [
   { label: "Home", href: "/" },
@@ -32,11 +40,29 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-3 bg-background/70 backdrop-blur-md shadow-glass border-b border-border/50" : "py-6 bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col ${
+        scrolled ? "bg-background/70 backdrop-blur-md shadow-glass border-b border-border/50" : "bg-transparent"
       }`}
     >
-      <div className="container-tight px-4 sm:px-6 flex items-center">
+      {/* Social Top Bar */}
+      <div className="w-full py-1.5 bg-background/50 backdrop-blur-sm border-b border-border/30 flex justify-center items-center gap-6">
+        {social.map((s, i) => (
+          <a
+            key={i}
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.label}
+            className="text-foreground/60 hover:text-primary transition-colors duration-300 flex items-center"
+          >
+            <s.icon className="h-4 w-4" />
+          </a>
+        ))}
+      </div>
+
+      <div className={`container-tight px-4 sm:px-6 flex items-center transition-all duration-500 ${
+        scrolled ? "py-3" : "py-6"
+      }`}>
         {/* LEFT: Logo */}
         <div className="flex-shrink-0 w-auto lg:w-48">
           <Logo />
