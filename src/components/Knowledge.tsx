@@ -15,7 +15,7 @@ export const Knowledge = () => {
   return (
     <section id="knowledge" className="section-padding bg-secondary/20 relative overflow-hidden">
       <div className="container-tight relative">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid sm:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +69,7 @@ export const Knowledge = () => {
         </div>
 
         {/* Feature Grid */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-24 grid grid-cols-1 sm:grid-cols-3 gap-8">
           {blocks.map((b, i) => (
             <motion.div
               key={b.title}

@@ -43,7 +43,7 @@ export const Navbar = () => {
         </div>
 
         {/* CENTER: Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-10 mx-auto">
+        <nav className="hidden sm:flex items-center gap-10 mx-auto">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -57,7 +57,7 @@ export const Navbar = () => {
         </nav>
 
         {/* RIGHT: Actions */}
-        <div className="flex items-center gap-3 sm:gap-6 w-auto lg:w-48 justify-end">
+        <div className="flex items-center gap-3 sm:gap-6 w-auto sm:w-48 justify-end">
           <div className="hidden sm:flex items-center gap-2">
             <button 
               onClick={() => setIsFavoritesOpen(true)}
@@ -76,7 +76,7 @@ export const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden h-10 w-10 flex items-center justify-center rounded-full bg-secondary text-foreground"
+            className="sm:hidden h-10 w-10 flex items-center justify-center rounded-full bg-secondary text-foreground"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
@@ -92,7 +92,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
+            className="sm:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="container-tight px-6 py-8 flex flex-col gap-6">
               {links.map((link) => (

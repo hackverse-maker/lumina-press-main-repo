@@ -33,7 +33,7 @@ export const CyberCableSection = () => {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-tight relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.3fr] gap-12 lg:gap-24 items-center">
           {/* Left: Enhanced Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -128,6 +128,7 @@ export const CyberCableSection = () => {
                  <img
                     src="/images/cyber-cable-hero.jpg"
                     alt="Cyber Cable"
+                    loading="lazy"
                     className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(var(--primary-rgb),0.3)] dark:drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
                   />
                   

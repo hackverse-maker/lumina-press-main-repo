@@ -48,7 +48,7 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
             </motion.div>
           </div>
 
-          <div className="grid lg:grid-cols-[1.2fr_1fr] items-center">
+          <div className="grid sm:grid-cols-[1.2fr_1fr] items-center">
             {/* LEFT: Content side (Text) */}
             <div className="p-8 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5 bg-white/[0.01]">
               <div className="space-y-10 max-w-xl">
@@ -121,6 +121,7 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                     <img
                       src={book.image}
                       alt={book.title}
+                      loading="lazy"
                       className="w-full h-full object-contain bg-white/5"
                     />
                     {/* Subtle Spine Shine */}

@@ -19,10 +19,10 @@ export const BookList = ({ books }: BookListProps) => {
       {books.map((book) => (
         <div
           key={book.id}
-          className="flex flex-col md:flex-row gap-12 lg:gap-24 items-start"
+          className="flex flex-col sm:flex-row gap-12 lg:gap-24 items-start"
         >
           {/* Book Cover */}
-          <div className="w-full md:w-[340px] shrink-0">
+          <div className="w-full sm:w-[340px] shrink-0">
             <div className="relative aspect-[2/3] shadow-premium rounded-sm overflow-hidden bg-secondary/20 group cursor-pointer">
               <Image
                 src={book.image}

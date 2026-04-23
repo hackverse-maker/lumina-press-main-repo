@@ -28,6 +28,7 @@ const CybersecurityAnimation = () => {
           src="/images/cyber-hud.png" 
           alt="Cyber HUD" 
           fill 
+          loading="lazy"
           className="object-cover"
         />
       </div>
@@ -160,9 +161,9 @@ export const ArticleHighlight = ({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="card-premium overflow-hidden border-none bg-secondary/30 dark:bg-secondary/10"
         >
-          <div className="flex flex-col lg:flex-row min-h-[500px]">
+          <div className="flex flex-col sm:flex-row min-h-[500px]">
             {/* LEFT: Content (60%) */}
-            <div className="w-full lg:w-[60%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+            <div className="w-full sm:w-[60%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
               <div className="space-y-8">
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -193,7 +194,7 @@ export const ArticleHighlight = ({
             </div>
 
             {/* RIGHT: Image/Visual (40%) */}
-            <div className="w-full lg:w-[40%] min-h-[400px] relative">
+            <div className="w-full sm:w-[40%] min-h-[400px] relative">
               <div className="absolute inset-0 bg-secondary/50 dark:bg-slate-900/50" />
               <motion.div 
                 initial={{ opacity: 0, scale: 1.05 }}
@@ -205,6 +206,7 @@ export const ArticleHighlight = ({
                   src={imagePath}
                   alt={articleTitle}
                   fill
+                  loading="lazy"
                   className="object-cover"
                 />
                 {/* Clean gradient overlay for depth */}

@@ -16,12 +16,13 @@ export const ArticleCard = ({ article, index = 0 }: ArticleCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group flex flex-col md:flex-row gap-8 py-12 border-b border-border last:border-0"
+      className="group flex flex-col sm:flex-row gap-8 py-12 border-b border-border last:border-0"
     >
-      <div className="w-full md:w-[40%] aspect-[16/10] overflow-hidden rounded-2xl bg-secondary shrink-0">
+      <div className="w-full sm:w-[40%] aspect-[16/10] overflow-hidden rounded-2xl bg-secondary shrink-0">
         <img
           src={article.thumb}
           alt={article.title}
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
       </div>

@@ -45,8 +45,8 @@ export const Footer = () => {
     <footer id="footer" className="relative bg-footer text-footer-foreground pt-20 pb-10 mt-10">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
       <div className="container-tight">
-        <div className="grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
+        <div className="grid sm:grid-cols-12 gap-12">
+          <div className="sm:col-span-5">
             <Logo />
             <p className="mt-5 text-sm text-footer-foreground/70 max-w-sm leading-relaxed">
               A modern publishing platform for thinkers, writers and creators. Beautiful by design, fast by default.
@@ -70,7 +70,7 @@ export const Footer = () => {
             </form>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="sm:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {footerLinks.map((col) => (
               <div key={col.title}>
                 <h4 className="font-display font-semibold text-sm tracking-wider uppercase text-white">{col.title}</h4>

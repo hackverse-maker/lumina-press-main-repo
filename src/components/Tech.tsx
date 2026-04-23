@@ -15,7 +15,7 @@ export const Tech = () => {
   return (
     <section id="tech" className="section-padding bg-background relative overflow-hidden">
       <div className="container-tight">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid sm:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -100,6 +100,7 @@ export const Tech = () => {
                 <img
                   src={techImg}
                   alt="Twelve Lords Cyber Cable"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 

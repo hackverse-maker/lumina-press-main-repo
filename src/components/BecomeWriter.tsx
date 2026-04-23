@@ -106,7 +106,7 @@ export const BecomeWriter = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="mt-14 grid grid-cols-3 gap-6 max-w-xl mx-auto"
+            className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-xl mx-auto"
           >
             {[
               { n: "12k+", l: "Writers" },

@@ -21,7 +21,7 @@ export const ArticleHero = ({
   return (
     <section className="relative py-16 md:py-24 px-4 overflow-hidden">
       <div className="container-tight">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12 items-center min-h-[500px]">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.5fr] gap-8 md:gap-12 items-center min-h-[500px]">
           {/* Left: Content (40%) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -71,6 +71,7 @@ export const ArticleHero = ({
               <img
                 src={imagePath}
                 alt={title}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-background/10" />
