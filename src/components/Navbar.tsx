@@ -4,17 +4,25 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, Heart, Instagram, Facebook, Music2, Music, Podcast } from "lucide-react";
+import { Menu, X, Heart, Instagram, Facebook, Music2, Music, Podcast, Twitter, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useAppState } from "@/context/AppStateContext";
 
+const XIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24h-2.19L17.61 20.644Z" />
+  </svg>
+);
+
 const social = [
-  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram" },
-  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook" },
-  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok" },
-  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify" },
-  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast" },
+  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram", color: "stroke-[url(#ig-grad)] text-[#E4405F]" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook", color: "text-[#1877F2]" },
+  { icon: XIcon, href: "https://twitter.com/twelvelords", label: "X / Twitter", color: "text-black dark:text-white" },
+  { icon: Youtube, href: "https://youtube.com/@twelvelords", label: "YouTube", color: "text-[#FF0000]" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok", color: "text-black dark:text-white" },
+  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify", color: "text-[#1DB954]" },
+  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast", color: "text-[#872EC4]" },
 ];
 
 const links = [
@@ -53,7 +61,7 @@ export const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={s.label}
-            className="text-foreground/60 hover:text-primary transition-colors duration-300 flex items-center"
+            className={`transition-colors duration-300 flex items-center hover:opacity-70 ${s.color}`}
           >
             <s.icon className="h-4 w-4" />
           </a>

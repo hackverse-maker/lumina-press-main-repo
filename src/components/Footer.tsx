@@ -2,14 +2,22 @@
 
 import { Logo } from "./Logo";
 import Link from "next/link";
-import { Instagram, Facebook, Music2, Send, Music, Podcast } from "lucide-react";
+import { Instagram, Facebook, Music2, Send, Music, Podcast, Twitter, Youtube } from "lucide-react";
+
+const XIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24h-2.19L17.61 20.644Z" />
+  </svg>
+);
 
 const social = [
-  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram" },
-  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook" },
-  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok" },
-  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify" },
-  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast" },
+  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram", color: "stroke-[url(#ig-grad)] text-[#E4405F]" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook", color: "text-[#1877F2]" },
+  { icon: XIcon, href: "https://twitter.com/twelvelords", label: "X / Twitter", color: "text-black dark:text-white" },
+  { icon: Youtube, href: "https://youtube.com/@twelvelords", label: "YouTube", color: "text-[#FF0000]" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok", color: "text-black dark:text-white" },
+  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify", color: "text-[#1DB954]" },
+  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast", color: "text-[#872EC4]" },
 ];
 
 const footerLinks = [
@@ -44,13 +52,13 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer id="footer" className="relative bg-footer text-footer-foreground pt-20 pb-10 mt-10">
+    <footer id="footer" className="relative bg-background dark:bg-black text-foreground pt-20 pb-10 mt-10 border-t border-border/50">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
       <div className="container-tight">
         <div className="grid sm:grid-cols-12 gap-12">
           <div className="sm:col-span-5">
             <Logo />
-            <p className="mt-5 text-sm text-footer-foreground/70 max-w-sm leading-relaxed">
+            <p className="mt-5 text-sm text-foreground/70 max-w-sm leading-relaxed">
               A modern publishing platform for thinkers, writers and creators. Beautiful by design, fast by default.
             </p>
 
@@ -61,7 +69,7 @@ export const Footer = () => {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 bg-transparent px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none"
+                className="flex-1 bg-transparent px-4 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
               />
               <button
                 type="submit"
@@ -75,11 +83,11 @@ export const Footer = () => {
           <div className="sm:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {footerLinks.map((col) => (
               <div key={col.title}>
-                <h4 className="font-display font-semibold text-sm tracking-wider uppercase text-white">{col.title}</h4>
+                <h4 className="font-display font-semibold text-sm tracking-wider uppercase text-foreground">{col.title}</h4>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link href={l.href} className="text-sm text-footer-foreground/70 hover:text-accent transition-colors">
+                      <Link href={l.href} className="text-sm text-foreground/70 hover:text-primary transition-colors">
                         {l.label}
                       </Link>
                     </li>
@@ -99,13 +107,13 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center text-footer-foreground/80 hover:text-accent-foreground hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300"
+                className={`h-12 w-12 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/5 ${s.color}`}
               >
                 <s.icon className="h-5 w-5" />
               </a>
             ))}
           </div>
-          <p className="text-xs text-footer-foreground/60 max-w-xs">
+          <p className="text-xs text-foreground/60 max-w-xs">
             © {new Date().getFullYear()} Twelve Lords. Crafted for thinkers and creators.
           </p>
         </div>

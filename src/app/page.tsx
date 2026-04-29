@@ -4,6 +4,7 @@ import { Knowledge } from "@/components/Knowledge";
 import { Testimonials } from "@/components/Testimonials";
 import { Tech } from "@/components/Tech";
 import { SocialSection } from "@/components/SocialSection";
+import { VideoSection } from "@/components/VideoSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         showMoreLink={true}
       />
       <Knowledge />
+      <VideoSection />
       <Testimonials />
       <Tech />
       <SocialSection />
