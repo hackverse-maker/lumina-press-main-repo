@@ -23,9 +23,15 @@ const emails = [
 ];
 
 export default function ContactPage() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Message sent! Our team will get back to you at the email provided.");
+    (e.target as HTMLFormElement).reset();
+  };
+
   return (
     <main className="min-h-screen bg-background pt-20">
-      {/* Simple Hero */}
+      {/* ... existing hero section ... */}
       <section className="relative w-full py-16 flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-4">
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 text-foreground">
@@ -49,7 +55,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/50 hover:bg-secondary/30 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 cursor-pointer"
+                className="group relative p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/50 hover:bg-secondary/30 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 cursor-pointer"
               >
                 <motion.div
                   animate={{ rotate: [0, 3, -3, 0] }}
@@ -84,7 +90,7 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
-            <form className="glass rounded-3xl p-8 border border-border" onSubmit={(e) => e.preventDefault()}>
+            <form className="glass rounded-3xl p-8 border border-border" onSubmit={handleSubmit}>
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-8 text-foreground text-center">
                 Send us a <span className="text-gradient-accent">Message</span>
               </h2>
@@ -100,6 +106,7 @@ export default function ContactPage() {
                   <label className="text-sm font-medium">Name</label>
                   <input
                     type="text"
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
                     placeholder="Your name"
                   />
@@ -115,6 +122,7 @@ export default function ContactPage() {
                   <label className="text-sm font-medium">Email</label>
                   <input
                     type="email"
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
                     placeholder="Email address"
                   />
@@ -131,12 +139,14 @@ export default function ContactPage() {
                 <label className="text-sm font-medium">Message</label>
                 <textarea
                   rows={5}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none resize-none"
                   placeholder="How can we help?"
                 />
               </motion.div>
 
               <motion.button
+                type="submit"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}

@@ -111,6 +111,11 @@ export const CartDrawer = () => {
                 </div>
                 
                 <button
+                  onClick={() => {
+                    alert("Order Confirmed! Your security-first delivery is being processed.");
+                    setIsCartOpen(false);
+                    // In a real app, you'd clear the cart here too
+                  }}
                   className="w-full group relative flex items-center justify-center gap-4 px-8 py-5 rounded-2xl bg-accent text-white font-black text-sm uppercase tracking-[0.2em] transition-all hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(34,211,238,0.3)]"
                 >
                   Confirm Orders <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

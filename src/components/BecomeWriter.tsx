@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { PenLine, Sparkles, ArrowRight } from "lucide-react";
 const writerVideo = "/videos/hero-tech.mp4";
 
@@ -84,20 +85,20 @@ export const BecomeWriter = () => {
             transition={{ delay: 0.45 }}
             className="mt-10 flex items-center justify-center gap-4 flex-wrap"
           >
-            <a
-              href="#"
+            <Link
+              href="/contact"
               className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-8 py-4 font-semibold shadow-accent-glow hover:scale-105 transition-transform animate-pulse-glow"
             >
               <PenLine className="h-5 w-5" />
               Start Writing
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#articles"
+            </Link>
+            <Link
+              href="/articles"
               className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 font-semibold hover:bg-accent/10 transition-colors"
             >
               See examples
-            </a>
+            </Link>
           </motion.div>
 
           {/* Mini stats */}
