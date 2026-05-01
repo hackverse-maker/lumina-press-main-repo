@@ -115,7 +115,7 @@ export const VideoSection = () => {
             className="w-full lg:w-[450px] shrink-0"
             onClick={handleRedirect}
           >
-            <div className="relative aspect-[9/16] lg:aspect-square w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/50 group cursor-pointer bg-black">
+            <div className="relative h-[450px] lg:h-auto lg:aspect-square w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/50 group cursor-pointer bg-black">
               {/* YouTube Player */}
               <div id="youtube-player" className="absolute inset-0 w-full h-full pointer-events-none scale-[1.5] lg:scale-[2]" />
               
