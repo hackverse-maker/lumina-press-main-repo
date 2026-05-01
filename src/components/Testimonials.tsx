@@ -32,7 +32,7 @@ const Card = ({ t }: { t: typeof testimonials[number] }) => (
 export const Testimonials = () => {
   const row = [...testimonials, ...testimonials];
   return (
-    <section className="section-padding bg-secondary/10 overflow-hidden scale-95 sm:scale-100">
+    <section className="section-padding bg-secondary/10 overflow-hidden scale-95 sm:scale-100 hidden sm:block">
       <div className="container-tight text-center mb-16">
         <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
           Client Success

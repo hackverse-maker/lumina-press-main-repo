@@ -2,7 +2,7 @@
 
 import { Logo } from "./Logo";
 import Link from "next/link";
-import { Instagram, Facebook, Music2, Send, Music, Podcast, Twitter, Youtube } from "lucide-react";
+import { Instagram, Facebook, Music2, Send, Linkedin, Twitter, Youtube } from "lucide-react";
 
 const XIcon = (props: any) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -11,13 +11,12 @@ const XIcon = (props: any) => (
 );
 
 const social = [
-  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram", color: "stroke-[url(#ig-grad)] text-[#E4405F]" },
-  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook", color: "text-[#1877F2]" },
-  { icon: XIcon, href: "https://twitter.com/twelvelords", label: "X / Twitter", color: "text-black dark:text-white" },
-  { icon: Youtube, href: "https://youtube.com/@twelvelords", label: "YouTube", color: "text-[#FF0000]" },
-  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok", color: "text-black dark:text-white" },
-  { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify", color: "text-[#1DB954]" },
-  { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast", color: "text-[#872EC4]" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook", bgColor: "bg-[#1877F2]" },
+  { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram", bgColor: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" },
+  { icon: XIcon, href: "https://twitter.com/twelvelords", label: "X / Twitter", bgColor: "bg-[#000000]" },
+  { icon: Linkedin, href: "https://linkedin.com/company/twelvelords", label: "LinkedIn", bgColor: "bg-[#0A66C2]" },
+  { icon: Youtube, href: "https://youtube.com/@twelvelords", label: "YouTube", bgColor: "bg-[#FF0000]" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok", bgColor: "bg-[#000000]" },
 ];
 
 const footerLinks = [
@@ -25,27 +24,27 @@ const footerLinks = [
     title: "Product", 
     links: [
       { label: "Articles", href: "/articles" },
-      { label: "Editor", href: "#" },
+      { label: "Books", href: "/books" },
       { label: "Tech", href: "/tech" },
-      { label: "Pricing", href: "#" }
+      { label: "About Us", href: "/about" }
     ] 
   },
   { 
     title: "Company", 
     links: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
+      { label: "Our Story", href: "/about" },
+      { label: "The Philosophy", href: "/about" },
+      { label: "Latest News", href: "/articles" },
       { label: "Contact", href: "/contact" }
     ] 
   },
   { 
     title: "Resources", 
     links: [
-      { label: "Help Center", href: "#" },
-      { label: "Guides", href: "#" },
-      { label: "Community", href: "#" },
-      { label: "Status", href: "#" }
+      { label: "Help Center", href: "/contact" },
+      { label: "Reading List", href: "/books" },
+      { label: "Tech Specs", href: "/tech" },
+      { label: "Privacy Policy", href: "#" }
     ] 
   },
 ];
@@ -107,7 +106,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className={`h-12 w-12 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/5 ${s.color}`}
+                className={`h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-white ${s.bgColor} shadow-md hover:shadow-lg`}
               >
                 <s.icon className="h-5 w-5" />
               </a>

@@ -18,6 +18,7 @@ export interface Book {
 
 export interface Article {
   title: string;
+  slug: string;
   thumb: string;
   author: string;
   publishDate: string;
@@ -127,6 +128,7 @@ export const books: Book[] = [
 export const articles: Article[] = [
   {
     title: "The Quiet Craft of Writing Every Day",
+    slug: "quiet-craft-of-writing",
     thumb: "/images/articles/writing.jpg",
     author: "Maya Aldrin",
     publishDate: "Apr 12, 2026",
@@ -135,6 +137,7 @@ export const articles: Article[] = [
   },
   {
     title: "Why Edge Computing Will Reshape The Web",
+    slug: "why-edge-computing",
     thumb: "/images/articles/tech.jpg",
     author: "Daniel Cho",
     publishDate: "Apr 09, 2026",
@@ -143,6 +146,7 @@ export const articles: Article[] = [
   },
   {
     title: "How Reading Slowly Changes Your Mind",
+    slug: "how-reading-slowly-changes-your-mind",
     thumb: "/images/articles/knowledge.jpg",
     author: "Iris Bennett",
     publishDate: "Apr 02, 2026",
@@ -151,6 +155,7 @@ export const articles: Article[] = [
   },
   {
     title: "The Art of Minimalist Productivity",
+    slug: "art-of-minimalist-productivity",
     thumb: "/images/articles/minimal.jpg",
     author: "Leo Babauta",
     publishDate: "Mar 25, 2026",

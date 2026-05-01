@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Music2 as TikTok, Music, Podcast, Twitter, Youtube } from "lucide-react";
+import { Instagram, Facebook, Music2 as TikTok, Youtube, Linkedin } from "lucide-react";
 
 const XIcon = (props: any) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -11,52 +11,46 @@ const XIcon = (props: any) => (
 
 const socialLinks = [
   { 
-    name: "Instagram", 
-    icon: Instagram, 
-    href: "https://www.instagram.com/twelvelords",
-    color: "stroke-[url(#ig-grad)] text-[#E4405F]" 
-  },
-  { 
     name: "Facebook", 
     icon: Facebook, 
     href: "https://www.facebook.com/share/1CRfTGwmLb/",
-    color: "text-[#1877F2]" 
+    bgColor: "bg-[#1877F2]" 
   },
   { 
-    name: "Twitter", 
+    name: "Instagram", 
+    icon: Instagram, 
+    href: "https://www.instagram.com/twelvelords",
+    bgColor: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" 
+  },
+  { 
+    name: "Twitter / X", 
     icon: XIcon, 
     href: "https://twitter.com/twelvelords",
-    color: "text-black dark:text-white" 
+    bgColor: "bg-[#000000]" 
+  },
+  { 
+    name: "LinkedIn", 
+    icon: Linkedin, 
+    href: "https://linkedin.com/company/twelvelords",
+    bgColor: "bg-[#0A66C2]" 
   },
   { 
     name: "YouTube", 
     icon: Youtube, 
     href: "https://youtube.com/@twelvelords",
-    color: "text-[#FF0000]" 
+    bgColor: "bg-[#FF0000]" 
   },
   { 
     name: "TikTok", 
     icon: TikTok, 
     href: "https://www.tiktok.com/@twelvelords",
-    color: "text-black dark:text-white" 
-  },
-  { 
-    name: "Spotify", 
-    icon: Music, 
-    href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76",
-    color: "text-[#1DB954]" 
-  },
-  { 
-    name: "Apple Podcast", 
-    icon: Podcast, 
-    href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412",
-    color: "text-[#872EC4]" 
+    bgColor: "bg-[#000000]" 
   },
 ];
 
 export const SocialSection = () => {
   return (
-    <section className="py-20 bg-secondary/30 dark:bg-secondary/10 border-y border-border/50">
+    <section className="py-24 bg-secondary/30 dark:bg-secondary/10 border-y border-border/50">
       <div className="container-tight text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,9 +61,9 @@ export const SocialSection = () => {
           <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
             Stay Connected
           </span>
-          <h2 className="mb-12">Join Our Community</h2>
+          <h2 className="mb-16">Official Brand Channels</h2>
           
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {socialLinks.map((social, i) => (
               <motion.a
                 key={social.name}
@@ -78,16 +72,21 @@ export const SocialSection = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ scale: 1.1, y: -8 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 15,
+                  delay: i * 0.05 
+                }}
                 aria-label={social.name}
-                className={`group flex flex-col items-center gap-3 transition-all hover:scale-105 active:scale-95`}
+                className="group flex flex-col items-center gap-4"
               >
-                <div className={`h-16 w-16 md:h-20 md:w-20 rounded-2xl bg-background shadow-premium border border-border flex items-center justify-center group-hover:border-primary/50 transition-colors ${social.color}`}>
+                <div className={`h-16 w-16 md:h-20 md:w-20 rounded-[1.5rem] flex items-center justify-center shadow-lg transition-shadow duration-300 group-hover:shadow-xl ${social.bgColor} text-white`}>
                   <social.icon className="h-8 w-8 md:h-10 md:w-10" strokeWidth={1.5} />
                 </div>
-                <span className={`text-sm font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${social.color}`}>
+                <span className="text-[10px] font-black tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   {social.name}
                 </span>
               </motion.a>

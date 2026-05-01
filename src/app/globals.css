@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -133,6 +133,10 @@
   .btn-outline {
     @apply border-2 border-primary text-primary px-6 py-3 rounded-full hover:bg-primary/5 transition-colors;
   }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
 @layer utilities {
@@ -151,6 +155,24 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
   }
 }
 

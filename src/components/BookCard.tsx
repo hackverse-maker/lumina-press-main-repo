@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Book as BookIcon, Calendar, Heart, ShoppingCart, Check } from "lucide-react";
 import type { Book } from "@/lib/data";
@@ -36,7 +37,10 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group bg-card border border-border rounded-2xl overflow-hidden hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500"
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
+      <Link 
+        href={`/books/${book.id}`}
+        className="relative aspect-[3/4] overflow-hidden bg-secondary block"
+      >
         {book.image ? (
           <img
             src={book.image}
@@ -53,16 +57,18 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
             {book.genre}
           </span>
         </div>
-      </div>
+      </Link>
 
       <div className="p-5">
         <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
           <Calendar className="h-3 w-3" />
           <span>{book.publishDate}</span>
         </div>
-        <h3 className="font-display font-bold text-lg leading-tight group-hover:text-accent transition-colors duration-300 text-foreground">
-          {book.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{book.title.split(' ').pop()}</span>
-        </h3>
+        <Link href={`/books/${book.id}`}>
+          <h3 className="font-display font-bold text-lg leading-tight group-hover:text-accent transition-colors duration-300 text-foreground">
+            {book.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{book.title.split(' ').pop()}</span>
+          </h3>
+        </Link>
         <p className="text-sm font-medium text-foreground/80 mt-1">{book.author}</p>
         <p className="mt-3 text-sm text-muted-foreground line-clamp-2 leading-relaxed">
           {book.description}
