@@ -81,7 +81,7 @@ export const CyberCableSection = () => {
 
             <div className="pt-6 flex flex-wrap gap-4">
               <button 
-                onClick={() => router.push('/tech')}
+                onClick={() => router.push('/products/cyber-cable')}
                 className="group relative px-8 py-4 rounded-2xl bg-secondary/50 backdrop-blur-sm border border-border text-foreground font-bold text-base transition-all hover:bg-secondary/80"
               >
                 Learn More
