@@ -52,7 +52,7 @@ export default function BookDetailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
+    <main className="min-h-screen bg-background pt-48 pb-20">
       <div className="container-tight">
         {/* Navigation */}
         <motion.div 
