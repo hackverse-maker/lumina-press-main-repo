@@ -52,7 +52,7 @@ export default function BookDetailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-24 pb-20">
+    <main className="min-h-screen bg-background pt-32 pb-20">
       <div className="container-tight">
         {/* Navigation */}
         <motion.div 
@@ -61,9 +61,9 @@ export default function BookDetailPage() {
           className="mb-10"
         >
           <Button 
-            onClick={() => router.back()} 
+            onClick={() => router.push('/books')} 
             variant="ghost" 
-            className="group text-muted-foreground hover:bg-primary hover:text-white transition-all px-6 py-3 rounded-xl mt-5 flex items-center gap-2"
+            className="group text-muted-foreground hover:bg-primary hover:text-white transition-all px-6 py-3 rounded-xl flex items-center gap-2"
           >
             <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> 
             <span className="font-bold uppercase tracking-widest text-sm">Back to Library</span>
