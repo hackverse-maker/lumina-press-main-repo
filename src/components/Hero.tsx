@@ -34,9 +34,9 @@ export const Hero = () => {
       </div>
 
       <div className="container-tight relative z-10 w-full">
-        <div className="grid lg:grid-cols-[1.6fr,1fr] gap-0 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content Left */}
-          <div className="max-w-5xl relative z-20">
+          <div className="max-w-4xl relative z-20">
             {/* Subheader with Line */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -55,7 +55,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-playfair text-6xl md:text-8xl lg:text-[90px] font-black leading-[0.9] text-foreground mb-10 tracking-tighter"
+              className="font-playfair text-6xl md:text-7xl lg:text-[70px] font-black leading-[1.1] text-foreground mb-10 tracking-tighter"
             >
               Where Modern <br />
               <span className="text-primary italic">Technology</span> Meets <br />
@@ -111,20 +111,16 @@ export const Hero = () => {
 
           {/* Planet Graphic Right */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -10, x: 100 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0, x: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            className="relative hidden lg:block -ml-40"
+            className="relative hidden lg:flex items-center justify-center"
           >
-            <div className="relative w-[140%] aspect-square max-w-[1100px] ml-auto translate-x-[35%] pointer-events-none">
+            <div className="relative w-full aspect-square max-w-[450px] pointer-events-none">
               <img 
                 src="/planet.png" 
                 alt="Saturn" 
-                className="w-full h-full object-contain drop-shadow-[0_0_80px_rgba(253,181,17,0.2)] animate-float mix-blend-multiply dark:mix-blend-screen"
-                style={{
-                  maskImage: 'radial-gradient(circle at 40% 50%, black 40%, transparent 85%)',
-                  WebkitMaskImage: 'radial-gradient(circle at 40% 50%, black 40%, transparent 85%)',
-                }}
+                className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(253,181,17,0.15)] animate-float mix-blend-multiply dark:mix-blend-screen"
               />
             </div>
           </motion.div>
