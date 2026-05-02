@@ -10,15 +10,15 @@ const testimonials = [
 ];
 
 const Card = ({ t }: { t: typeof testimonials[number] }) => (
-  <div className="w-[340px] shrink-0 card-premium mx-3 flex flex-col justify-between">
+  <div className="w-[280px] sm:w-[340px] shrink-0 card-premium mx-2 sm:mx-3 flex flex-col justify-between">
     <div>
-      <Quote className="h-6 w-6 text-primary mb-6" />
-      <p className="text-foreground/80 text-base leading-relaxed italic">"{t.text}"</p>
+      <Quote className="h-5 sm:h-6 w-5 sm:w-6 text-primary mb-4 sm:mb-6" />
+      <p className="text-foreground/80 text-sm sm:text-base leading-relaxed italic">"{t.text}"</p>
     </div>
-    <div className="mt-8 flex items-center justify-between border-t border-border pt-6">
+    <div className="mt-6 sm:mt-8 flex items-center justify-between border-t border-border pt-4 sm:pt-6">
       <div>
-        <div className="font-bold text-[15px]">{t.name}</div>
-        <div className="text-xs font-semibold text-primary/70 uppercase tracking-wider">{t.role}</div>
+        <div className="font-bold text-[14px] sm:text-[15px]">{t.name}</div>
+        <div className="text-[10px] sm:text-xs font-semibold text-primary/70 uppercase tracking-wider">{t.role}</div>
       </div>
       <div className="flex gap-0.5 text-primary">
         {Array.from({ length: 5 }).map((_, i) => (
@@ -32,23 +32,24 @@ const Card = ({ t }: { t: typeof testimonials[number] }) => (
 export const Testimonials = () => {
   const row = [...testimonials, ...testimonials];
   return (
-    <section className="section-padding bg-secondary/10 overflow-hidden scale-95 sm:scale-100 hidden sm:block">
-      <div className="container-tight text-center mb-16">
-        <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
+    <section className="section-padding bg-secondary/10 overflow-hidden hidden md:block">
+      <div className="container-tight text-center mb-12 sm:mb-16 px-4 sm:px-6">
+        <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
           Client Success
         </span>
-        <h2 className="text-balance">Trusted by world-class security professionals.</h2>
+        <h2 className="text-balance leading-tight">Trusted by world-class security professionals.</h2>
       </div>
 
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary/10 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-secondary/10 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-secondary/10 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-secondary/10 to-transparent z-10 pointer-events-none" />
 
         <div className="flex animate-marquee-slow overflow-x-auto scroll-smooth no-scrollbar">
           {row.map((t, i) => <Card key={i} t={t} />)}
         </div>
-        <div className="flex animate-marquee-slow mt-8 overflow-x-auto scroll-smooth no-scrollbar" style={{ animationDirection: "reverse" }}>
+        {/* Only show second row on larger screens to reduce noise on mobile */}
+        <div className="hidden sm:flex animate-marquee-slow mt-8 overflow-x-auto scroll-smooth no-scrollbar" style={{ animationDirection: "reverse" }}>
           {row.map((t, i) => <Card key={`b-${i}`} t={t} />)}
         </div>
       </div>

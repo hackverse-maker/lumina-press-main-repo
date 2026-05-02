@@ -51,38 +51,40 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer id="footer" className="relative bg-background dark:bg-black text-foreground pt-20 pb-10 mt-10 border-t border-border/50">
+    <footer id="footer" className="relative bg-background dark:bg-black text-foreground pt-16 sm:pt-20 pb-10 border-t border-border/50">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-      <div className="container-tight">
-        <div className="grid sm:grid-cols-12 gap-12">
-          <div className="sm:col-span-5">
-            <Logo />
-            <p className="mt-5 text-sm text-foreground/70 max-w-sm leading-relaxed">
+      <div className="container-tight px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="lg:col-span-5 text-center lg:text-left">
+            <div className="flex justify-center lg:justify-start">
+              <Logo />
+            </div>
+            <p className="mt-5 text-sm text-foreground/70 max-w-sm mx-auto lg:mx-0 leading-relaxed">
               A modern publishing platform for thinkers, writers and creators. Beautiful by design, fast by default.
             </p>
 
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="mt-8 flex items-center gap-2 p-1.5 rounded-full bg-white/5 border border-white/10 max-w-md backdrop-blur-md"
+              className="mt-8 flex flex-col sm:flex-row items-center gap-3 p-1.5 sm:rounded-full bg-white/5 border border-white/10 max-w-md mx-auto lg:mx-0 backdrop-blur-md overflow-hidden rounded-2xl"
             >
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 bg-transparent px-4 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
+                className="w-full sm:flex-1 bg-transparent px-4 py-3 sm:py-2 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
               />
               <button
                 type="submit"
-                className="inline-flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold hover:scale-105 transition-transform"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-accent text-accent-foreground px-6 py-3 sm:py-2.5 text-sm font-semibold hover:scale-105 transition-transform"
               >
-                Subscribe <Send className="h-3.5 w-3.5" />
+                Subscribe <Send className="h-4 w-4" />
               </button>
             </form>
           </div>
 
-          <div className="sm:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12">
             {footerLinks.map((col) => (
-              <div key={col.title}>
-                <h4 className="font-display font-semibold text-sm tracking-wider uppercase text-foreground">{col.title}</h4>
+              <div key={col.title} className="text-center sm:text-left">
+                <h4 className="font-display font-semibold text-xs sm:text-sm tracking-wider uppercase text-foreground">{col.title}</h4>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((l) => (
                     <li key={l.label}>
@@ -98,7 +100,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-8 text-center">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center justify-center flex-wrap gap-6 max-w-xs sm:max-w-none">
             {social.map((s, i) => (
               <a
                 key={i}
@@ -106,7 +108,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className={`h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-white ${s.bgColor} shadow-md hover:shadow-lg`}
+                className={`h-11 w-11 sm:h-10 sm:w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-white ${s.bgColor} shadow-md hover:shadow-lg`}
               >
                 <s.icon className="h-5 w-5" />
               </a>

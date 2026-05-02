@@ -24,10 +24,10 @@ export default function ArticlePage() {
       />
 
       {/* Article Content */}
-      <section className="py-12 md:py-16 px-4">
-        <div className="container-tight max-w-3xl">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
+        <div className="container-tight max-w-3xl mx-auto">
           <div className="prose prose-invert max-w-none">
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-muted-foreground leading-relaxed text-base sm:text-lg">
               <p>
                 In today's rapidly evolving digital landscape, organizations face an unprecedented wave of cyber threats. From ransomware attacks to data breaches, the consequences have become increasingly severe. Yet, despite massive investments in cutting-edge security technology, one vulnerability remains consistently exploited: human awareness.
               </p>
@@ -47,7 +47,7 @@ export default function ArticlePage() {
             caption="A system alert indicating a critical data breach — the nightmare scenario for any organization."
           />
 
-          <div className="space-y-6 text-muted-foreground leading-relaxed mt-12">
+          <div className="space-y-6 text-muted-foreground leading-relaxed mt-12 text-base sm:text-lg">
             <p>
               The challenge lies not just in the technical implementation of security measures, but in the cultural shift required to make cybersecurity awareness a fundamental part of organizational DNA.
             </p>
@@ -79,34 +79,38 @@ export default function ArticlePage() {
 
           {/* Detailed Threat Analysis Section */}
           <div className="mt-20 pt-12 border-t border-border/50">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold mb-8 text-foreground">
-              Detailed Threat <span className="text-blue-500">Analysis</span>
+            <h2 className="font-display font-bold mb-8 text-foreground text-center sm:text-left">
+              Detailed Threat <span className="text-primary italic">Analysis</span>
             </h2>
             
-            <div className="space-y-12">
+            <div className="space-y-12 sm:space-y-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="space-y-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground">Visualizing a Data Breach</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                <div className="space-y-4 text-center sm:text-left">
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground uppercase tracking-tight">Visualizing a Data Breach</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                     When a breach occurs, the immediate impact is often felt through system alerts. 
                     This visualization represents the critical moment a security perimeter is compromised, 
                     triggering organization-wide protocols.
                   </p>
                 </div>
-                <MidArticleImage
-                  imagePath="/data-breach-detail.png"
-                  caption="A high-intensity visualization of a data breach alert system."
-                />
+                <div className="order-first sm:order-last">
+                  <MidArticleImage
+                    imagePath="/data-breach-detail.png"
+                    caption="A high-intensity visualization of a data breach alert system."
+                  />
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <MidArticleImage
-                  imagePath="/phishing-detail.png"
-                  caption="Deconstructing a typical mobile phishing attack."
-                />
-                <div className="space-y-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground">Anatomy of a Phishing Scam</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                <div className="order-first">
+                  <MidArticleImage
+                    imagePath="/phishing-detail.png"
+                    caption="Deconstructing a typical mobile phishing attack."
+                  />
+                </div>
+                <div className="space-y-4 text-center sm:text-left">
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground uppercase tracking-tight">Anatomy of a Phishing Scam</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                     Modern phishing scams are meticulously designed to exploit psychology. 
                     By utilizing "Scare Tactics" and spoofed URLs, attackers create a false 
                     sense of urgency that leads even experienced users to make critical errors.

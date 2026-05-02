@@ -14,20 +14,21 @@ const items = [
 export const Tech = () => {
   return (
     <section id="tech" className="section-padding bg-background relative overflow-hidden">
-      <div className="container-tight">
-        <div className="grid sm:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="container-tight px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-center lg:text-left"
           >
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
               Hardware Security
             </span>
-            <h2 className="text-balance">The Twelve Lords Cyber Cable. Total control over your data.</h2>
-            <p className="max-w-xl">
+            <h2 className="text-balance leading-tight">The Twelve Lords Cyber Cable. Total control over your data.</h2>
+            <p className="max-w-xl mx-auto lg:mx-0">
               We've engineered security at the physical layer. Our Cyber Cable ensures your 
               devices remain protected from modern attack vectors while delivering peak performance.
             </p>
@@ -35,13 +36,13 @@ export const Tech = () => {
             <div className="pt-4">
               <Link
                 href="/tech"
-                className="btn-outline inline-flex items-center gap-2 text-sm"
+                className="btn-outline inline-flex items-center justify-center gap-2 text-sm w-full sm:w-auto"
               >
                 View Specifications <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="mt-12 space-y-8">
+            <div className="mt-12 space-y-6 sm:space-y-8 text-left">
               {items.map((it, i) => (
                 <motion.div
                   key={it.title}
@@ -49,13 +50,13 @@ export const Tech = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex items-start gap-6 group"
+                  className="flex items-start gap-4 sm:gap-6 group"
                 >
-                  <div className="h-12 w-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <it.icon className="h-6 w-6 text-primary" />
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <it.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{it.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2">{it.title}</h3>
                     <p className="text-sm text-foreground/70 leading-relaxed">{it.text}</p>
                   </div>
                 </motion.div>
@@ -69,7 +70,7 @@ export const Tech = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative order-first lg:order-last mb-12 lg:mb-0"
           >
             {/* Pulsing Background Glow */}
             <motion.div 
@@ -82,7 +83,7 @@ export const Tech = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full"
+              className="absolute inset-0 bg-primary/20 blur-[60px] sm:blur-[100px] rounded-full"
             />
 
             <motion.div 
@@ -94,7 +95,7 @@ export const Tech = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="relative rounded-2xl overflow-hidden border border-border shadow-premium bg-black p-[10px] z-10"
+              className="relative rounded-2xl overflow-hidden border border-border shadow-premium bg-black p-[6px] sm:p-[10px] z-10 max-w-[400px] mx-auto lg:max-w-none"
             >
               <div className="relative w-full aspect-[2/3] rounded-xl overflow-hidden">
                 <img
@@ -119,10 +120,10 @@ export const Tech = () => {
                 />
               </div>
 
-              <div className="absolute bottom-8 left-8 right-8">
+              <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-bold uppercase tracking-wider text-white border border-white/10"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white border border-white/10"
                 >
                   <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                   Physical Security Active
@@ -130,9 +131,9 @@ export const Tech = () => {
               </div>
             </motion.div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl" />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl" />
+            {/* Decorative Elements - Hidden on small mobile */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl hidden sm:block" />
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl hidden sm:block" />
           </motion.div>
         </div>
       </div>

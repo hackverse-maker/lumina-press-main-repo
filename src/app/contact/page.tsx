@@ -30,23 +30,22 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-20">
-      {/* ... existing hero section ... */}
-      <section className="relative w-full py-16 flex items-center justify-center overflow-hidden">
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 text-foreground">
-            Get in <span className="text-gradient-accent">Touch</span>
+    <main className="min-h-screen bg-background pt-24 sm:pt-32">
+      <section className="relative w-full py-16 sm:py-20 flex items-center justify-center overflow-hidden">
+        <div className="relative z-10 text-center px-4 sm:px-6">
+          <h1 className="font-display font-bold mb-4 text-foreground">
+            Get in <span className="text-primary italic">Touch</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             We're here to help you anytime.
           </p>
         </div>
       </section>
 
       {/* Email Cards Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="container-tight">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
             {emails.map((item, i) => (
               <motion.a
                 key={item.email}
@@ -55,21 +54,21 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/50 hover:bg-secondary/30 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 cursor-pointer"
+                className="group relative p-6 sm:p-8 rounded-2xl bg-card border border-border hover:border-primary/50 hover:bg-secondary/30 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 cursor-pointer"
               >
                 <motion.div
                   animate={{ rotate: [0, 3, -3, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
-                  className="h-12 w-12 rounded-lg bg-gradient-accent/20 flex items-center justify-center mb-4 group-hover:bg-gradient-accent/30 transition-colors"
+                  className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors"
                 >
-                  <Mail className="h-6 w-6 text-accent" />
+                  <Mail className="h-6 w-6 text-primary" />
                 </motion.div>
 
-                <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {item.title}
                 </h3>
 
-                <p className="text-accent font-semibold text-sm mb-2">
+                <p className="text-primary font-semibold text-sm mb-2">
                   {item.email}
                 </p>
 
@@ -82,7 +81,7 @@ export default function ContactPage() {
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute -inset-4 bg-accent/5 rounded-2xl -z-10 blur-xl"
+                  className="absolute -inset-4 bg-primary/5 rounded-2xl -z-10 blur-xl"
                 />
               </motion.a>
             ))}
@@ -90,12 +89,12 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
-            <form className="glass rounded-3xl p-8 border border-border" onSubmit={handleSubmit}>
-              <h2 className="text-2xl md:text-3xl font-display font-bold mb-8 text-foreground text-center">
-                Send us a <span className="text-gradient-accent">Message</span>
+            <form className="glass rounded-3xl p-6 sm:p-8 border border-border" onSubmit={handleSubmit}>
+              <h2 className="font-display font-bold mb-8 text-foreground text-center">
+                Send us a <span className="text-primary italic">Message</span>
               </h2>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +106,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary transition-colors outline-none"
                     placeholder="Your name"
                   />
                 </motion.div>
@@ -123,7 +122,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary transition-colors outline-none"
                     placeholder="Email address"
                   />
                 </motion.div>
@@ -140,7 +139,7 @@ export default function ContactPage() {
                 <textarea
                   rows={5}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent transition-colors outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary transition-colors outline-none resize-none"
                   placeholder="How can we help?"
                 />
               </motion.div>
@@ -153,7 +152,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 rounded-xl bg-accent text-accent-foreground font-bold hover:shadow-accent-glow transition-all"
+                className="w-full py-4 rounded-xl bg-primary text-white font-bold hover:shadow-primary transition-all"
               >
                 Send Message
               </motion.button>

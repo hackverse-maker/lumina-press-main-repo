@@ -6,37 +6,37 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background pt-20">
+    <main className="min-h-screen bg-background pt-24 sm:pt-32">
       {/* Simple Hero */}
-      <section className="relative w-full py-20 flex items-center justify-center overflow-hidden">
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 text-foreground">
-            About <span className="text-gradient-accent">Us</span>
+      <section className="relative w-full py-16 sm:py-20 flex items-center justify-center overflow-hidden">
+        <div className="relative z-10 text-center px-4 sm:px-6">
+          <h1 className="font-display font-bold mb-4 text-foreground">
+            About <span className="text-primary italic">Us</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             Empowering the next generation of tech writers and thinkers.
           </p>
         </div>
       </section>
 
       {/* Split Layout Content */}
-      <section className="py-16 md:py-24 px-4">
+      <section className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="container-tight">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="space-y-8"
+              className="space-y-8 text-center lg:text-left"
             >
               <div>
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-foreground">
-                  Our <span className="text-gradient-accent">Purpose</span>
+                <h2 className="font-display font-bold mb-8 text-foreground">
+                  Our <span className="text-primary italic">Purpose</span>
                 </h2>
                 
-                <div className="space-y-6 text-muted-foreground leading-relaxed text-base md:text-lg font-medium">
+                <div className="space-y-6 text-muted-foreground leading-relaxed text-base sm:text-lg font-medium max-w-2xl mx-auto lg:mx-0">
                   <p>
                     Twelve Lords is driven by a singular mission: to educate, inform, and elevate. We are committed to providing accurate, well-researched knowledge that empowers individuals with clarity, self-awareness, and a defined path toward personal and intellectual development.
                   </p>
@@ -66,12 +66,12 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-              className="relative h-[400px] md:h-[500px] group"
+              className="relative h-[300px] sm:h-[400px] md:h-[500px] group order-first lg:order-last"
             >
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-full h-full rounded-2xl overflow-hidden"
+                className="relative w-full h-full rounded-2xl overflow-hidden shadow-premium"
               >
                 <img
                   src="/images/about.jpg"
@@ -83,11 +83,11 @@ export default function AboutPage() {
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-accent/5 mix-blend-overlay"
+                  className="absolute inset-0 bg-primary/5 mix-blend-overlay"
                 />
               </motion.div>
               {/* Decorative background glow */}
-              <div className="absolute -inset-4 bg-gradient-accent opacity-10 blur-2xl rounded-2xl -z-10" />
+              <div className="absolute -inset-4 bg-primary opacity-10 blur-2xl rounded-2xl -z-10" />
             </motion.div>
           </div>
         </div>

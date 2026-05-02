@@ -74,46 +74,47 @@ export default function CyberCableProductPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="container-tight pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section className="container-tight pb-20 px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative aspect-square rounded-[3rem] bg-accent/5 border border-accent/10 flex items-center justify-center overflow-hidden group shadow-2xl"
+              className="relative aspect-square rounded-[2rem] sm:rounded-[3rem] bg-primary/5 border border-primary/10 flex items-center justify-center overflow-hidden group shadow-2xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
               <img 
                 src="/images/cyber-cable-hero.jpg" 
                 alt="Twelve Lords Cyber Cable" 
-                className="w-4/5 h-4/5 object-contain filter drop-shadow-[0_0_50px_rgba(34,211,238,0.3)] transition-transform duration-700 group-hover:scale-110"
+                className="w-[85%] h-[85%] object-contain filter drop-shadow-[0_0_50px_rgba(253,181,17,0.3)] transition-transform duration-700 group-hover:scale-110"
               />
               
               {/* Animated HUD elements */}
-              <div className="absolute top-8 left-8 font-mono text-[10px] text-accent/40 space-y-1">
-                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-accent rounded-full animate-pulse"/> SYSTEM_READY</div>
+              <div className="absolute top-6 sm:top-8 left-6 sm:left-8 font-mono text-[8px] sm:text-[10px] text-primary/40 space-y-1">
+                <div className="flex items-center gap-2"><span className="h-1 sm:h-1.5 w-1 sm:w-1.5 bg-primary rounded-full animate-pulse"/> SYSTEM_READY</div>
                 <div>SECURE_HARDWARE: ACTIVE</div>
               </div>
             </motion.div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
               <motion.div {...fadeIn}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto lg:mx-0 w-fit">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Hardware-Level Security</span>
                 </div>
-                <h1 className="text-5xl md:text-7xl font-display font-black leading-tight tracking-tighter">
-                  Twelve Lords <span className="text-accent italic">Cyber Cable</span>
+                <h1 className="font-display font-black leading-tight tracking-tighter">
+                  Twelve Lords <span className="text-primary italic">Cyber Cable</span>
                 </h1>
-                <p className="text-xl md:text-2xl font-bold mt-4 text-foreground/90">
-                  Secure Charging. Controlled Data. <span className="text-accent">Total Protection.</span>
+                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-foreground/90 leading-tight">
+                  Secure Charging. Controlled Data. <br className="hidden sm:block" />
+                  <span className="text-primary">Total Protection.</span>
                 </p>
               </motion.div>
 
               <motion.p 
                 {...fadeIn} 
                 transition={{ delay: 0.2 }}
-                className="text-lg text-muted-foreground leading-relaxed font-medium"
+                className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0"
               >
                 The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
               </motion.p>
@@ -121,16 +122,16 @@ export default function CyberCableProductPage() {
               <motion.div 
                 {...fadeIn}
                 transition={{ delay: 0.3 }}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0"
               >
                 <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Usb className="w-5 h-5 text-accent" />
-                  <p className="text-xs font-bold uppercase tracking-wider">Default Mode</p>
+                  <Usb className="w-5 h-5 text-primary" />
+                  <p className="text-[10px] font-bold uppercase tracking-wider">Default Mode</p>
                   <p className="text-sm text-muted-foreground font-semibold">Charge-Only</p>
                 </div>
                 <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Zap className="w-5 h-5 text-accent" />
-                  <p className="text-xs font-bold uppercase tracking-wider">Power Delivery</p>
+                  <Zap className="w-5 h-5 text-primary" />
+                  <p className="text-[10px] font-bold uppercase tracking-wider">Power Delivery</p>
                   <p className="text-sm text-muted-foreground font-semibold">Up to 60W</p>
                 </div>
               </motion.div>
@@ -142,7 +143,7 @@ export default function CyberCableProductPage() {
               >
                 <button 
                   onClick={handleAddToCart}
-                  className="w-full sm:w-auto group relative px-12 py-6 rounded-2xl bg-accent text-white font-black text-xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] flex items-center justify-center gap-3"
+                  className="w-full lg:w-auto group relative px-10 py-5 sm:px-12 sm:py-6 rounded-2xl bg-primary text-white font-black text-lg sm:text-xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(253,181,17,0.5)] flex items-center justify-center gap-3"
                 >
                   {added ? <CheckCircle2 className="w-6 h-6" /> : <ShoppingCart className="w-6 h-6" />}
                   <span>{isInCart ? "In Your Cart" : "Add to Cart"}</span>
@@ -154,51 +155,51 @@ export default function CyberCableProductPage() {
         </section>
 
         {/* Detailed Content */}
-        <section className="container-tight py-20 border-t border-border/50 space-y-24">
+        <section className="container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
           
           {/* Introduction */}
-          <motion.div {...fadeIn} className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Introduction — Our Technology</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+          <motion.div {...fadeIn} className="max-w-3xl mx-auto space-y-6 text-center lg:text-left">
+            <h2 className="font-display font-bold">Introduction — Our Technology</h2>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               At Twelve Lords, we design hardware with security at its core. The Cyber Cable is built to address a fundamental weakness in modern connectivity: the automatic trust placed in USB connections.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               Conventional cables allow unrestricted power and data flow, exposing devices to potential threats the moment they are plugged into an unknown source. The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
             </p>
-            <p className="text-accent font-bold italic text-xl border-l-2 border-accent pl-6 py-2">
+            <p className="text-primary font-bold italic text-lg sm:text-xl border-l-2 border-primary pl-6 py-2 w-fit mx-auto lg:mx-0">
               This approach transforms a simple accessory into a controlled security interface.
             </p>
           </motion.div>
 
           {/* Threat Landscape */}
-          <motion.div {...fadeIn} className="space-y-12">
+          <motion.div {...fadeIn} className="space-y-10 sm:space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-display font-bold">Threat Landscape</h2>
+              <h2 className="font-display font-bold">Threat Landscape</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">Public and untrusted USB connections can be exploited through multiple attack methods.</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 { title: "Juice Jacking", desc: "Malicious charging stations can attempt to install malware or extract sensitive data during charging.", icon: Zap },
                 { title: "HID Injection", desc: "Compromised connections may emulate input devices such as keyboards to execute unauthorized commands.", icon: HardDrive },
                 { title: "Data Interception", desc: "Unsecured connections can allow data to be monitored or captured during transfer.", icon: Lock }
               ].map((item, i) => (
-                <div key={i} className="p-8 rounded-[2rem] bg-secondary/30 border border-border/50 hover:border-accent/30 transition-colors space-y-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-                    <item.icon className="w-6 h-6" />
+                <div key={i} className="p-6 sm:p-8 rounded-[2rem] bg-secondary/30 border border-border/50 hover:border-primary/30 transition-colors space-y-4 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg sm:text-xl font-bold">{item.title}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </motion.div>
 
           {/* Secure Design Architecture */}
-          <motion.div {...fadeIn} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-display font-bold">Secure Design Architecture</h2>
-              <p className="text-muted-foreground leading-relaxed">
+          <motion.div {...fadeIn} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 sm:space-y-8 order-last lg:order-first">
+              <h2 className="font-display font-bold">Secure Design Architecture</h2>
+              <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
                 The Cyber Cable is engineered with a hardware-level control mechanism that governs data transmission independently of power delivery.
               </p>
               
@@ -210,26 +211,26 @@ export default function CyberCableProductPage() {
                   "Hardware-Level Enforcement: Independent of software configurations."
                 ].map((text, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                    <span className="font-semibold text-foreground/80">{text}</span>
+                    <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <span className="font-semibold text-foreground/80 text-sm sm:text-base">{text}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="relative aspect-square rounded-[3rem] bg-slate-900 overflow-hidden border border-white/5 flex items-center justify-center">
+            <div className="relative aspect-square rounded-[2rem] sm:rounded-[3rem] bg-slate-900 overflow-hidden border border-white/5 flex items-center justify-center">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover opacity-20" />
-              <Activity className="w-32 h-32 text-accent/20 animate-pulse" />
+              <Activity className="w-24 h-24 sm:w-32 sm:h-32 text-primary/20 animate-pulse" />
             </div>
           </motion.div>
 
           {/* Product Specifications */}
-          <motion.div {...fadeIn} className="space-y-8 bg-secondary/20 p-8 md:p-16 rounded-[3rem] border border-border/50">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-center">Product Specifications</h2>
+          <motion.div {...fadeIn} className="space-y-8 bg-secondary/20 p-6 sm:p-10 md:p-16 rounded-[2rem] sm:rounded-[3rem] border border-border/50">
+            <h2 className="font-display font-bold text-center">Product Specifications</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="space-y-4">
-                <h3 className="text-accent font-black uppercase tracking-widest text-xs">Variants</h3>
-                <ul className="text-sm space-y-2 text-muted-foreground font-medium">
+                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Variants</h3>
+                <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>USB-A to Lightning</li>
                   <li>USB-A to USB-C</li>
                   <li>USB-C to Lightning</li>
@@ -237,24 +238,24 @@ export default function CyberCableProductPage() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-accent font-black uppercase tracking-widest text-xs">Power</h3>
-                <ul className="text-sm space-y-2 text-muted-foreground font-medium">
+                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Power</h3>
+                <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>Up to 60W fast charging</li>
                   <li>PD Compatible</li>
                   <li>Universal Device Support</li>
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-accent font-black uppercase tracking-widest text-xs">Length & Build</h3>
-                <ul className="text-sm space-y-2 text-muted-foreground font-medium">
+                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Length & Build</h3>
+                <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>1 meter / 2 meters</li>
                   <li>Black / White options</li>
                   <li>Reinforced structure</li>
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-accent font-black uppercase tracking-widest text-xs">Protection</h3>
-                <ul className="text-sm space-y-2 text-muted-foreground font-medium">
+                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Protection</h3>
+                <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>Physical data switch</li>
                   <li>EMI Shielding</li>
                   <li>HID protection</li>
@@ -264,22 +265,22 @@ export default function CyberCableProductPage() {
           </motion.div>
 
           {/* Positioning Statement */}
-          <motion.div {...fadeIn} className="text-center max-w-4xl mx-auto space-y-8 py-20">
-            <div className="w-20 h-1 bg-accent mx-auto rounded-full" />
-            <p className="text-2xl md:text-4xl font-display font-medium text-foreground leading-tight">
+          <motion.div {...fadeIn} className="text-center max-w-4xl mx-auto space-y-8 py-12 sm:py-20">
+            <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full" />
+            <p className="text-xl sm:text-2xl md:text-4xl font-display font-medium text-foreground leading-tight">
               "The Twelve Lords Cyber Cable is a security-focused connectivity solution designed to protect devices at the hardware level."
             </p>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-sm sm:text-lg">
               By separating power from data and introducing controlled communication, it eliminates unnecessary exposure and provides a reliable defense against modern USB-based threats.
             </p>
             
-            <div className="pt-8">
+            <div className="pt-6 sm:pt-8">
               <button 
                 onClick={handleAddToCart}
-                className="group relative px-16 py-8 rounded-[2rem] bg-accent text-white font-black text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(34,211,238,0.6)]"
+                className="group relative px-10 py-5 sm:px-16 sm:py-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary text-white font-black text-xl sm:text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(253,181,17,0.6)] w-full sm:w-auto"
               >
                 Secure Yours Now
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[2rem]" />
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[1.5rem] sm:rounded-[2rem]" />
               </button>
             </div>
           </motion.div>

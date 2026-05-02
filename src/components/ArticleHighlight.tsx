@@ -159,33 +159,33 @@ export const ArticleHighlight = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="card-premium overflow-hidden border-none bg-secondary/30 dark:bg-secondary/10"
+          className="card-premium overflow-hidden border-none bg-secondary/30 dark:bg-secondary/10 !p-0"
         >
-          <div className="flex flex-col sm:flex-row min-h-[500px]">
-            {/* LEFT: Content (60%) */}
-            <div className="w-full sm:w-[60%] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-              <div className="space-y-8">
+          <div className="flex flex-col lg:flex-row min-h-[500px]">
+            {/* LEFT: Content */}
+            <div className="w-full lg:w-[60%] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center">
+              <div className="space-y-6 sm:space-y-8">
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit"
                 >
                   <Lock className="w-3.5 h-3.5" />
                   <span>Security Protocol Verified</span>
                 </motion.div>
 
-                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
+                <h3 className="font-extrabold leading-tight tracking-tight text-foreground">
                   {articleTitle}
                 </h3>
 
-                <p className="text-foreground/70 text-lg md:text-xl leading-relaxed max-w-2xl">
+                <p className="text-foreground/70 leading-relaxed max-w-2xl">
                   {description}
                 </p>
 
-                <div className="pt-8">
+                <div className="pt-4 sm:pt-8">
                   <Link href={link}>
-                    <button className="btn-primary px-10 py-4 flex items-center gap-3 text-base">
+                    <button className="btn-primary px-10 py-4 flex items-center justify-center gap-3 text-base">
                       Read Article <ArrowRight className="w-5 h-5" />
                     </button>
                   </Link>
@@ -193,8 +193,8 @@ export const ArticleHighlight = ({
               </div>
             </div>
 
-            {/* RIGHT: Image/Visual (40%) */}
-            <div className="w-full sm:w-[40%] min-h-[400px] relative">
+            {/* RIGHT: Image/Visual */}
+            <div className="w-full lg:w-[40%] min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] relative order-first lg:order-last">
               <div className="absolute inset-0 bg-secondary/50 dark:bg-slate-900/50" />
               <motion.div 
                 initial={{ opacity: 0, scale: 1.05 }}
@@ -210,7 +210,7 @@ export const ArticleHighlight = ({
                   className="object-cover"
                 />
                 {/* Clean gradient overlay for depth */}
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary/30 dark:from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-background/80 lg:from-secondary/30 dark:from-black/80 lg:dark:from-black/40 to-transparent" />
               </motion.div>
             </div>
           </div>

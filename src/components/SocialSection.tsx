@@ -63,7 +63,7 @@ export const SocialSection = () => {
           </span>
           <h2 className="mb-16">Official Brand Channels</h2>
           
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-4 sm:gap-6 md:gap-10">
             {socialLinks.map((social, i) => (
               <motion.a
                 key={social.name}
@@ -81,13 +81,13 @@ export const SocialSection = () => {
                   delay: i * 0.05 
                 }}
                 aria-label={social.name}
-                className="group flex flex-col items-center gap-4"
+                className="group flex flex-col items-center gap-2 sm:gap-4"
               >
-                <div className={`h-16 w-16 md:h-20 md:w-20 rounded-[1.5rem] flex items-center justify-center shadow-lg transition-shadow duration-300 group-hover:shadow-xl ${social.bgColor} text-white`}>
-                  <social.icon className="h-8 w-8 md:h-10 md:w-10" strokeWidth={1.5} />
+                <div className={`h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-[1rem] sm:rounded-[1.5rem] flex items-center justify-center shadow-lg transition-shadow duration-300 group-hover:shadow-xl ${social.bgColor} text-white`}>
+                  <social.icon className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] font-black tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  {social.name}
+                <span className="text-[8px] sm:text-[10px] font-black tracking-widest uppercase opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 sm:translate-y-2 group-hover:translate-y-0">
+                  {social.name.split(' ')[0]}
                 </span>
               </motion.a>
             ))}

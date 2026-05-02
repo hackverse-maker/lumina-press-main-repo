@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X, Heart, Instagram, Facebook, Music2, Music, Podcast, Twitter, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -52,8 +51,8 @@ export const Navbar = () => {
         scrolled ? "bg-background/70 backdrop-blur-md shadow-glass border-b border-border/50" : "bg-transparent"
       }`}
     >
-      {/* Social Top Bar */}
-      <div className="w-full py-1.5 bg-background/50 backdrop-blur-sm border-b border-border/30 flex justify-center items-center gap-6">
+      {/* Social Top Bar - Hidden on small mobile to save space */}
+      <div className="hidden sm:flex w-full py-1.5 bg-background/50 backdrop-blur-sm border-b border-border/30 justify-center items-center gap-6">
         {social.map((s, i) => (
           <a
             key={i}
@@ -72,12 +71,12 @@ export const Navbar = () => {
         scrolled ? "py-3" : "py-6"
       }`}>
         {/* LEFT: Logo */}
-        <div className="flex-shrink-0 w-auto lg:w-48">
+        <div className="flex-shrink-0">
           <Logo />
         </div>
 
-        {/* CENTER: Navigation Links */}
-        <nav className="hidden sm:flex items-center gap-10 mx-auto">
+        {/* CENTER: Navigation Links - Desktop Only */}
+        <nav className="hidden lg:flex items-center gap-10 mx-auto">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -91,56 +90,87 @@ export const Navbar = () => {
         </nav>
 
         {/* RIGHT: Actions */}
-        <div className="flex items-center gap-3 sm:gap-6 w-auto sm:w-48 justify-end">
-          <div className="hidden sm:flex items-center gap-2">
+        <div className="flex items-center gap-3 sm:gap-6 ml-auto">
+          <div className="flex items-center gap-2">
             <button 
               onClick={() => setIsFavoritesOpen(true)}
-              className="relative text-foreground/70 hover:text-primary transition-colors p-2 group"
+              className="relative text-foreground/70 hover:text-primary transition-colors p-3 group"
+              aria-label="Favorites"
             >
               <Heart className="h-5 w-5" />
               {favorites.length > 0 && (
-                <span className="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center border border-background">
+                <span className="absolute top-1 right-1 h-4 w-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center border border-background">
                   {favorites.length}
                 </span>
               )}
             </button>
-            <ThemeToggle />
           </div>
-          
 
           {/* Mobile Menu Toggle */}
           <button
-            className="sm:hidden h-10 w-10 flex items-center justify-center rounded-full bg-secondary text-foreground"
+            className="lg:hidden h-11 w-11 flex items-center justify-center rounded-full bg-secondary text-foreground z-[60] transition-transform active:scale-90"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Full-Screen Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="sm:hidden bg-background border-b border-border overflow-hidden"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-50 bg-background/98 backdrop-blur-2xl lg:hidden flex flex-col"
           >
-            <div className="container-tight px-6 py-8 flex flex-col gap-6">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-lg font-semibold text-foreground/80 hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="pt-6 border-t border-border flex items-center justify-between">
-                <ThemeToggle />
+            <div className="flex flex-col h-full pt-32 px-8 pb-12">
+              <div className="flex flex-col gap-8">
+                {links.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 + 0.2 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-auto flex flex-col gap-8">
+                <div className="h-[1px] w-full bg-border" />
+                
+                {/* Mobile Socials */}
+                <div className="flex flex-wrap gap-6">
+                  {social.map((s, i) => (
+                    <motion.a
+                      key={i}
+                      href={s.href}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.05 + 0.5 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`h-12 w-12 rounded-full bg-secondary flex items-center justify-center ${s.color}`}
+                    >
+                      <s.icon className="h-5 w-5" />
+                    </motion.a>
+                  ))}
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground/40 font-medium">Lumina Press</span>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -88,7 +88,6 @@ export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
           >
             {type === "books" && <ReadingAnimation />}
             {type === "articles" && <WritingAnimation />}
-            {type === "tech" && <CodingAnimation />}
           </motion.div>
 
           <div className="max-w-3xl space-y-4">

@@ -15,15 +15,15 @@ export const BookList = ({ books }: BookListProps) => {
   const { addToCart, toggleFavorite, isFavorite } = useAppState();
 
   return (
-    <div className="space-y-40">
+    <div className="space-y-24 sm:space-y-40">
       {books.map((book) => (
         <div
           key={book.id}
-          className="flex flex-col sm:flex-row gap-12 lg:gap-24 items-start"
+          className="flex flex-col lg:flex-row gap-10 sm:gap-12 lg:gap-24 items-start"
         >
           {/* Book Cover */}
-          <div className="w-full sm:w-[340px] shrink-0">
-            <div className="relative aspect-[2/3] shadow-premium rounded-sm overflow-hidden bg-secondary/20 group cursor-pointer">
+          <div className="w-full lg:w-[340px] shrink-0">
+            <div className="relative aspect-[2/3] shadow-premium rounded-sm overflow-hidden bg-secondary/20 group cursor-pointer max-w-[400px] mx-auto lg:mx-0">
               <Image
                 src={book.image}
                 alt={book.title}
@@ -32,14 +32,14 @@ export const BookList = ({ books }: BookListProps) => {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
               
-              {/* Over-image actions */}
-              <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              {/* Over-image actions - Visible on mobile for better UX */}
+              <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                 <button 
                   onClick={(e) => {
                     e.preventDefault();
                     toggleFavorite(book);
                   }}
-                  className={`h-10 w-10 rounded-full flex items-center justify-center transition-all ${
+                  className={`h-11 w-11 rounded-full flex items-center justify-center transition-all shadow-md ${
                     isFavorite(book.id) ? "bg-primary text-white" : "bg-white/90 text-foreground hover:bg-primary hover:text-white"
                   }`}
                 >
@@ -50,34 +50,34 @@ export const BookList = ({ books }: BookListProps) => {
           </div>
 
           {/* Book Details */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-6 sm:space-y-8 w-full text-center lg:text-left">
             <div className="space-y-3">
-              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs block">
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs block">
                 {book.genre || "Featured Publication"}
               </span>
-              <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] uppercase italic">
+              <h2 className="font-extrabold tracking-tight leading-[1.1] uppercase italic">
                 {book.title}
               </h2>
-              <div className="text-lg font-bold text-foreground/80">
+              <div className="text-base sm:text-lg font-bold text-foreground/80">
                 By {book.author}
               </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-3xl">
+            <p className="text-foreground/70 leading-relaxed max-w-3xl mx-auto lg:mx-0">
               {book.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">
               <Link
                 href={`/books/${book.id}`}
-                className="inline-flex items-center gap-3 border-b-2 border-primary pb-2 text-lg font-bold hover:gap-5 transition-all"
+                className="inline-flex items-center justify-center gap-3 border-b-2 border-primary pb-2 text-base sm:text-lg font-bold hover:gap-5 transition-all w-full sm:w-auto"
               >
                 READ BOOK <ArrowRight className="h-5 w-5" />
               </Link>
               
               <button 
                 onClick={() => addToCart(book)}
-                className="btn-primary flex items-center gap-3 px-8 py-3 rounded-full"
+                className="btn-primary flex items-center justify-center gap-3 px-8 py-3 rounded-full w-full sm:w-auto"
               >
                 <ShoppingCart className="h-5 w-5" />
                 ADD TO CART
@@ -85,7 +85,7 @@ export const BookList = ({ books }: BookListProps) => {
 
               <button 
                 onClick={() => toggleFavorite(book)}
-                className={`h-12 w-12 rounded-full flex items-center justify-center border-2 transition-all ${
+                className={`h-12 w-12 rounded-full hidden sm:flex items-center justify-center border-2 transition-all ${
                   isFavorite(book.id) 
                     ? "border-primary bg-primary text-white" 
                     : "border-border text-foreground hover:border-primary hover:text-primary"

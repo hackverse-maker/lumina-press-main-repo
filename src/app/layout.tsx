@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased overflow-x-hidden`}>
+      <body className={`${inter.variable} ${poppins.variable} antialiased overflow-x-hidden`}>
         {/* SVG Defs for Gradients */}
         <svg width="0" height="0" className="absolute">
           <defs>
