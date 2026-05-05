@@ -37,9 +37,10 @@
 
     --radius: 1rem; /* 16px corners as per SaaS style */
 
-    /* Shadows */
+  /* Shadows */
     --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
     --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 20px -5px rgba(253, 181, 17, 0.4);
 
     /* Transitions */
     --t-smooth: cubic-bezier(0.22, 1, 0.36, 1);
@@ -113,7 +114,7 @@
 
 @layer components {
   .section-padding {
-    @apply py-8 md:py-16 lg:py-24;
+    @apply py-12 md:py-20 lg:py-32;
   }
 
   .glass {
@@ -125,7 +126,7 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full hover:scale-105 active:scale-95 shadow-soft hover:shadow-premium w-full sm:w-auto;
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full hover:scale-105 active:scale-95 shadow-soft hover:shadow-glow w-full sm:w-auto transition-all;
   }
 
   .btn-outline {
@@ -142,6 +143,10 @@
 
   .text-shadow-glow {
     text-shadow: 0 0 20px rgba(253, 181, 17, 0.3);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
   }
 
   .mobile-stack {
@@ -193,10 +198,15 @@
   .animate-pulse-slow {
     animation: pulse-slow 4s ease-in-out infinite;
   }
+
+  .will-change-transform {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
 }
 
 @media (max-width: 640px) {
   .animate-marquee-slow {
-    animation-duration: 30s !important;
+    animation-duration: 40s !important;
   }
 }

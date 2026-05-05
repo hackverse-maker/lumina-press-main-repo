@@ -44,7 +44,7 @@ const footerLinks = [
       { label: "Help Center", href: "/contact" },
       { label: "Reading List", href: "/books" },
       { label: "Tech Specs", href: "/tech" },
-      { label: "Privacy Policy", href: "#" }
+      { label: "Privacy Policy", href: "/privacy-policy" }
     ] 
   },
 ];
@@ -52,29 +52,29 @@ const footerLinks = [
 export const Footer = () => {
   return (
     <footer id="footer" className="relative bg-background dark:bg-black text-foreground pt-16 sm:pt-20 pb-10 border-t border-border/50">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
       <div className="container-tight px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5 text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
               <Logo />
             </div>
-            <p className="mt-5 text-sm text-foreground/70 max-w-sm mx-auto lg:mx-0 leading-relaxed">
-              A modern publishing platform for thinkers, writers and creators. Beautiful by design, fast by default.
+            <p className="mt-5 text-sm text-foreground/70 max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
+              Bridging the gap between ancient wisdom and modern technology. Twelve Lords is a sanctuary for thinkers, writers, and creators.
             </p>
 
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="mt-8 flex flex-col sm:flex-row items-center gap-3 p-1.5 sm:rounded-full bg-white/5 border border-white/10 max-w-md mx-auto lg:mx-0 backdrop-blur-md overflow-hidden rounded-2xl"
+              className="mt-8 flex flex-col sm:flex-row items-center gap-3 p-1.5 sm:rounded-full bg-secondary/50 border border-border/50 max-w-md mx-auto lg:mx-0 backdrop-blur-md overflow-hidden rounded-2xl focus-within:border-primary/50 transition-colors"
             >
               <input
                 type="email"
-                placeholder="Your email address"
+                placeholder="Join the collective"
                 className="w-full sm:flex-1 bg-transparent px-4 py-3 sm:py-2 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none"
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-accent text-accent-foreground px-6 py-3 sm:py-2.5 text-sm font-semibold hover:scale-105 transition-transform"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 sm:py-2.5 text-sm font-bold hover:scale-105 active:scale-95 transition-all shadow-glow"
               >
                 Subscribe <Send className="h-4 w-4" />
               </button>
@@ -84,11 +84,11 @@ export const Footer = () => {
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12">
             {footerLinks.map((col) => (
               <div key={col.title} className="text-center sm:text-left">
-                <h4 className="font-display font-semibold text-xs sm:text-sm tracking-wider uppercase text-foreground">{col.title}</h4>
-                <ul className="mt-5 space-y-3">
+                <h4 className="font-sans font-bold text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary/80">{col.title}</h4>
+                <ul className="mt-6 space-y-4">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link href={l.href} className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                      <Link href={l.href} className="text-sm font-medium text-foreground/60 hover:text-primary transition-colors">
                         {l.label}
                       </Link>
                     </li>
@@ -99,8 +99,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-8 text-center">
-          <div className="flex items-center justify-center flex-wrap gap-6 max-w-xs sm:max-w-none">
+        <div className="mt-16 pt-8 border-t border-border/30 flex flex-col items-center justify-center gap-8 text-center">
+          <div className="flex items-center justify-center flex-wrap gap-5">
             {social.map((s, i) => (
               <a
                 key={i}
@@ -108,15 +108,20 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className={`h-11 w-11 sm:h-10 sm:w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-white ${s.bgColor} shadow-md hover:shadow-lg`}
+                className={`h-11 w-11 sm:h-10 sm:w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-white ${s.bgColor} shadow-premium hover:shadow-glow`}
               >
                 <s.icon className="h-5 w-5" />
               </a>
             ))}
           </div>
-          <p className="text-xs text-foreground/60 max-w-xs">
-            © {new Date().getFullYear()} Twelve Lords. Crafted for thinkers and creators.
-          </p>
+          <div className="space-y-1">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-foreground/40">
+              Twelve Lords
+            </p>
+            <p className="text-[10px] text-foreground/30">
+              © {new Date().getFullYear()} Twelve Lords. Crafted with purpose.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

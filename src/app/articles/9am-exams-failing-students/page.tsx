@@ -9,10 +9,10 @@ export default function ExamsArticle() {
         {/* Back Link */}
         <Link 
           href="/articles" 
-          className="inline-flex items-center gap-2 text-primary font-bold tracking-widest uppercase text-xs hover:gap-3 transition-all mb-12"
+          className="inline-flex items-center gap-2 text-primary font-bold tracking-widest uppercase text-xs hover:gap-3 transition-all mb-12 px-[20px] py-[10px] bg-primary/5 rounded-full mt-[20px]"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Articles
+          BACK TO ARTICLES
         </Link>
 
         {/* Article Header */}

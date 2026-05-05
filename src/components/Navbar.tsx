@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { Menu, X, Heart, Instagram, Facebook, Music2, Music, Podcast, Twitter, Youtube } from "lucide-react";
+import { Menu, X, Heart, Instagram, Facebook, Twitter, Youtube, Music2, Music, Podcast } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useAppState } from "@/context/AppStateContext";
@@ -45,13 +45,22 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [open]);
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col ${
-        scrolled ? "bg-background/70 backdrop-blur-md shadow-glass border-b border-border/50" : "bg-transparent"
+        scrolled ? "bg-background/80 backdrop-blur-xl shadow-glass border-b border-border/50" : "bg-transparent"
       }`}
     >
-      {/* Social Top Bar - Hidden on small mobile to save space */}
+      {/* Social Top Bar */}
       <div className="hidden sm:flex w-full py-1.5 bg-background/50 backdrop-blur-sm border-b border-border/30 justify-center items-center gap-6">
         {social.map((s, i) => (
           <a
@@ -60,23 +69,21 @@ export const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={s.label}
-            className={`transition-colors duration-300 flex items-center hover:opacity-70 ${s.color}`}
+            className={`transition-all duration-300 flex items-center hover:opacity-100 opacity-70 hover:scale-110 ${s.color}`}
           >
             <s.icon className="h-4 w-4" />
           </a>
         ))}
       </div>
 
-      <div className={`container-tight px-4 sm:px-6 flex items-center transition-all duration-500 ${
+      <div className={`w-full px-8 sm:px-16 flex items-center justify-between transition-all duration-500 ${
         scrolled ? "py-3" : "py-6"
       }`}>
-        {/* LEFT: Logo */}
         <div className="flex-shrink-0">
           <Logo />
         </div>
 
-        {/* CENTER: Navigation Links - Desktop Only */}
-        <nav className="hidden lg:flex items-center gap-10 mx-auto">
+        <nav className="hidden lg:flex items-center gap-10">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -89,26 +96,22 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* RIGHT: Actions */}
-        <div className="flex items-center gap-3 sm:gap-6 ml-auto">
-          <div className="flex items-center gap-2">
-            <button 
-              onClick={() => setIsFavoritesOpen(true)}
-              className="relative text-foreground/70 hover:text-primary transition-colors p-3 group"
-              aria-label="Favorites"
-            >
-              <Heart className="h-5 w-5" />
-              {favorites.length > 0 && (
-                <span className="absolute top-1 right-1 h-4 w-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center border border-background">
-                  {favorites.length}
-                </span>
-              )}
-            </button>
-          </div>
+        <div className="flex items-center gap-3 sm:gap-6">
+          <button 
+            onClick={() => setIsFavoritesOpen(true)}
+            className="relative text-foreground/70 hover:text-primary transition-colors p-2.5 group"
+            aria-label="Favorites"
+          >
+            <Heart className="h-5 w-5" />
+            {favorites.length > 0 && (
+              <span className="absolute top-1 right-1 h-4 w-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center border-2 border-background">
+                {favorites.length}
+              </span>
+            )}
+          </button>
 
-          {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden h-11 w-11 flex items-center justify-center rounded-full bg-secondary text-foreground z-[60] transition-transform active:scale-90"
+            className="lg:hidden h-11 w-11 flex items-center justify-center rounded-full bg-secondary/80 text-foreground z-[70] transition-all active:scale-95 hover:bg-secondary"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
@@ -117,63 +120,79 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Full-Screen Mobile Menu */}
+      {/* Modern Mobile Menu with Blur Effect */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-50 bg-background/98 backdrop-blur-2xl lg:hidden flex flex-col"
-          >
-            <div className="flex flex-col h-full pt-32 px-8 pb-12">
-              <div className="flex flex-col gap-8">
-                {links.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 + 0.2 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="text-4xl font-bold text-foreground hover:text-primary transition-colors"
+          <>
+            {/* Background Overlay with Blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-[60] bg-background/60 backdrop-blur-md lg:hidden"
+            />
+            
+            {/* Slide-out Menu Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm z-[65] bg-background shadow-2xl border-l border-border lg:hidden flex flex-col overflow-hidden"
+            >
+              <div className="flex flex-col h-full pt-24 px-8 pb-12 overflow-y-auto">
+                <div className="flex flex-col gap-6">
+                  {links.map((link, i) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
                     >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-auto flex flex-col gap-8">
-                <div className="h-[1px] w-full bg-border" />
-                
-                {/* Mobile Socials */}
-                <div className="flex flex-wrap gap-6">
-                  {social.map((s, i) => (
-                    <motion.a
-                      key={i}
-                      href={s.href}
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.05 + 0.5 }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`h-12 w-12 rounded-full bg-secondary flex items-center justify-center ${s.color}`}
-                    >
-                      <s.icon className="h-5 w-5" />
-                    </motion.a>
+                      <Link
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="text-3xl font-bold text-foreground hover:text-primary transition-colors flex items-center justify-between group"
+                      >
+                        {link.label}
+                        <span className="h-1 w-0 bg-primary group-hover:w-8 transition-all duration-300" />
+                      </Link>
+                    </motion.div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-foreground/40 font-medium">Lumina Press</span>
+                <div className="mt-auto pt-10 flex flex-col gap-8">
+                  <div className="h-px w-full bg-gradient-to-r from-border to-transparent" />
+                  
+                  <div className="space-y-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-foreground/40">Connect With Us</span>
+                    <div className="flex flex-wrap gap-4">
+                      {social.map((s, i) => (
+                        <motion.a
+                          key={i}
+                          href={s.href}
+                          initial={{ opacity: 0, scale: 0.5 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.4 + (i * 0.05) }}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`h-10 w-10 rounded-full bg-secondary flex items-center justify-center transition-transform hover:scale-110 ${s.color}`}
+                        >
+                          <s.icon className="h-5 w-5" />
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <span className="text-foreground/40 font-bold text-sm uppercase tracking-widest">Twelve Lords</span>
+                    <span className="text-foreground/30 text-xs italic">Crafted for thinkers and creators</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

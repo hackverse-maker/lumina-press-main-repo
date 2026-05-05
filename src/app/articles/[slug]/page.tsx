@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { ArticleHero } from "@/components/ArticleHero";
 import { MidArticleImage } from "@/components/MidArticleImage";
 
@@ -14,7 +16,17 @@ export default function ArticlePage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-28">
+    <main className="min-h-screen bg-background pt-[140px] pb-24">
+      <div className="container-tight px-6 mb-12 mt-[20px]">
+        <Link 
+          href="/articles" 
+          className="inline-flex items-center gap-2 text-primary font-bold tracking-widest uppercase text-xs hover:gap-3 transition-all px-[20px] py-[10px] bg-primary/5 rounded-full"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          BACK TO ARTICLES
+        </Link>
+      </div>
+
       <ArticleHero
         title={article.title}
         author={article.author}
