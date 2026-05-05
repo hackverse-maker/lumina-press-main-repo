@@ -88,7 +88,7 @@ export const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-[15px] font-semibold text-foreground/70 hover:text-foreground transition-colors group"
+              className="relative text-[15px] font-[350] text-foreground/70 hover:text-foreground transition-colors group"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
@@ -153,7 +153,7 @@ export const Navbar = () => {
                       <Link
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="text-xl font-semibold text-foreground hover:text-primary transition-colors flex items-center justify-between group"
+                        className="text-[18px] font-[350] text-foreground hover:text-primary transition-colors flex items-center justify-between group"
                       >
                         {link.label}
                         <span className="h-1 w-0 bg-primary group-hover:w-8 transition-all duration-300" />
