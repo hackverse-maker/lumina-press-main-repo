@@ -33,31 +33,23 @@ export const CableFeatures = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="p-6 md:p-8 rounded-2xl bg-card border border-border transition-all duration-300"
             >
               <motion.div
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="h-14 w-14 rounded-xl bg-gradient-accent/20 flex items-center justify-center mb-4 group-hover:bg-gradient-accent/30 transition-colors duration-300"
+                className="h-14 w-14 rounded-xl bg-gradient-accent/20 flex items-center justify-center mb-4 transition-colors duration-300"
               >
                 <feature.icon className="h-7 w-7 text-accent" />
               </motion.div>
 
-              <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+              <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-2 transition-colors duration-300">
                 {feature.title}
               </h3>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>
-
-              {/* Hover glow effect */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="absolute -inset-4 bg-accent/5 rounded-2xl -z-10 blur-xl"
-              />
             </motion.div>
           ))}
         </div>
