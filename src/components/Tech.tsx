@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Cpu, Zap, Code2, ArrowUpRight, ShieldCheck, MousePointer2, Lock } from "lucide-react";
-const techImg = "/images/cyber-cable-hero.jpg";
+const techImg = "/images/cablepost.jpg.jpeg";
 
 const items = [
   { icon: ShieldCheck, title: "Secure Charging Mode", text: "Hardware-enforced protection that prevents juice jacking and unauthorized data access." },
@@ -13,7 +13,7 @@ const items = [
 
 export const Tech = () => {
   return (
-    <section id="tech" className="section-padding bg-background relative overflow-hidden">
+    <section id="tech" className="section-padding bg-[#0B121E] relative overflow-hidden border-t border-white/5">
       <div className="container-tight px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
           {/* Left: Content */}
@@ -27,8 +27,8 @@ export const Tech = () => {
             <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
               Hardware Security
             </span>
-            <h2 className="text-balance leading-tight">The Twelve Lords Cyber Cable. Total control over your data.</h2>
-            <p className="max-w-xl mx-auto lg:mx-0">
+            <h2 className="text-balance leading-tight text-white">The Twelve Lords Cyber Cable. Total control over your data.</h2>
+            <p className="max-w-xl mx-auto lg:mx-0 text-white/70">
               We've engineered security at the physical layer. Our Cyber Cable ensures your 
               devices remain protected from modern attack vectors while delivering peak performance.
             </p>
@@ -36,7 +36,7 @@ export const Tech = () => {
             <div className="pt-4">
               <Link
                 href="/tech"
-                className="btn-outline inline-flex items-center justify-center gap-2 text-sm w-full sm:w-auto"
+                className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 View Specifications <ArrowUpRight className="h-4 w-4" />
               </Link>
@@ -52,12 +52,12 @@ export const Tech = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex items-start gap-4 sm:gap-6 group"
                 >
-                  <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20">
                     <it.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">{it.title}</h3>
-                    <p className="text-sm text-foreground/70 leading-relaxed">{it.text}</p>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">{it.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{it.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -98,12 +98,12 @@ export const Tech = () => {
               className="relative rounded-2xl overflow-hidden border border-border shadow-premium bg-black p-[6px] sm:p-[10px] z-10 max-w-[400px] mx-auto lg:max-w-none"
             >
               <div className="relative w-full aspect-[2/3] rounded-xl overflow-hidden">
-                <img
-                  src={techImg}
-                  alt="Twelve Lords Cyber Cable"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
+                  <img
+                    src="/images/cablepost.jpg.jpeg"
+                    alt="Cyber Cable"
+                    loading="lazy"
+                    className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(var(--primary-rgb),0.3)] dark:drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
+                  />
                 
                 {/* Scanning Light Effect */}
                 <motion.div 

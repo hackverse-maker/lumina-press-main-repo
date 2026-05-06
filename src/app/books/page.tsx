@@ -42,7 +42,7 @@ import { BookList } from "@/components/BookList";
 
 export default async function BooksPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground pt-[140px] pb-24">
+    <main className="min-h-screen bg-background text-foreground pt-20 pb-24">
       {/* Header */}
       <header className="container-tight px-6 mb-32 text-center">
         <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 uppercase">

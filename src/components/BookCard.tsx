@@ -65,8 +65,8 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
           <span>{book.publishDate}</span>
         </div>
         <Link href={`/books/${book.id}`}>
-          <h3 className="font-display font-bold text-lg leading-tight group-hover:text-accent transition-colors duration-300 text-foreground">
-            {book.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{book.title.split(' ').pop()}</span>
+          <h3 className="font-display font-bold text-lg leading-tight transition-colors duration-300 text-black">
+            {book.title.split(' ').slice(0, -1).join(' ')} <span className="">{book.title.split(' ').pop()}</span>
           </h3>
         </Link>
         <p className="text-sm font-medium text-foreground/80 mt-1">{book.author}</p>
@@ -98,7 +98,7 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
               <button 
                 onClick={handleAddToCart}
                 disabled={cart.some(b => b.id === book.id)}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-bold hover:shadow-accent-glow transition-all disabled:opacity-50"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#252121] text-white text-sm font-bold transition-all duration-300 hover:bg-primary hover:text-black hover:shadow-glow disabled:opacity-50"
               >
                 {added ? <Check className="h-4 w-4" /> : <ShoppingCart className="h-4 w-4" />}
                 {cart.some(b => b.id === book.id) ? "In Cart" : "Buy Now"}
@@ -114,7 +114,7 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
             
             <a 
               href={`/books/${book.id}`}
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-border text-xs font-bold text-muted-foreground hover:text-accent hover:border-accent/40 transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border-2 border-[#252121] text-[#252121] text-xs font-bold transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black"
             >
               View Full Details
             </a>

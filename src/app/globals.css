@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 185 19% 88%;
     --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 41 98% 53%; /* #FDB511 */
+    --primary: 20 89% 54%; /* #f26822 */
     --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 96%;
@@ -24,26 +24,28 @@
     --muted: 0 0% 60%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 41 98% 53%; /* #FDB511 */
+    --accent: 20 89% 54%; /* #f26822 */
     --accent-foreground: 0 0% 0%;
-    --accent-glow: 41 98% 60%;
+    --accent-glow: 20 89% 60%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 90%;
     --input: 0 0% 92%;
-    --ring: 41 98% 53%;
+    --ring: 20 89% 54%;
 
     --radius: 1rem; /* 16px corners as per SaaS style */
 
   /* Shadows */
     --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
     --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-    --shadow-glow: 0 0 20px -5px rgba(253, 181, 17, 0.4);
+    --shadow-glow: 0 0 20px -5px rgba(242, 104, 34, 0.4);
 
     /* Transitions */
     --t-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --cc-font-family: "Source Serif Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
 
@@ -59,21 +61,22 @@
 
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden;
-    font-family: 'Lora', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(14px, 2vw, 18px);
     line-height: 1.6;
     transition: background-color 0.5s var(--t-smooth), color 0.5s var(--t-smooth);
   }
 
-  /* Force UI elements to use Inter */
+  /* Force UI elements to use Montserrat */
   button, input, select, textarea, .font-sans {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   /* Fluid Typography Hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lora', serif;
+    font-family: 'Montserrat', sans-serif;
     @apply font-bold leading-[1.1] tracking-tight mb-8;
+    color: #000000;
     word-break: keep-all;
     overflow-wrap: normal;
   }
@@ -126,11 +129,15 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full hover:scale-105 active:scale-95 shadow-soft hover:shadow-glow w-full sm:w-auto transition-all;
+    @apply bg-[#252121] text-white px-6 py-3 rounded-full shadow-soft w-full sm:w-auto transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-primary text-black shadow-glow;
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-full hover:bg-primary/5 transition-colors w-full sm:w-auto;
+    @apply border-2 border-[#252121] text-[#252121] px-6 py-3 rounded-full hover:bg-primary hover:border-primary hover:text-black transition-all duration-300 w-full sm:w-auto;
   }
 
   .font-playfair {
@@ -142,7 +149,7 @@
   }
 
   .text-shadow-glow {
-    text-shadow: 0 0 20px rgba(253, 181, 17, 0.3);
+    text-shadow: 0 0 20px rgba(242, 104, 34, 0.3);
   }
 
   .shadow-glow {

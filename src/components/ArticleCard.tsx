@@ -39,8 +39,8 @@ export const ArticleCard = ({ article, index = 0 }: ArticleCardProps) => {
         </div>
         
         <Link href={`/articles/${article.slug}`}>
-          <h2 className="font-display font-bold leading-tight group-hover:text-primary transition-colors duration-300 text-foreground">
-            {article.title.split(' ').slice(0, -1).join(' ')} <span className="text-primary italic">{article.title.split(' ').pop()}</span>
+          <h2 className="font-display font-bold leading-tight transition-colors duration-300 text-black">
+            {article.title.split(' ').slice(0, -1).join(' ')} <span className="">{article.title.split(' ').pop()}</span>
           </h2>
         </Link>
         

@@ -91,8 +91,8 @@ export default function ArticlePage() {
 
           {/* Detailed Threat Analysis Section */}
           <div className="mt-20 pt-12 border-t border-border/50">
-            <h2 className="font-display font-bold mb-8 text-foreground text-center sm:text-left">
-              Detailed Threat <span className="text-primary italic">Analysis</span>
+            <h2 className="font-display font-bold mb-8 text-black text-center sm:text-left">
+              Detailed Threat <span className="text-primary">Analysis</span>
             </h2>
             
             <div className="space-y-12 sm:space-y-16">

@@ -61,7 +61,7 @@ export default function CorporalPunishmentArticle() {
             Neuroscience reinforces this concern. Research highlighted by the Harvard Center on the Developing Child explains how prolonged exposure to stress in childhood—often referred to as “toxic stress”—can affect brain development, particularly in areas related to learning, memory, and emotional control. In simple terms, a child who learns in fear is not just emotionally affected; their ability to think, focus, and create may also be compromised.
           </p>
 
-          <blockquote className="border-l-4 border-primary pl-6 my-12 italic text-2xl font-semibold text-foreground">
+          <blockquote className="border-l-4 border-primary pl-6 my-12 text-2xl font-semibold text-foreground">
             "This raises a difficult question: how can a child be expected to learn effectively in an environment where they feel unsafe?"
           </blockquote>
 

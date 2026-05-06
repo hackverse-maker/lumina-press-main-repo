@@ -38,7 +38,7 @@ export const books: Book[] = [
     id: "self-as-witness",
     title: "THE SELF AS WITNESS",
     subtitle: "Exploring How the Self Becomes Both Subject and Suspect in Its Own Gaze",
-    author: "Raza",
+    author: "Muhammad Raza",
     genre: "Non-Fiction",
     publishDate: "2026",
     description: "The Self as Witness explores the timeless struggle for self-mastery—the internal battle that has defined the human condition across history. Drawing from the wisdom of great thinkers, it distills profound philosophies into a clear, practical framework. Rather than remaining abstract, this book transforms ancient insight into actionable discipline, guiding you to apply self-awareness and control in your everyday life.",
@@ -47,10 +47,10 @@ export const books: Book[] = [
       "Deep Self-Awareness and Insight",
       "A Structured Strategy for Inner Mastery"
     ],
-    image: "/images/books/self-as-witness-clean.png",
+    image: "/images/books/self-as-witness.png",
     featured: true,
     gallery: [
-      "/images/books/self-as-witness-clean.png",
+      "/images/books/self-as-witness.png",
       "/images/books/self-as-witness-perspective.png",
       "/images/books/self-as-witness-desk.png"
     ]
@@ -116,7 +116,7 @@ export const books: Book[] = [
     publishDate: "2026",
     genre: "Security Hardware",
     description: "Secure Charging. Controlled Data. Total Protection.",
-    image: "/images/cyber-cable-hero.jpg",
+    image: "/images/cablepost.jpg.jpeg",
     benefits: [
       "Hardware-level data isolation",
       "60W Fast Charging",

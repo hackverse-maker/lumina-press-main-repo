@@ -62,9 +62,9 @@ export const BecomeWriter = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto"
+            className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto text-black"
           >
-            Become a <span className="text-gradient-accent">Writer</span>
+            Become a <span className="">Writer</span>
           </motion.h2>
 
           <motion.p
@@ -87,7 +87,7 @@ export const BecomeWriter = () => {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-8 py-4 font-semibold shadow-accent-glow hover:scale-105 transition-transform animate-pulse-glow"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#252121] text-white px-8 py-4 font-semibold shadow-soft transition-all duration-300 hover:bg-primary hover:text-black"
             >
               <PenLine className="h-5 w-5" />
               Start Writing
@@ -95,7 +95,7 @@ export const BecomeWriter = () => {
             </Link>
             <Link
               href="/articles"
-              className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 font-semibold hover:bg-accent/10 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#252121] text-[#252121] px-8 py-4 font-semibold transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black"
             >
               See examples
             </Link>

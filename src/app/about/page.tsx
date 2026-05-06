@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background pt-24 sm:pt-32">
+    <main className="min-h-screen bg-background pt-20">
       {/* Simple Hero */}
       <section className="relative w-full py-16 sm:py-20 flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-4 sm:px-6">
-          <h1 className="font-display font-bold mb-4 text-foreground">
-            About <span className="text-primary italic">Us</span>
+          <h1 className="font-display font-bold mb-4 text-black">
+            About <span className="">Us</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             Empowering the next generation of tech writers and thinkers.
@@ -32,8 +32,8 @@ export default function AboutPage() {
               className="space-y-8 text-center lg:text-left"
             >
               <div>
-                <h2 className="font-display font-bold mb-8 text-foreground">
-                  Our <span className="text-primary italic">Purpose</span>
+                <h2 className="font-display font-bold mb-8 text-black">
+                  Our <span className="">Purpose</span>
                 </h2>
                 
                 <div className="space-y-6 text-muted-foreground leading-relaxed text-base sm:text-lg font-medium max-w-2xl mx-auto lg:mx-0">

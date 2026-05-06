@@ -50,7 +50,7 @@ export const Knowledge = () => {
               <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
                 Research & Development
               </span>
-              <h2 className="text-balance leading-tight">Security insights that build lasting resilience.</h2>
+              <h2 className="text-balance leading-tight text-black">Security insights that build lasting resilience.</h2>
               <p className="max-w-xl mx-auto lg:mx-0">
                 We distill complex security concepts and industry trends into actionable 
                 knowledge blocks designed for modern technical teams and decision-makers.
@@ -83,7 +83,7 @@ export const Knowledge = () => {
                 <b.icon className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-bold mb-3">{b.title}</h3>
+                <h3 className="font-bold mb-3 text-black">{b.title}</h3>
                 <p className="text-sm text-foreground/70 mb-0 leading-relaxed">{b.text}</p>
               </div>
             </motion.div>

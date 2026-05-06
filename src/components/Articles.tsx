@@ -1,100 +1,88 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { articles } from "@/lib/data";
+import Link from "next/link";
+import { ArrowRight, Calendar, User } from "lucide-react";
 
 export const Articles = () => {
-  const article = {
-    title: "As Cyber Threats Accelerate, Human Awareness Remains the Critical Weakness",
-    author: "Muhammad Raza",
-    date: "Apr 21, 2026",
-    description: "Discover why human awareness is the most critical defense against evolving cyber threats and how organizations can build stronger security cultures.",
-  };
+  // Showcase the first 3 articles on the landing page
+  const featuredArticles = articles.slice(0, 3);
 
   return (
-    <section id="articles" className="relative min-h-screen flex items-center py-20 md:py-0">
-      <div className="w-full">
-        <div className="flex flex-col md:flex-row items-center gap-0">
-          {/* LEFT SIDE - 40% */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+    <section id="articles" className="section-padding bg-[#FDFBF7] relative overflow-hidden">
+      <div className="container-tight relative z-10">
+        {/* Section Header */}
+        <div className="mb-16 text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="w-full md:w-2/5 px-6 md:px-12 py-16 md:py-20 flex flex-col justify-center"
+            transition={{ duration: 0.5 }}
+            className="inline-block text-red-600 text-sm font-bold tracking-[0.2em] uppercase mb-4"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-block text-accent text-sm font-semibold tracking-widest uppercase w-fit"
-            >
-              Featured Article
-            </motion.span>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 font-display font-bold text-4xl md:text-5xl leading-tight text-foreground"
-            >
-              {article.title}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-muted-foreground leading-relaxed text-lg max-w-md"
-            >
-              {article.description}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 flex flex-col gap-2 text-sm"
-            >
-              <p className="text-foreground font-semibold">
-                By <span className="text-accent">{article.author}</span>
-              </p>
-              <p className="text-muted-foreground">
-                Published on {article.date}
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT SIDE - 60% */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            Latest Insights
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            className="w-full md:w-3/5 h-full min-h-[400px] md:min-h-screen relative overflow-hidden"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-black mx-auto"
           >
-            <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full h-full relative"
-            >
-              <img
-                src="/images/article.jpg"
-                alt={article.title}
-                className="w-full h-full object-cover"
-              />
-              {/* Glow overlay */}
-              <motion.div
-                animate={{ opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent"
-              />
-            </motion.div>
-          </motion.div>
+            Thought, Technology & the Modern World
+          </motion.h2>
         </div>
+
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y-4 border-black/10 text-center">
+          {featuredArticles.map((article, index) => (
+            <motion.div
+              key={article.slug}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`relative group p-8 md:p-10 lg:p-12 ${
+                index < featuredArticles.length - 1 ? "md:border-r-4 border-black/10" : ""
+              }`}
+            >
+              <Link href={`/articles/${article.slug}`} className="block h-full flex flex-col items-center">
+                <div className="flex items-center justify-center gap-4 text-[10px] font-bold text-black/50 uppercase tracking-widest mb-6">
+                  <span className="flex items-center gap-1.5"><User className="w-3 h-3 text-red-600" /> {article.author}</span>
+                  <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3 text-red-600" /> {article.publishDate}</span>
+                </div>
+                
+                <h3 className="text-xl lg:text-2xl font-bold text-black group-hover:text-red-600 transition-colors duration-300 leading-tight mb-6">
+                  {article.title}
+                </h3>
+                
+                <p className="text-black/70 leading-relaxed text-sm lg:text-base line-clamp-4 mb-8">
+                  {article.preview}
+                </p>
+                
+                <div className="mt-auto pt-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-black/40 group-hover:text-red-600 group-hover:gap-4 transition-all">
+                  Read More <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Read All Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-16 flex justify-center"
+        >
+          <Link href="/articles">
+            <button className="bg-red-600 text-white hover:bg-red-700 px-10 py-4 flex items-center justify-center gap-3 text-base font-bold rounded-full transition-all">
+              Read Articles <ArrowRight className="w-5 h-5" />
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

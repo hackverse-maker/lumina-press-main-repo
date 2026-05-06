@@ -135,7 +135,7 @@ export const ArticleHighlight = ({
             <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
               Featured Case Study
             </span>
-            <h2 className="mb-0">{heading}</h2>
+            <h2 className="mb-0 text-black">{heading}</h2>
           </motion.div>
           
           {showMoreLink && (
@@ -175,7 +175,7 @@ export const ArticleHighlight = ({
                   <span>Security Protocol Verified</span>
                 </motion.div>
 
-                <h3 className="font-extrabold leading-tight tracking-tight text-foreground">
+                <h3 className="font-extrabold leading-tight tracking-tight text-black">
                   {articleTitle}
                 </h3>
 

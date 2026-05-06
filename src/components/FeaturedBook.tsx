@@ -62,8 +62,8 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                     <span className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
                   </motion.div>
 
-                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-display font-black leading-tight text-foreground tracking-tighter">
-                    {book.title.split(' ').slice(0, -1).join(' ')} <span className="text-accent underline decoration-accent/20 underline-offset-8 decoration-4">{book.title.split(' ').pop()}</span>
+                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-display font-black leading-tight text-black tracking-tighter">
+                    {book.title.split(' ').slice(0, -1).join(' ')} <span className="">{book.title.split(' ').pop()}</span>
                   </h2>
 
                   {book.subtitle && (
@@ -81,7 +81,7 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                   <button 
                     onClick={handleAddToCart}
                     disabled={cart.some(b => b.title === book.title)}
-                    className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-accent text-white font-black text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] disabled:opacity-50"
+                    className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-[#252121] text-white font-black text-lg transition-all duration-300 hover:bg-primary hover:text-black disabled:opacity-50 shadow-soft hover:shadow-glow"
                   >
                     {added ? <Check className="h-6 w-6" /> : <ShoppingCart className="h-6 w-6" />}
                     {cart.some(b => b.title === book.title) ? "In Cart" : "Buy Now"}
@@ -89,16 +89,16 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                   
                   <button 
                     onClick={() => toggleFavorite(book)}
-                    className={`flex items-center gap-3 px-10 py-5 rounded-2xl border border-white/10 font-black text-lg transition-all hover:bg-white/5 ${isFavorite(book.id) ? "text-accent bg-accent/5 border-accent/20" : "text-foreground"}`}
+                    className={`flex items-center gap-3 px-10 py-5 rounded-2xl border-2 border-[#252121] font-black text-lg transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black ${isFavorite(book.id) ? "text-primary border-primary" : "text-[#252121]"}`}
                   >
-                    <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-accent text-accent" : ""}`} />
+                    <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-primary text-primary" : ""}`} />
                     {isFavorite(book.id) ? "Favorited" : "Save"}
                   </button>
 
                   <Link href={`/books/${book.id}`}>
-                    <Button variant="outline" className="px-10 py-5 rounded-2xl border-white/10 text-foreground font-black text-lg h-auto hover:bg-white/5 hover:text-accent group">
+                    <button className="px-10 py-5 rounded-2xl border-2 border-[#252121] text-[#252121] font-black text-lg h-auto transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black group">
                       Details <Info className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                    </Button>
+                    </button>
                   </Link>
                 </div>
               </div>

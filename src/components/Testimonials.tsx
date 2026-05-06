@@ -13,7 +13,7 @@ const Card = ({ t }: { t: typeof testimonials[number] }) => (
   <div className="w-[280px] sm:w-[340px] shrink-0 card-premium mx-2 sm:mx-3 flex flex-col justify-between transition-transform duration-500 hover:-translate-y-1">
     <div>
       <Quote className="h-5 sm:h-6 w-5 sm:w-6 text-primary mb-4 sm:mb-6 opacity-50" />
-      <p className="text-foreground/90 text-sm sm:text-base leading-relaxed font-medium italic">"{t.text}"</p>
+      <p className="text-foreground/90 text-sm sm:text-base leading-relaxed font-medium">"{t.text}"</p>
     </div>
     <div className="mt-6 sm:mt-8 flex items-center justify-between border-t border-border/50 pt-4 sm:pt-6">
       <div>

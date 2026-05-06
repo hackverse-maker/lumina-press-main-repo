@@ -19,10 +19,10 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-32 md:pt-40"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32"
     >
       {/* Clean Background with Subtle Texture */}
-      <div className="absolute inset-0 bg-[#FAF9F6] dark:bg-[#0A0A0A] -z-10" />
+      <div className="absolute inset-0 bg-background -z-10" />
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none -z-10" />
       
       {/* Dynamic Orbit Lines */}
@@ -34,33 +34,18 @@ export const Hero = () => {
         </svg>
       </div>
 
-      <div className="container-tight relative z-10 w-full px-4 sm:px-6">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          {/* Content Left */}
-          <div className="max-w-4xl relative z-20 w-full text-center lg:text-left">
-            {/* Subheader with Icon */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex items-center justify-center lg:justify-start gap-3 mb-8"
-            >
-              <ShieldCheck className="h-5 w-5 text-primary" />
-              <span className="text-[10px] sm:text-[12px] font-bold tracking-[0.4em] uppercase text-foreground/60">
-                Data Sovereignty & Wisdom
-              </span>
-            </motion.div>
-
+      <div className="relative z-10 w-full px-4 sm:px-12">
+        <div className="flex flex-col items-center justify-center text-center">
+          {/* Content */}
+          <div className="relative z-20 w-full flex flex-col items-center">
             {/* Main Title */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-black leading-[1.1] text-foreground mb-10 tracking-tighter"
+              className="font-black leading-[1.1] text-black mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
             >
-              Master Your <br className="hidden sm:block" />
-              <span className="text-primary italic">Digital Frontier</span> With <br className="hidden sm:block" />
-              Timeless Truths
+              Master Your <span className="">Digital Frontier</span> With Timeless Truths
             </motion.h1>
 
             {/* Paragraph */}
@@ -68,7 +53,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-foreground/70 leading-relaxed max-w-2xl mb-12 mx-auto lg:mx-0 text-base sm:text-lg font-medium"
+              className="text-foreground/70 leading-relaxed w-full mb-12 text-base sm:text-lg font-medium"
             >
               Twelve Lords explores the architecture of the modern world. From hardware-level security to philosophical deep-dives, we provide the clarity needed to navigate a complex future.
             </motion.p>
@@ -78,13 +63,13 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             >
               <Link
                 href="/tech"
                 className="btn-primary flex items-center justify-center gap-3 px-10 py-4 text-base font-bold rounded-full w-full sm:w-auto"
               >
-                Secure Your Data
+                Learn about Tech
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
@@ -95,58 +80,33 @@ export const Hero = () => {
               </Link>
             </motion.div>
 
-            {/* Bottom Text */}
+            {/* Subheader with Icon (Moved) */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="mt-16 flex items-center justify-center lg:justify-start gap-3 text-foreground/50"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col items-center justify-center gap-3 mt-10 mb-2"
             >
-              <Sparkles className="h-4 w-4 text-primary fill-primary" />
-              <span className="text-[10px] font-bold uppercase tracking-widest">
-                Trusted by security professionals worldwide.
-              </span>
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="h-5 w-5 text-black" />
+                <span className="text-[10px] sm:text-[12px] font-bold tracking-[0.4em] uppercase text-foreground/60">
+                  Data Sovereignty & Wisdom
+                </span>
+              </div>
+              <motion.span 
+                animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? 10 : 0 }}
+                transition={{ duration: 0.4 }}
+                className="text-[10px] sm:text-[11px] font-black tracking-[0.3em] uppercase text-foreground/40 mt-1"
+              >
+                SCROLL TO DISCOVER
+              </motion.span>
             </motion.div>
-          </div>
 
-          {/* Planet Graphic */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="relative flex items-center justify-center w-full lg:w-auto"
-          >
-            <div className="relative w-full aspect-square max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] pointer-events-none">
-              <img 
-                src="/planet.png" 
-                alt="Saturn Graphic" 
-                className="w-full h-full object-contain drop-shadow-[0_0_80px_rgba(253,181,17,0.2)] animate-float mix-blend-multiply dark:mix-blend-screen"
-              />
-            </div>
-          </motion.div>
+
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <AnimatePresence>
-        {!scrolled && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground/40">Scroll to discover</span>
-            <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <ChevronDown className="h-5 w-5 text-primary" />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

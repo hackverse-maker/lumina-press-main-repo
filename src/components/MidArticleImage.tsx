@@ -40,7 +40,7 @@ export const MidArticleImage = ({ imagePath, caption }: MidArticleImageProps) =>
       </div>
 
       {caption && (
-        <p className="text-center text-sm text-muted-foreground mt-4 italic">
+        <p className="text-center text-sm text-muted-foreground mt-4">
           {caption}
         </p>
       )}

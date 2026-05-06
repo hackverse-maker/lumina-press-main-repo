@@ -55,7 +55,7 @@ export const BookList = ({ books }: BookListProps) => {
               <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs block">
                 {book.genre || "Featured Publication"}
               </span>
-              <h2 className="font-extrabold tracking-tight leading-[1.1] uppercase italic">
+              <h2 className="font-extrabold tracking-tight leading-[1.1] uppercase">
                 {book.title}
               </h2>
               <div className="text-base sm:text-lg font-bold text-foreground/80">

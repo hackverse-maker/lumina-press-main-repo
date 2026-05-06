@@ -30,9 +30,9 @@ export const ArticleHero = ({
             className="space-y-6 text-center lg:text-left"
           >
             <div>
-              <h1 className="font-bold leading-tight text-foreground">
+              <h1 className="font-bold leading-tight text-black">
                 {title.split(' ').slice(0, -1).join(' ')} 
-                <span className="text-primary italic"> {title.split(' ').pop()}</span>
+                <span className=""> {title.split(' ').pop()}</span>
               </h1>
             </div>
 

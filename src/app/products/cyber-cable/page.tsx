@@ -52,16 +52,9 @@ export default function CyberCableProductPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-hidden">
-      {/* High-tech Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.05),transparent_70%)]" />
-        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" 
-             style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-      </div>
-
       <div className="relative z-10">
         {/* Navigation */}
-        <div className="container-tight pt-24 pb-8">
+        <div className="container-tight pt-16 pb-8">
           <motion.button 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -84,7 +77,7 @@ export default function CyberCableProductPage() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
               <img 
-                src="/images/cyber-cable-hero.jpg" 
+                src="/images/cablepost.jpg.jpeg" 
                 alt="Twelve Lords Cyber Cable" 
                 className="w-[85%] h-[85%] object-contain filter drop-shadow-[0_0_50px_rgba(253,181,17,0.3)] transition-transform duration-700 group-hover:scale-110"
               />
@@ -102,12 +95,12 @@ export default function CyberCableProductPage() {
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Hardware-Level Security</span>
                 </div>
-                <h1 className="font-display font-black leading-tight tracking-tighter">
-                  Twelve Lords <span className="text-primary italic">Cyber Cable</span>
+                <h1 className="font-display font-black leading-tight tracking-tighter text-black">
+                  Twelve Lords <span className="">Cyber Cable</span>
                 </h1>
-                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-foreground/90 leading-tight">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-black leading-tight">
                   Secure Charging. Controlled Data. <br className="hidden sm:block" />
-                  <span className="text-primary">Total Protection.</span>
+                  <span>Total Protection.</span>
                 </p>
               </motion.div>
 
@@ -159,14 +152,14 @@ export default function CyberCableProductPage() {
           
           {/* Introduction */}
           <motion.div {...fadeIn} className="max-w-3xl mx-auto space-y-6 text-center lg:text-left">
-            <h2 className="font-display font-bold">Introduction — Our Technology</h2>
+            <h2 className="font-display font-bold text-black">Introduction — Our Technology</h2>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               At Twelve Lords, we design hardware with security at its core. The Cyber Cable is built to address a fundamental weakness in modern connectivity: the automatic trust placed in USB connections.
             </p>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               Conventional cables allow unrestricted power and data flow, exposing devices to potential threats the moment they are plugged into an unknown source. The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
             </p>
-            <p className="text-primary font-bold italic text-lg sm:text-xl border-l-2 border-primary pl-6 py-2 w-fit mx-auto lg:mx-0">
+            <p className="text-primary font-bold text-lg sm:text-xl border-l-2 border-primary pl-6 py-2 w-fit mx-auto lg:mx-0">
               This approach transforms a simple accessory into a controlled security interface.
             </p>
           </motion.div>
@@ -174,7 +167,7 @@ export default function CyberCableProductPage() {
           {/* Threat Landscape */}
           <motion.div {...fadeIn} className="space-y-10 sm:space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="font-display font-bold">Threat Landscape</h2>
+              <h2 className="font-display font-bold text-black">Threat Landscape</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">Public and untrusted USB connections can be exploited through multiple attack methods.</p>
             </div>
             
@@ -198,7 +191,7 @@ export default function CyberCableProductPage() {
           {/* Secure Design Architecture */}
           <motion.div {...fadeIn} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6 sm:space-y-8 order-last lg:order-first">
-              <h2 className="font-display font-bold">Secure Design Architecture</h2>
+              <h2 className="font-display font-bold text-black">Secure Design Architecture</h2>
               <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
                 The Cyber Cable is engineered with a hardware-level control mechanism that governs data transmission independently of power delivery.
               </p>
@@ -225,11 +218,11 @@ export default function CyberCableProductPage() {
 
           {/* Product Specifications */}
           <motion.div {...fadeIn} className="space-y-8 bg-secondary/20 p-6 sm:p-10 md:p-16 rounded-[2rem] sm:rounded-[3rem] border border-border/50">
-            <h2 className="font-display font-bold text-center">Product Specifications</h2>
+            <h2 className="font-display font-bold text-center text-black">Product Specifications</h2>
             
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="space-y-4">
-                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Variants</h3>
+                <h3 className="font-black uppercase tracking-widest text-[10px] sm:text-xs text-black">Variants</h3>
                 <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>USB-A to Lightning</li>
                   <li>USB-A to USB-C</li>
@@ -238,7 +231,7 @@ export default function CyberCableProductPage() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Power</h3>
+                <h3 className="font-black uppercase tracking-widest text-[10px] sm:text-xs text-black">Power</h3>
                 <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>Up to 60W fast charging</li>
                   <li>PD Compatible</li>
@@ -246,7 +239,7 @@ export default function CyberCableProductPage() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Length & Build</h3>
+                <h3 className="font-black uppercase tracking-widest text-[10px] sm:text-xs text-black">Length & Build</h3>
                 <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>1 meter / 2 meters</li>
                   <li>Black / White options</li>
@@ -254,7 +247,7 @@ export default function CyberCableProductPage() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-primary font-black uppercase tracking-widest text-[10px] sm:text-xs">Protection</h3>
+                <h3 className="font-black uppercase tracking-widest text-[10px] sm:text-xs text-black">Protection</h3>
                 <ul className="text-xs sm:text-sm space-y-2 text-muted-foreground font-medium">
                   <li>Physical data switch</li>
                   <li>EMI Shielding</li>

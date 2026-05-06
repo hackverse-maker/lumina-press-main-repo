@@ -24,12 +24,11 @@ export const CyberCableSection = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-background border-y border-border/50" id="cyber-cable">
-      {/* Dynamic Theme Background */}
-      <div className="absolute inset-0 dark:bg-slate-950 bg-slate-50 opacity-100" />
+    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-[#0B121E] border-y border-white/5" id="cyber-cable">
+      {/* Clean Background */}
       
       {/* Background Digital Grid */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-10 pointer-events-none" 
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-tight relative z-10">
@@ -43,57 +42,56 @@ export const CyberCableSection = () => {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-[0.2em]">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Security Hardware-Level</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-display font-black leading-tight text-foreground tracking-tighter">
-                Twelve Lords <span className="text-accent italic">Cyber Cable</span>
+              <h2 className="text-4xl md:text-6xl font-display font-black leading-tight text-white tracking-tighter">
+                Twelve Lords <span className="">Cyber Cable</span>
               </h2>
             </div>
 
             <div className="space-y-6">
-              <p className="text-xl md:text-2xl font-bold text-foreground leading-tight">
-                Secure Charging. Controlled Data. <span className="text-accent underline decoration-accent/20 underline-offset-8">Total Protection.</span>
+              <p className="text-xl md:text-2xl font-bold text-white leading-tight">
+                Secure Charging. Controlled Data. <span className="">Total Protection.</span>
               </p>
 
-              <p className="text-muted-foreground leading-relaxed text-lg font-medium">
+              <p className="text-white/70 leading-relaxed text-lg font-medium">
                 Our team of engineers developed the Cyber Cable to eliminate "Juice Jacking" and data theft at the physical layer. By hardware-enforcing a charge-only default, we ensure your privacy is never compromised in public charging environments.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-6 pt-4">
                <div className="space-y-2">
-                 <div className="flex items-center gap-2 text-foreground font-bold text-sm">
-                   <Lock className="w-4 h-4 text-accent" />
+                 <div className="flex items-center gap-2 text-white font-bold text-sm">
+                   <Lock className="w-4 h-4 text-primary" />
                    <span>HID Protection</span>
                  </div>
-                 <p className="text-xs text-muted-foreground">Blocks malicious keyboard injection attacks via USB.</p>
+                 <p className="text-xs text-white/50">Blocks malicious keyboard injection attacks via USB.</p>
                </div>
                <div className="space-y-2">
-                 <div className="flex items-center gap-2 text-foreground font-bold text-sm">
-                   <Zap className="w-4 h-4 text-accent" />
+                 <div className="flex items-center gap-2 text-white font-bold text-sm">
+                   <Zap className="w-4 h-4 text-primary" />
                    <span>60W Fast Charge</span>
                    </div>
-                 <p className="text-xs text-muted-foreground">High-speed power delivery without security compromise.</p>
+                 <p className="text-xs text-white/50">High-speed power delivery without security compromise.</p>
                </div>
             </div>
 
             <div className="pt-6 flex flex-wrap gap-4">
               <button 
                 onClick={() => router.push('/products/cyber-cable')}
-                className="group relative px-8 py-4 rounded-2xl bg-secondary/50 backdrop-blur-sm border border-border text-foreground font-bold text-base transition-all hover:bg-secondary/80"
+                className="group relative px-8 py-4 rounded-2xl border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black"
               >
                 Learn More
               </button>
 
               <button 
                 onClick={handleAddToCart}
-                className="group relative px-8 py-4 rounded-2xl bg-accent text-white font-black text-base transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] flex items-center gap-2"
+                className="group relative px-8 py-4 rounded-2xl bg-white text-black font-black text-base transition-all duration-300 hover:bg-primary hover:text-black hover:shadow-glow flex items-center gap-2"
               >
                 <ShoppingBag className="w-5 h-5" />
                 <span>{isInCart ? "In Cart" : "Add to Cart"}</span>
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-2xl" />
               </button>
             </div>
           </motion.div>
@@ -126,7 +124,7 @@ export const CyberCableSection = () => {
                  className="w-full h-full relative"
                >
                  <img
-                    src="/images/cyber-cable-hero.jpg"
+                    src="/images/cablepost.jpg.jpeg"
                     alt="Cyber Cable"
                     loading="lazy"
                     className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(var(--primary-rgb),0.3)] dark:drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
@@ -172,14 +170,14 @@ export const CyberCableSection = () => {
             </div>
 
             {/* UI Overlays */}
-            <div className="absolute top-12 left-12 font-mono text-[10px] text-primary/60 dark:text-accent/40 space-y-1">
+            <div className="absolute top-12 left-12 font-mono text-[10px] text-primary/80 space-y-1">
                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-primary rounded-full animate-pulse"/> SECURE_LINK_ACTIVE</div>
                <div>VOLTAGE_FLUX: STABLE</div>
             </div>
             
-            <div className="absolute bottom-12 right-12 font-mono text-[10px] text-primary/60 dark:text-accent/40 text-right space-y-1">
+            <div className="absolute bottom-12 right-12 font-mono text-[10px] text-primary/80 text-right space-y-1">
                <div>PROTO: XII_LORDS_V1</div>
-               <div className="dark:text-accent/60 text-primary/80">ENCRYPTION: HARDWARE_FORCED</div>
+               <div className="text-primary/100">ENCRYPTION: HARDWARE_FORCED</div>
             </div>
           </motion.div>
         </div>

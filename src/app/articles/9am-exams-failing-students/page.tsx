@@ -48,7 +48,7 @@ export default function ExamsArticle() {
                 className="object-cover opacity-80"
               />
             </div>
-            <figcaption className="mt-4 text-sm text-foreground/60 text-center italic">
+            <figcaption className="mt-4 text-sm text-foreground/60 text-center">
               Historical roots: The traditional examination model has changed little since its origins in scholarly halls.
             </figcaption>
           </figure>
@@ -75,7 +75,7 @@ export default function ExamsArticle() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-4 text-sm text-foreground/60 text-center italic">
+            <figcaption className="mt-4 text-sm text-foreground/60 text-center">
               The modern reality: Students performing high-stakes cognitive tasks while battling biological sleep pressure.
             </figcaption>
           </figure>
@@ -88,7 +88,7 @@ export default function ExamsArticle() {
             When we ignore these biological realities, we undermine the very meritocracy we claim to uphold. If a student with the same level of knowledge performs worse simply because their brain functions better at 2:00 p.m. than at 9:00 a.m., the exam has failed as a fair measure of ability.
           </p>
 
-          <blockquote className="border-l-4 border-primary pl-6 my-12 italic text-2xl font-semibold text-foreground">
+          <blockquote className="border-l-4 border-primary pl-6 my-12 text-2xl font-semibold text-foreground">
             "It is bias, dressed up as fairness."
           </blockquote>
 

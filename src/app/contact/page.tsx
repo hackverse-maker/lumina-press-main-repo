@@ -30,11 +30,11 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-24 sm:pt-32">
+    <main className="min-h-screen bg-background pt-20">
       <section className="relative w-full py-16 sm:py-20 flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-4 sm:px-6">
-          <h1 className="font-display font-bold mb-4 text-foreground">
-            Get in <span className="text-primary italic">Touch</span>
+          <h1 className="font-display font-bold mb-4 text-black">
+            Get in <span className="">Touch</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             We're here to help you anytime.
@@ -64,7 +64,7 @@ export default function ContactPage() {
                   <Mail className="h-6 w-6 text-primary" />
                 </motion.div>
 
-                <h3 className="text-lg sm:text-xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-display font-bold text-black mb-2 transition-colors duration-300">
                   {item.title}
                 </h3>
 
@@ -90,8 +90,8 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
             <form className="glass rounded-3xl p-6 sm:p-8 border border-border" onSubmit={handleSubmit}>
-              <h2 className="font-display font-bold mb-8 text-foreground text-center">
-                Send us a <span className="text-primary italic">Message</span>
+              <h2 className="font-display font-bold mb-8 text-black text-center">
+                Send us a <span className="">Message</span>
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -150,9 +150,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-4 rounded-xl bg-primary text-white font-bold hover:shadow-primary transition-all"
+                className="w-full py-4 rounded-xl bg-[#252121] text-white font-bold transition-all duration-300 hover:bg-primary hover:text-black hover:shadow-glow"
               >
                 Send Message
               </motion.button>

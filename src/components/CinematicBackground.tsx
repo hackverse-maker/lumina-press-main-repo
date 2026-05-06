@@ -85,8 +85,8 @@ export const CinematicBackground = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background" />
       
       {/* Warm Glow highlights */}
-      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#FDB511]/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#FDB511]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#f26822]/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#f26822]/5 blur-[120px] rounded-full pointer-events-none" />
     </div>
   );
 };

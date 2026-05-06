@@ -56,29 +56,9 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col ${
-        scrolled ? "bg-background/80 backdrop-blur-xl shadow-glass border-b border-border/50" : "bg-transparent"
-      }`}
+      className="fixed top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-white shadow-sm border-b border-border/50"
     >
-      {/* Social Top Bar */}
-      <div className="hidden sm:flex w-full py-1.5 bg-background/50 backdrop-blur-sm border-b border-border/30 justify-center items-center gap-6">
-        {social.map((s, i) => (
-          <a
-            key={i}
-            href={s.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={s.label}
-            className={`transition-all duration-300 flex items-center hover:opacity-100 opacity-70 hover:scale-110 ${s.color}`}
-          >
-            <s.icon className="h-4 w-4" />
-          </a>
-        ))}
-      </div>
-
-      <div className={`w-full px-8 sm:px-16 flex items-center justify-between transition-all duration-500 ${
-        scrolled ? "py-3" : "py-6"
-      }`}>
+      <div className="w-full px-8 sm:px-16 flex items-center justify-between py-3">
         <div className="flex-shrink-0">
           <Logo />
         </div>
@@ -130,7 +110,7 @@ export const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[60] bg-background/60 backdrop-blur-md lg:hidden"
+              className="fixed inset-0 z-[60] bg-background/60 lg:hidden"
             />
             
             {/* Slide-out Menu Panel */}
@@ -139,7 +119,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm z-[65] bg-background shadow-2xl border-l border-border lg:hidden flex flex-col overflow-hidden"
+              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm z-[65] bg-white shadow-2xl border-l border-border lg:hidden flex flex-col overflow-hidden"
             >
               <div className="flex flex-col h-full pt-24 px-8 pb-12 overflow-y-auto">
                 <div className="flex flex-col gap-6">
@@ -187,7 +167,7 @@ export const Navbar = () => {
 
                   <div className="flex flex-col gap-1">
                     <span className="text-foreground/40 font-bold text-sm uppercase tracking-widest">Twelve Lords</span>
-                    <span className="text-foreground/30 text-xs italic">Crafted for thinkers and creators</span>
+                    <span className="text-foreground/30 text-xs">Crafted for thinkers and creators</span>
                   </div>
                 </div>
               </div>

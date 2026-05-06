@@ -52,8 +52,14 @@ export default function BookDetailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background pt-48 pb-20">
-      <div className="container-tight">
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Split Background */}
+      <div className="absolute inset-0 flex flex-col lg:flex-row pointer-events-none">
+        <div className="flex-1 bg-black" />
+        <div className="flex-1 bg-white" />
+      </div>
+
+      <div className="container-tight relative z-10 pt-48 pb-20">
         {/* Navigation */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -63,75 +69,16 @@ export default function BookDetailPage() {
           <Button 
             onClick={() => router.push('/books')} 
             variant="ghost" 
-            className="group text-muted-foreground hover:bg-primary hover:text-white transition-all px-6 py-3 rounded-xl flex items-center gap-2"
+            className="group text-muted-foreground hover:bg-white hover:text-black transition-all px-6 py-3 rounded-xl flex items-center gap-2"
           >
             <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> 
-            <span className="font-bold uppercase tracking-widest text-sm">Back to Library</span>
+            <span className="font-bold uppercase tracking-widest text-sm text-white/60">Back to Library</span>
           </Button>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
-          {/* Left: Image Gallery */}
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="relative aspect-[3/4] bg-card/40 rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeImage}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full h-full"
-                >
-                  <Image
-                    src={activeImage}
-                    alt={book.title}
-                    fill
-                    className="object-contain p-8 md:p-12"
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
-              
-              {/* Overlay Decor */}
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
-            </motion.div>
-
-            {/* Thumbnails */}
-            {book.gallery && book.gallery.length > 1 && (
-              <div className="flex flex-wrap gap-4 justify-center">
-                {book.gallery.map((img, i) => (
-                  <motion.button
-                    key={img}
-                    onClick={() => setActiveImage(img)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className={`relative w-20 h-24 rounded-xl overflow-hidden border-2 transition-all shadow-lg ${
-                      activeImage === img ? "border-accent ring-4 ring-accent/20" : "border-white/10 opacity-60 grayscale hover:grayscale-0 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`${book.title} view ${i + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </motion.button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Right: Content */}
-          <div className="space-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
+          {/* Left: Content (Black Side) */}
+          <div className="space-y-12 order-2 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -142,21 +89,21 @@ export default function BookDetailPage() {
                 <span className="px-3 py-1 bg-accent/10 border border-accent/20 rounded-full flex items-center gap-2">
                   <Tag className="w-3 h-3" /> {book.genre}
                 </span>
-                <span className="flex items-center gap-2"><User className="h-4 w-4" /> {book.author}</span>
-                <span className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
+                <span className="flex items-center gap-2 text-white/60"><User className="h-4 w-4" /> Author: {book.author}</span>
+                <span className="flex items-center gap-2 text-white/60"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
               </div>
 
-              <h1 className="text-4xl md:text-7xl font-display font-black leading-tight text-foreground tracking-tighter shadow-sm whitespace-pre-line">
+              <h1 className="text-4xl md:text-7xl font-display font-black leading-tight text-white tracking-tighter shadow-sm whitespace-pre-line">
                 {book.title}
               </h1>
 
               {book.subtitle && (
-                <p className="text-xl md:text-3xl text-muted-foreground font-semibold leading-snug">
+                <p className="text-xl md:text-3xl text-white/70 font-semibold leading-snug">
                   {book.subtitle}
                 </p>
               )}
 
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-white/60 leading-relaxed font-medium">
                 {book.description}
               </p>
             </motion.div>
@@ -171,13 +118,13 @@ export default function BookDetailPage() {
               >
                 <div className="flex items-center gap-3">
                    <Sparkles className="w-5 h-5 text-accent" />
-                   <h3 className="text-xs font-black uppercase tracking-[0.3em] text-foreground">Core ADVANTAGES</h3>
+                   <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white">Core ADVANTAGES</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {book.benefits.map((benefit) => (
-                    <div key={benefit} className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-accent/30 transition-colors group">
+                    <div key={benefit} className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-colors group">
                       <div className="h-2 w-2 rounded-full bg-accent animate-pulse group-hover:scale-150 transition-transform" />
-                      <span className="text-sm font-bold text-foreground/80">{benefit}</span>
+                      <span className="text-sm font-bold text-white/80">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -186,7 +133,7 @@ export default function BookDetailPage() {
 
             {/* Detailed Sections (Rich Content) */}
             {book.sections && (
-              <div className="space-y-12 border-t border-white/5 pt-12">
+              <div className="space-y-12 border-t border-white/10 pt-12">
                 {book.sections.map((section, idx) => (
                   <motion.div 
                     key={section.title}
@@ -195,12 +142,12 @@ export default function BookDetailPage() {
                     transition={{ delay: 0.4 + idx * 0.1 }}
                     className="space-y-4"
                   >
-                    <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                    <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
                       {section.title}
                     </h2>
                     <div className="space-y-4">
                       {section.content.map((para, pIdx) => (
-                        <p key={pIdx} className="text-muted-foreground leading-relaxed text-lg">
+                        <p key={pIdx} className="text-white/60 leading-relaxed text-lg">
                           {para}
                         </p>
                       ))}
@@ -224,7 +171,6 @@ export default function BookDetailPage() {
               >
                 {added ? <Check className="h-6 w-6" /> : <ShoppingCart className="h-6 w-6" />}
                 {cart.some(b => b.id === book.id) ? "Successfully Added" : "Purchase Now"}
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-2xl" />
               </button>
               
               <button 
@@ -232,13 +178,69 @@ export default function BookDetailPage() {
                 className={`flex items-center gap-3 px-12 py-6 rounded-2xl border transition-all hover:bg-white/5 font-black text-xl ${
                   isFavorite(book.id) 
                   ? "text-accent bg-accent/5 border-accent/20" 
-                  : "text-foreground border-white/10"
+                  : "text-white border-white/10"
                 }`}
               >
                 <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-accent text-accent" : ""}`} />
                 {isFavorite(book.id) ? "Favorited" : "Save Item"}
               </button>
             </motion.div>
+          </div>
+
+          {/* Right: Image Gallery (White Side) */}
+          <div className="space-y-6 order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden group"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeImage}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src={activeImage}
+                    alt={book.title}
+                    fill
+                    className="object-contain p-8 md:p-12 mix-blend-multiply"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Thumbnails */}
+            {book.gallery && book.gallery.length > 1 && (
+              <div className="flex flex-wrap gap-4 justify-center">
+                {book.gallery.map((img, i) => (
+                  <motion.button
+                    key={img}
+                    onClick={() => setActiveImage(img)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className={`relative w-20 h-24 rounded-xl overflow-hidden border-2 transition-all shadow-lg ${
+                      activeImage === img ? "border-accent ring-4 ring-accent/20" : "border-black/10 opacity-60 grayscale hover:grayscale-0 hover:opacity-100"
+                    }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${book.title} view ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </motion.button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
