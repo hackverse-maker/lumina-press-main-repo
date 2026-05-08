@@ -81,23 +81,14 @@ export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
       <div className="container-tight relative">
         <div className="flex flex-col items-center text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            {type === "books" && <ReadingAnimation />}
-            {type === "articles" && <WritingAnimation />}
-          </motion.div>
-
           <div className="max-w-3xl space-y-4">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-display font-bold tracking-tight text-black"
+              className="text-6xl md:text-8xl font-playfair font-bold tracking-tight text-[#1a1a1a] leading-[1.1]"
             >
-              {title.split(' ').slice(0, -1).join(' ')} <span className="">{title.split(' ').pop()}</span>
+              {title}
             </motion.h1>
             {subtitle && (
               <motion.p

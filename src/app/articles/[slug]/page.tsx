@@ -55,7 +55,7 @@ export default function ArticlePage() {
           </div>
 
           <MidArticleImage
-            imagePath="/data-breach-alert.png"
+            imagePath="/images/data-breach-alert.png"
             caption="A system alert indicating a critical data breach — the nightmare scenario for any organization."
           />
 
@@ -65,7 +65,7 @@ export default function ArticlePage() {
             </p>
 
             <MidArticleImage
-              imagePath="/phishing-example.png"
+              imagePath="/images/phishing-example.png"
               caption="Phishing scams often use scare tactics and suspicious links to trick users into revealing sensitive data."
             />
 
@@ -107,7 +107,7 @@ export default function ArticlePage() {
                 </div>
                 <div className="order-first sm:order-last">
                   <MidArticleImage
-                    imagePath="/data-breach-detail.png"
+                    imagePath="/images/data-breach-alert.png"
                     caption="A high-intensity visualization of a data breach alert system."
                   />
                 </div>
@@ -116,7 +116,7 @@ export default function ArticlePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="order-first">
                   <MidArticleImage
-                    imagePath="/phishing-detail.png"
+                    imagePath="/images/phishing-example.png"
                     caption="Deconstructing a typical mobile phishing attack."
                   />
                 </div>

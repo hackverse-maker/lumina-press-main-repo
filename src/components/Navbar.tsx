@@ -27,7 +27,7 @@ const social = [
 const links = [
   { label: "Home", href: "/" },
   { label: "Articles", href: "/articles" },
-  { label: "Books", href: "/books" },
+  { label: "Book", href: "/books" },
   { label: "Tech", href: "/tech" },
   { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },

@@ -38,25 +38,21 @@ async function getExternalBooks() {
   }
 }
 
+import { PageHero } from "@/components/PageHero";
 import { BookList } from "@/components/BookList";
 
 export default async function BooksPage() {
   return (
     <main className="min-h-screen bg-background text-foreground pt-20 pb-24">
-      {/* Header */}
-      <header className="container-tight px-6 mb-32 text-center">
-        <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 uppercase">
-          Bookshelf
-        </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          The best ideas from philosophy, psychology, and modern strategy, 
-          distilled into in-depth analysis and practical wisdom.
-        </p>
-      </header>
+      <PageHero 
+        title="Bookshelf" 
+        subtitle="Exploring the timeless struggle for self-mastery through curated insights."
+        type="books" 
+      />
 
       {/* Books List Section */}
-      <section className="container-tight px-6">
-        <BookList books={localBooks.filter(book => book.id !== "cyber-cable")} />
+      <section className="container-tight px-6 mt-12">
+        <BookList books={localBooks.filter(book => book.id !== 'cyber-cable')} />
       </section>
     </main>
   );

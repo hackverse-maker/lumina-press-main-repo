@@ -8,10 +8,10 @@ import { techItems } from "@/lib/data";
 
 export default function TechPage() {
   return (
-    <main className="min-h-screen pb-20">
+    <main className="min-h-screen pb-20 bg-[#FAF9F6]">
       <PageHero 
-        title="Stack & Insights" 
-        subtitle="Exploring the tools, frameworks, and architecture behind the modern web."
+        title="Innovation & Security" 
+        subtitle="Bridging the gap between timeless wisdom and modern hardware-level protection."
         type="tech" 
       />
 
