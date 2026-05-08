@@ -10,7 +10,7 @@ export const Articles = () => {
   const featuredArticles = articles.slice(0, 3);
 
   return (
-    <section id="articles" className="section-padding bg-[#FDFBF7] relative overflow-hidden">
+    <section id="articles" className="section-padding bg-[#f3f0e6] relative overflow-hidden">
       <div className="container-tight relative z-10">
         {/* Section Header */}
         <div className="mb-16 text-center">

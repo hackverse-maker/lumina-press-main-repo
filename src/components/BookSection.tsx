@@ -12,30 +12,24 @@ export const BookSection = () => {
   if (!mainBook) return null;
 
   return (
-    <section className="relative overflow-hidden" id="books">
-      {/* Split Background */}
-      <div className="absolute inset-0 flex flex-row pointer-events-none">
-        <div className="flex-1 bg-black" />
-        <div className="flex-1 bg-white" />
-      </div>
-
+    <section className="relative overflow-hidden bg-white" id="books">
       <div className="container-tight relative z-10 py-12 md:py-20 lg:py-32">
-        <div className="flex flex-row items-center gap-6 sm:gap-20">
-          {/* Details Left (Black Side) */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-20">
+          {/* Details Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex-1 text-center lg:text-left"
+            className="flex-1 order-1 lg:order-1 text-center lg:text-left"
           >
             <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">
               Featured Publication
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#252121] mb-6 leading-tight">
               {mainBook.title}
             </h2>
-            <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg text-[#252121]/80 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               {mainBook.description}
             </p>
             
@@ -47,6 +41,12 @@ export const BookSection = () => {
                 Learn More
                 <ArrowRight className="h-5 w-5" />
               </Link>
+              <Link 
+                href="/books"
+                className="px-10 py-4 text-base border-2 border-[#252121] text-[#252121] rounded-full font-bold hover:bg-[#252121] hover:text-white transition-all w-full sm:w-auto flex items-center justify-center"
+              >
+                The Book Archive
+              </Link>
             </div>
           </motion.div>
 
@@ -56,13 +56,13 @@ export const BookSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex-1 w-full max-w-md lg:max-w-none"
+            className="flex-1 order-2 lg:order-2 w-full max-w-md lg:max-w-none"
           >
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden group">
+            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden group shadow-premium">
               <img
                 src={mainBook.image}
                 alt={mainBook.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </motion.div>
