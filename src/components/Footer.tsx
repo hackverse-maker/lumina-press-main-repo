@@ -51,15 +51,15 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer id="footer" className="relative bg-[#0B121E] text-white pt-16 sm:pt-20 pb-10 border-t border-white/10">
+    <footer id="footer" className="relative bg-white text-foreground pt-16 sm:pt-20 pb-10 border-t border-border">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
       <div className="container-tight px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5 text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
-              <Logo />
+              <Logo variant="dark" />
             </div>
-            <p className="mt-5 text-sm text-[#FAF9F6] max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
+            <p className="mt-5 text-sm text-foreground max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
               Bridging the gap between ancient wisdom and modern technology. Twelve Lords is a sanctuary for thinkers, writers, and creators.
             </p>
 
@@ -84,11 +84,11 @@ export const Footer = () => {
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12">
             {footerLinks.map((col) => (
               <div key={col.title} className="text-center sm:text-left">
-                <h4 className="font-sans font-bold text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#FAF9F6]">{col.title}</h4>
+                <h4 className="font-sans font-bold text-[10px] sm:text-xs tracking-[0.2em] uppercase text-foreground">{col.title}</h4>
                 <ul className="mt-6 space-y-4">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link href={l.href} className="text-sm font-medium text-[#FAF9F6] hover:text-primary transition-colors">
+                      <Link href={l.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                         {l.label}
                       </Link>
                     </li>
@@ -115,10 +115,10 @@ export const Footer = () => {
             ))}
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#FAF9F6]">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-foreground">
               Twelve Lords
             </p>
-            <p className="text-[10px] text-[#FAF9F6]">
+            <p className="text-[10px] text-foreground">
               © {new Date().getFullYear()} Twelve Lords. Crafted with purpose.
             </p>
           </div>

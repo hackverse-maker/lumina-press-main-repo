@@ -48,9 +48,9 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
             </motion.div>
           </div>
 
-          <div className="grid sm:grid-cols-[1.2fr_1fr] items-center">
-            {/* LEFT: Content side (Text) */}
-            <div className="p-8 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5 bg-white/[0.01]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-start">
+            {/* TEXT: Details first on mobile */}
+            <div className="p-8 lg:p-20 lg:border-r border-white/5 bg-white/[0.01] order-1">
               <div className="space-y-10 max-w-xl">
                 <div>
                   <motion.div
@@ -62,7 +62,7 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                     <span className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
                   </motion.div>
 
-                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-display font-black leading-tight text-black tracking-tighter">
+                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-display font-black leading-tight text-foreground tracking-tighter">
                     {book.title.split(' ').slice(0, -1).join(' ')} <span className="">{book.title.split(' ').pop()}</span>
                   </h2>
 
@@ -76,36 +76,11 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                 <p className="text-lg text-muted-foreground leading-relaxed font-medium">
                   {book.description}
                 </p>
-
-                <div className="flex flex-wrap items-center gap-6 pt-10">
-                  <button 
-                    onClick={handleAddToCart}
-                    disabled={cart.some(b => b.title === book.title)}
-                    className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-[#252121] text-white font-black text-lg transition-all duration-300 hover:bg-primary hover:text-black disabled:opacity-50 shadow-soft hover:shadow-glow"
-                  >
-                    {added ? <Check className="h-6 w-6" /> : <ShoppingCart className="h-6 w-6" />}
-                    {cart.some(b => b.title === book.title) ? "In Cart" : "Buy Now"}
-                  </button>
-                  
-                  <button 
-                    onClick={() => toggleFavorite(book)}
-                    className={`flex items-center gap-3 px-10 py-5 rounded-2xl border-2 border-[#252121] font-black text-lg transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black ${isFavorite(book.id) ? "text-primary border-primary" : "text-[#252121]"}`}
-                  >
-                    <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-primary text-primary" : ""}`} />
-                    {isFavorite(book.id) ? "Favorited" : "Save"}
-                  </button>
-
-                  <Link href={`/books/${book.id}`}>
-                    <button className="px-10 py-5 rounded-2xl border-2 border-[#252121] text-[#252121] font-black text-lg h-auto transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black group">
-                      Details <Info className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                    </button>
-                  </Link>
-                </div>
               </div>
             </div>
 
-            {/* RIGHT: Image & Benefits Side */}
-            <div className="p-8 lg:p-16 flex flex-col items-center">
+            {/* IMAGE: Image second on mobile */}
+            <div className="p-8 lg:p-16 flex flex-col items-center order-2 lg:row-span-2">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
                 whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
@@ -134,7 +109,7 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                 )}
               </motion.div>
 
-              {/* Benefits in boxes below image (Single line on desktop) */}
+              {/* Benefits in boxes below image */}
               {book.benefits && (
                 <div className="w-full space-y-4">
                   <div className="flex items-center gap-3 mb-6">
@@ -158,6 +133,34 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* BUTTONS: Buttons last on mobile */}
+            <div className="p-8 lg:p-20 lg:pt-0 order-3 lg:col-start-1">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
+                <button 
+                  onClick={handleAddToCart}
+                  disabled={cart.some(b => b.title === book.title)}
+                  className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-[#252121] text-white font-black text-lg transition-all duration-300 hover:bg-primary hover:text-black disabled:opacity-50 shadow-soft hover:shadow-glow w-full sm:w-auto"
+                >
+                  {added ? <Check className="h-6 w-6" /> : <ShoppingCart className="h-6 w-6" />}
+                  {cart.some(b => b.title === book.title) ? "In Cart" : "Buy Now"}
+                </button>
+                
+                <button 
+                  onClick={() => toggleFavorite(book)}
+                  className={`flex items-center justify-center gap-3 px-10 py-5 rounded-2xl border-2 border-[#252121] font-black text-lg transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black w-full sm:w-auto ${isFavorite(book.id) ? "text-primary border-primary" : "text-[#252121]"}`}
+                >
+                  <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-primary text-primary" : ""}`} />
+                  {isFavorite(book.id) ? "Favorited" : "Save"}
+                </button>
+
+                <Link href={`/books/${book.id}`} className="w-full sm:w-auto">
+                  <button className="w-full px-10 py-5 rounded-2xl border-2 border-[#252121] text-[#252121] font-black text-lg h-auto transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black group">
+                    Details <Info className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </motion.div>

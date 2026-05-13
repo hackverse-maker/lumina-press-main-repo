@@ -15,32 +15,24 @@ export const Tech = () => {
   return (
     <section id="tech" className="section-padding bg-[#0B121E] relative overflow-hidden border-t border-white/5">
       <div className="container-tight px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
-          {/* Left: Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-start">
+          
+          {/* TEXT CONTENT: Details first on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-1"
           >
             <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
               Hardware Security
             </span>
-            <h2 className="text-balance leading-tight text-white">The Twelve Lords Cyber Cable. Total control over your data.</h2>
-            <p className="max-w-xl mx-auto lg:mx-0 text-white/70">
+            <h2 className="text-balance leading-tight text-foreground">The Twelve Lords Cyber Cable. Total control over your data.</h2>
+            <p className="max-w-xl mx-auto lg:mx-0 text-white/60 leading-relaxed text-lg font-medium">
               We've engineered security at the physical layer. Our Cyber Cable ensures your 
               devices remain protected from modern attack vectors while delivering peak performance.
             </p>
-            
-            <div className="pt-4">
-              <Link
-                href="/tech"
-                className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
-              >
-                View Specifications <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
 
             <div className="mt-12 space-y-6 sm:space-y-8 text-left">
               {items.map((it, i) => (
@@ -56,7 +48,7 @@ export const Tech = () => {
                     <it.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">{it.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{it.title}</h3>
                     <p className="text-sm text-white/60 leading-relaxed">{it.text}</p>
                   </div>
                 </motion.div>
@@ -64,13 +56,13 @@ export const Tech = () => {
             </div>
           </motion.div>
 
-          {/* Right: Visual */}
+          {/* VISUAL: Image second on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative order-first lg:order-last mb-12 lg:mb-0"
+            className="relative order-2 mb-12 lg:mb-0"
           >
             {/* Pulsing Background Glow */}
             <motion.div 
@@ -135,6 +127,16 @@ export const Tech = () => {
             <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl hidden sm:block" />
             <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl hidden sm:block" />
           </motion.div>
+
+          {/* BUTTONS: Buttons last on mobile */}
+          <div className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-start lg:mt-8">
+            <Link
+              href="/tech"
+              className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+            >
+              View Specifications <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

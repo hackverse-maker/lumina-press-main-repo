@@ -43,7 +43,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-black leading-[1.1] text-black mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
+              className="font-black leading-[1.1] text-foreground mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
             >
               Master Your <span className="">Digital Frontier</span> With Timeless Truths
             </motion.h1>
@@ -88,7 +88,7 @@ export const Hero = () => {
               className="flex flex-col items-center justify-center gap-3 mt-10 mb-2"
             >
               <div className="flex items-center gap-3">
-                <ShieldCheck className="h-5 w-5 text-black" />
+                <ShieldCheck className="h-5 w-5 text-foreground" />
                 <span className="text-[10px] sm:text-[12px] font-bold tracking-[0.4em] uppercase text-foreground/60">
                   Data Sovereignty & Wisdom
                 </span>

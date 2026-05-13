@@ -9,33 +9,11 @@ export const AboutSection = () => {
       <div className="container-tight">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="relative aspect-[4/5] w-full rounded-[40px] overflow-hidden shadow-premium">
-              <Image 
-                src="/images/about-hero.png" 
-                alt="Our Vision" 
-                fill 
-                className="object-cover"
-              />
-            </div>
-            {/* Floating Badge */}
-            <div className="absolute -bottom-10 -right-10 glass p-8 rounded-3xl border-white/20 hidden md:block">
-              <p className="text-4xl font-black text-primary">5+</p>
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40">Years of Excellence</p>
-            </div>
-          </motion.div>
-
-          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-10"
+            className="space-y-10 order-1 lg:order-2"
           >
             <div>
               <p className="text-primary font-bold uppercase tracking-widest text-xs mb-4">About Twelve Lords</p>
@@ -60,6 +38,28 @@ export const AboutSection = () => {
                 <h4 className="font-bold text-lg">Our Story</h4>
                 <p className="text-sm text-foreground/60">Founded by a group of developers and writers who wanted more from tech media.</p>
               </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative order-2 lg:order-1"
+          >
+            <div className="relative aspect-[4/5] w-full rounded-[40px] overflow-hidden shadow-premium">
+              <Image 
+                src="/images/about-hero.png" 
+                alt="Our Vision" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+            {/* Floating Badge */}
+            <div className="absolute -bottom-10 -right-10 glass p-8 rounded-3xl border-white/20 hidden md:block">
+              <p className="text-4xl font-black text-primary">5+</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40">Years of Excellence</p>
             </div>
           </motion.div>
         </div>

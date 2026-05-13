@@ -32,21 +32,21 @@ export const CyberCableSection = () => {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-tight relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.3fr] gap-12 lg:gap-24 items-center">
-          {/* Left: Enhanced Content */}
+        <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+          {/* TEXT CONTENT: Details first on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-8 order-1 md:order-1"
           >
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Security Hardware-Level</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-display font-black leading-tight text-white tracking-tighter">
+              <h2 className="text-4xl md:text-6xl font-sans font-black leading-tight text-white tracking-tighter">
                 Twelve Lords <span className="">Cyber Cable</span>
               </h2>
             </div>
@@ -77,32 +77,15 @@ export const CyberCableSection = () => {
                  <p className="text-xs text-white/50">High-speed power delivery without security compromise.</p>
                </div>
             </div>
-
-            <div className="pt-6 flex flex-wrap gap-4">
-              <button 
-                onClick={() => router.push('/products/cyber-cable')}
-                className="group relative px-8 py-4 rounded-2xl border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black"
-              >
-                Learn More
-              </button>
-
-              <button 
-                onClick={handleAddToCart}
-                className="group relative px-8 py-4 rounded-2xl bg-white text-black font-black text-base transition-all duration-300 hover:bg-primary hover:text-black hover:shadow-glow flex items-center gap-2"
-              >
-                <ShoppingBag className="w-5 h-5" />
-                <span>{isInCart ? "In Cart" : "Add to Cart"}</span>
-              </button>
-            </div>
           </motion.div>
 
-          {/* Right: Live Animation Product View */}
+          {/* VISUAL: Image second on mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[500px] md:h-[650px] flex items-center justify-center"
+            className="relative h-[500px] md:h-[650px] flex items-center justify-center order-2 md:order-2"
           >
             {/* Animated Glow Rings */}
             <motion.div
@@ -129,8 +112,6 @@ export const CyberCableSection = () => {
                     loading="lazy"
                     className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(var(--primary-rgb),0.3)] dark:drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
                   />
-                  
-                  {/* LIVE ANIMATION ELEMENTS */}
                   
                   {/* Status Pulse on Connector */}
                   <motion.div
@@ -180,6 +161,24 @@ export const CyberCableSection = () => {
                <div className="text-primary/100">ENCRYPTION: HARDWARE_FORCED</div>
             </div>
           </motion.div>
+
+          {/* BUTTONS: Buttons last on mobile */}
+          <div className="pt-6 flex flex-wrap gap-4 order-3 md:col-start-1 md:row-start-1 md:mt-[450px] justify-center md:justify-start">
+            <button 
+              onClick={() => router.push('/products/cyber-cable')}
+              className="group relative px-8 py-4 rounded-2xl border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black w-full sm:w-auto"
+            >
+              Learn More
+            </button>
+
+            <button 
+              onClick={handleAddToCart}
+              className="group relative px-8 py-4 rounded-2xl bg-white text-black font-black text-base transition-all duration-300 hover:bg-primary hover:text-black hover:shadow-glow flex items-center justify-center gap-2 w-full sm:w-auto"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              <span>{isInCart ? "In Cart" : "Add to Cart"}</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
