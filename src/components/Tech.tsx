@@ -28,8 +28,8 @@ export const Tech = () => {
             <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
               Hardware Security
             </span>
-            <h2 className="text-balance leading-tight text-foreground">The Twelve Lords Cyber Cable. Total control over your data.</h2>
-            <p className="max-w-xl mx-auto lg:mx-0 text-white/60 leading-relaxed text-lg font-medium">
+            <h2 className="text-balance leading-tight text-white">The Twelve Lords Cyber Cable. Total control over your data.</h2>
+            <p className="max-w-xl mx-auto lg:mx-0 text-white/90">
               We've engineered security at the physical layer. Our Cyber Cable ensures your 
               devices remain protected from modern attack vectors while delivering peak performance.
             </p>
@@ -48,8 +48,8 @@ export const Tech = () => {
                     <it.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{it.title}</h3>
-                    <p className="text-sm text-white/60 leading-relaxed">{it.text}</p>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">{it.title}</h3>
+                    <p className="text-sm text-white/70 leading-relaxed">{it.text}</p>
                   </div>
                 </motion.div>
               ))}
