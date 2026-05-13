@@ -53,7 +53,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-foreground/70 leading-relaxed w-full mb-12 text-base sm:text-lg font-medium"
+              className="text-black leading-relaxed w-full mb-12 text-base sm:text-lg font-medium"
             >
               Twelve Lords explores the architecture of the modern world. From hardware-level security to philosophical deep-dives, we provide the clarity needed to navigate a complex future.
             </motion.p>
@@ -67,14 +67,14 @@ export const Hero = () => {
             >
               <Link
                 href="/tech"
-                className="btn-primary flex items-center justify-center gap-3 px-10 py-4 text-base font-bold rounded-full w-full sm:w-auto"
+                className="btn-primary flex items-center justify-center gap-3 px-10 py-4 text-base font-bold rounded-full w-full sm:w-auto text-black"
               >
                 Learn about Tech
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
                 href="/articles"
-                className="px-10 py-4 text-base border-2 border-foreground rounded-full font-bold hover:bg-foreground hover:text-background transition-all w-full sm:w-auto flex items-center justify-center"
+                className="px-10 py-4 text-base border-2 border-black rounded-full font-bold hover:bg-black hover:text-white transition-all w-full sm:w-auto flex items-center justify-center text-black"
               >
                 Read Insights
               </Link>
