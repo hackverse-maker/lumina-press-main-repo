@@ -43,7 +43,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-black leading-[1.1] text-foreground mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
+              className="font-black leading-[1.1] text-black mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
             >
               Master Your <span className="">Digital Frontier</span> With Timeless Truths
             </motion.h1>
