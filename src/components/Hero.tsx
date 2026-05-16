@@ -19,7 +19,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32"
+      className="relative min-h-screen flex items-center overflow-hidden pt-44 md:pt-64"
     >
       {/* Clean Background with Subtle Texture */}
       <div className="absolute inset-0 bg-background -z-10" />
@@ -43,7 +43,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-black leading-[1.1] text-black mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
+              className="font-bold leading-[1.1] text-black mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
             >
               Master Your <span className="">Digital Frontier</span> With Timeless Truths
             </motion.h1>

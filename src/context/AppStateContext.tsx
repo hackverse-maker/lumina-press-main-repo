@@ -26,8 +26,8 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Load from localStorage on mount
   useEffect(() => {
-    const savedFavs = localStorage.getItem("lumina_favs");
-    const savedCart = localStorage.getItem("lumina_cart");
+    const savedFavs = localStorage.getItem("twelve_lords_favs");
+    const savedCart = localStorage.getItem("twelve_lords_cart");
     if (savedFavs) {
       try {
         setFavorites(JSON.parse(savedFavs));
@@ -47,13 +47,13 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   // Sync to localStorage
   useEffect(() => {
     if (favorites.length > 0) {
-      localStorage.setItem("lumina_favs", JSON.stringify(favorites));
+      localStorage.setItem("twelve_lords_favs", JSON.stringify(favorites));
     }
   }, [favorites]);
 
   useEffect(() => {
     if (cart.length > 0) {
-      localStorage.setItem("lumina_cart", JSON.stringify(cart));
+      localStorage.setItem("twelve_lords_cart", JSON.stringify(cart));
     }
   }, [cart]);
 

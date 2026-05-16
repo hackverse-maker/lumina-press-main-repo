@@ -4,32 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
-const articles = [
-  {
-    title: "As Cyber Threats Accelerate, Human Awareness Remains the Critical Weakness",
-    category: "Security",
-    image: "/cybersecurity-featured.png",
-    slug: "cyber-threats-awareness",
-    date: "May 2, 2026"
-  },
-  {
-    title: "The Evolution of Digital Privacy in the Age of AI",
-    category: "Privacy",
-    image: "/images/data-breach.jpg",
-    slug: "digital-privacy-ai",
-    date: "April 28, 2026"
-  },
-  {
-    title: "Mastering the Art of Modern Web Architecture",
-    category: "Development",
-    image: "/images/article.jpg",
-    slug: "modern-web-architecture",
-    date: "April 20, 2026"
-  }
-];
+import { articles } from "@/lib/data";
 
 export const FeaturedContent = () => {
+  // Take the first 3 articles for the home page
+  const featuredArticles = articles.slice(0, 3);
+
   return (
     <section id="blog" className="section-padding bg-secondary/30">
       <div className="container-tight">
@@ -44,7 +24,7 @@ export const FeaturedContent = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((a, i) => (
+          {featuredArticles.map((a, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -55,7 +35,7 @@ export const FeaturedContent = () => {
             >
               <Link href={`/articles/${a.slug}`} className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden mb-6 block">
                 <Image 
-                  src={a.image} 
+                  src={a.thumb} 
                   alt={a.title} 
                   fill 
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -67,14 +47,14 @@ export const FeaturedContent = () => {
                 </div>
               </Link>
               <div className="flex-1 space-y-4">
-                <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest">{a.date}</p>
+                <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest">{a.publishDate}</p>
                 <Link href={`/articles/${a.slug}`} className="block group-hover:text-primary transition-colors">
                   <h3 className="text-xl font-bold leading-tight line-clamp-2">
                     {a.title}
                   </h3>
                 </Link>
                 <p className="text-sm text-foreground/60 line-clamp-3">
-                  Exploring the critical intersections of technology, security, and human factor in the modern digital age.
+                  {a.preview}
                 </p>
               </div>
               <div className="pt-6 mt-auto">

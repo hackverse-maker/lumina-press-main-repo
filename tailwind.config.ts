@@ -12,9 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Lora', 'serif'],
-        serif: ['Lora', 'serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'serif'],
+        serif: ['Montserrat', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -28,14 +28,14 @@ export const BookSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-[#C1D7D7] order-1 lg:order-2 lg:col-start-2 lg:mt-8"
+            className="text-white order-1 lg:order-2 lg:col-start-2 lg:mt-8"
           >
-            <h2 className="text-5xl sm:text-7xl lg:text-[72px] font-semibold font-sans mb-8 leading-[1.1] tracking-tighter uppercase text-[#C1D7D7]">
+            <h2 className="text-5xl sm:text-7xl lg:text-[72px] font-semibold font-sans mb-8 leading-[1.1] tracking-tighter uppercase text-white">
               <span className="block">THE SELF</span>
               <span className="block">AS WITNESS</span>
             </h2>
             
-            <p className="text-lg sm:text-xl text-[#C1D7D7]/80 leading-relaxed mb-4 lg:mb-8 max-w-xl font-medium">
+            <p className="text-lg sm:text-xl text-white/90 leading-relaxed mb-4 lg:mb-8 max-w-xl font-medium">
               {mainBook.description}
             </p>
           </motion.div>

@@ -69,7 +69,7 @@ const CodingAnimation = () => (
         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         className="whitespace-nowrap font-mono text-xs text-accent"
       >
-        {"const app = () => { return <Lumina /> }"}
+        {"const app = () => { return <TwelveLords /> }"}
       </motion.div>
     </div>
   </div>
@@ -77,7 +77,7 @@ const CodingAnimation = () => (
 
 export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
   return (
-    <section className="relative pt-24 pb-20 overflow-hidden">
+    <section className="relative pt-44 md:pt-64 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
       <div className="container-tight relative">
         <div className="flex flex-col items-center text-center space-y-8">

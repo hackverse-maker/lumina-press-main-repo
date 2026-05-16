@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+/* globals.css */
 
 @tailwind base;
 @tailwind components;
@@ -44,8 +44,6 @@
 
     /* Transitions */
     --t-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-
-    --cc-font-family: "Source Serif Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
 
@@ -61,7 +59,7 @@
 
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-montserrat), sans-serif;
     font-size: clamp(14px, 2vw, 18px);
     line-height: 1.6;
     transition: background-color 0.5s var(--t-smooth), color 0.5s var(--t-smooth);
@@ -69,12 +67,12 @@
 
   /* Force UI elements to use Montserrat */
   button, input, select, textarea, .font-sans {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   /* Fluid Typography Hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-montserrat), sans-serif;
     @apply font-bold leading-[1.1] tracking-tight mb-8;
     color: #000000;
     word-break: keep-all;
@@ -133,7 +131,7 @@
   }
   
   .btn-primary:hover {
-    @apply bg-primary text-black shadow-glow;
+    @apply bg-primary text-white shadow-glow;
   }
 
   .btn-outline {
@@ -141,7 +139,7 @@
   }
 
   .font-playfair {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   .text-gradient-accent {

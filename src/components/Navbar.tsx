@@ -56,7 +56,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className="fixed top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-white shadow-sm border-b border-border/50"
+      className="absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-white shadow-sm border-b-[3px] border-black"
     >
       <div className="w-full px-8 sm:px-16 flex items-center justify-between py-3">
         <div className="flex-shrink-0">
@@ -68,7 +68,7 @@ export const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-[15px] font-[350] text-foreground/70 hover:text-foreground transition-colors group"
+              className="relative text-[25px] font-semibold text-[#111] hover:text-black transition-colors group"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
@@ -77,7 +77,7 @@ export const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          <button 
+          <button
             onClick={() => setIsFavoritesOpen(true)}
             className="relative text-foreground/70 hover:text-primary transition-colors p-2.5 group"
             aria-label="Favorites"
@@ -112,7 +112,7 @@ export const Navbar = () => {
               onClick={() => setOpen(false)}
               className="fixed inset-0 z-[60] bg-background/60 lg:hidden"
             />
-            
+
             {/* Slide-out Menu Panel */}
             <motion.div
               initial={{ x: "100%" }}
@@ -144,7 +144,7 @@ export const Navbar = () => {
 
                 <div className="mt-auto pt-10 flex flex-col gap-8">
                   <div className="h-px w-full bg-gradient-to-r from-border to-transparent" />
-                  
+
                   <div className="space-y-4">
                     <span className="text-xs font-bold uppercase tracking-widest text-foreground/40">Connect With Us</span>
                     <div className="flex flex-wrap gap-4">

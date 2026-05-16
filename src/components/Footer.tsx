@@ -1,8 +1,8 @@
 "use client";
 
-import { Logo } from "./Logo";
 import Link from "next/link";
 import { Instagram, Facebook, Music2, Send, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Logo } from "./Logo";
 
 const XIcon = (props: any) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -55,22 +55,22 @@ export const Footer = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
       <div className="container-tight px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          <div className="lg:col-span-5 text-center lg:text-left">
-            <div className="flex justify-center lg:justify-start">
-              <Logo variant="dark" />
+          <div className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="mb-6 -ml-4">
+              <Logo />
             </div>
-            <p className="mt-5 text-sm text-foreground max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
+            <p className="text-sm text-black max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
               Bridging the gap between ancient wisdom and modern technology. Twelve Lords is a sanctuary for thinkers, writers, and creators.
             </p>
 
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="mt-8 flex flex-col sm:flex-row items-center gap-3 p-1.5 sm:rounded-full bg-white/5 border border-white/10 max-w-md mx-auto lg:mx-0 backdrop-blur-md overflow-hidden rounded-2xl focus-within:border-primary/50 transition-colors"
+              className="mt-8 flex flex-col sm:flex-row items-center gap-3 p-1.5 sm:rounded-full bg-black/5 border border-black/10 max-w-md mx-auto lg:mx-0 backdrop-blur-md overflow-hidden rounded-2xl focus-within:border-primary/50 transition-colors"
             >
               <input
                 type="email"
                 placeholder="Join the collective"
-                className="w-full sm:flex-1 bg-transparent px-4 py-3 sm:py-2 text-sm text-white placeholder:text-white/40 focus:outline-none"
+                className="w-full sm:flex-1 bg-transparent px-4 py-3 sm:py-2 text-sm text-black placeholder:text-black/40 focus:outline-none"
               />
               <button
                 type="submit"
@@ -84,11 +84,11 @@ export const Footer = () => {
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12">
             {footerLinks.map((col) => (
               <div key={col.title} className="text-center sm:text-left">
-                <h4 className="font-sans font-bold text-[10px] sm:text-xs tracking-[0.2em] uppercase text-foreground">{col.title}</h4>
+                <h4 className="font-sans font-bold text-[10px] sm:text-xs tracking-[0.2em] uppercase text-black">{col.title}</h4>
                 <ul className="mt-6 space-y-4">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link href={l.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                      <Link href={l.href} className="text-sm font-medium text-black hover:text-primary transition-colors">
                         {l.label}
                       </Link>
                     </li>
@@ -99,7 +99,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-8 text-center">
+        <div className="mt-16 pt-8 border-t border-black/10 flex flex-col items-center justify-center gap-8 text-center">
           <div className="flex items-center justify-center flex-wrap gap-5">
             {social.map((s, i) => (
               <a
@@ -115,10 +115,10 @@ export const Footer = () => {
             ))}
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-black">
               Twelve Lords
             </p>
-            <p className="text-[10px] text-foreground">
+            <p className="text-[10px] text-black">
               © {new Date().getFullYear()} Twelve Lords. Crafted with purpose.
             </p>
           </div>

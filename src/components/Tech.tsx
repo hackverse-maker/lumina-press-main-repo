@@ -25,7 +25,7 @@ export const Tech = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-center lg:text-left order-1"
           >
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
+            <span className="text-[#00CFFF] font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
               Hardware Security
             </span>
             <h2 className="text-balance leading-tight text-white">The Twelve Lords Cyber Cable. Total control over your data.</h2>
@@ -44,8 +44,8 @@ export const Tech = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex items-start gap-4 sm:gap-6 group"
                 >
-                  <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20">
-                    <it.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
+                    <it.icon className="h-5 w-5 sm:h-6 sm:w-6 text-[#00CFFF]" />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">{it.title}</h3>
@@ -53,6 +53,16 @@ export const Tech = () => {
                   </div>
                 </motion.div>
               ))}
+
+              {/* MOVED BUTTON: Relocated here to fill space below the list */}
+              <div className="pt-8">
+                <Link
+                  href="/tech"
+                  className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-[#00CFFF] hover:border-[#00CFFF] hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                >
+                  View Specifications <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </motion.div>
 
@@ -75,7 +85,7 @@ export const Tech = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 bg-primary/20 blur-[60px] sm:blur-[100px] rounded-full"
+              className="absolute inset-0 bg-[#00CFFF]/20 blur-[60px] sm:blur-[100px] rounded-full"
             />
 
             <motion.div 
@@ -94,7 +104,7 @@ export const Tech = () => {
                     src="/images/cablepost.jpg.jpeg"
                     alt="Cyber Cable"
                     loading="lazy"
-                    className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(var(--primary-rgb),0.3)] dark:drop-shadow-[0_0_50px_rgba(34,211,238,0.3)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(0,207,255,0.3)]"
                   />
                 
                 {/* Scanning Light Effect */}
@@ -108,35 +118,25 @@ export const Tech = () => {
                     ease: "linear",
                     repeatDelay: 1
                   }}
-                  className="absolute left-0 right-0 h-[30%] bg-gradient-to-b from-transparent via-primary/20 to-transparent -rotate-12 pointer-events-none"
+                  className="absolute left-0 right-0 h-[30%] bg-gradient-to-b from-transparent via-[#00CFFF]/20 to-transparent -rotate-12 pointer-events-none"
                 />
               </div>
 
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
-                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white border border-white/10"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white border border-white/20"
                 >
-                  <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                  Physical Security Active
+                  <span className="h-2 w-2 rounded-full bg-[#00CFFF] shrink-0" />
+                  Hardware Security Active
                 </motion.div>
               </div>
             </motion.div>
 
             {/* Decorative Elements - Hidden on small mobile */}
-            <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl hidden sm:block" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl hidden sm:block" />
+            <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-r-2 border-[#00CFFF]/30 rounded-tr-3xl hidden sm:block" />
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-l-2 border-[#00CFFF]/30 rounded-bl-3xl hidden sm:block" />
           </motion.div>
-
-          {/* BUTTONS: Buttons last on mobile */}
-          <div className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-start lg:mt-8">
-            <Link
-              href="/tech"
-              className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
-            >
-              View Specifications <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

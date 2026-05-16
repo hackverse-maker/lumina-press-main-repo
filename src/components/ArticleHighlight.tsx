@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, Lock, Activity, Cpu } from "lucide-react";
+import { ArrowRight, ShieldCheck, Lock } from "lucide-react";
 
 interface ArticleHighlightProps {
   heading: string;
@@ -22,16 +21,8 @@ interface ArticleHighlightProps {
 const CybersecurityAnimation = () => {
   return (
     <div className="w-full h-full relative pointer-events-none bg-secondary/20 dark:bg-slate-950 overflow-hidden flex items-center justify-center">
-      {/* HUD Image Background */}
-      <div className="absolute inset-0 opacity-40 mix-blend-screen">
-        <Image 
-          src="/images/cyber-hud.png" 
-          alt="Cyber HUD" 
-          fill 
-          loading="lazy"
-          className="object-cover"
-        />
-      </div>
+      {/* HUD Background (Effectively just a dark overlay now) */}
+      <div className="absolute inset-0 bg-slate-900/40" />
 
       {/* Dynamic Grid Background */}
       <motion.div 
@@ -58,7 +49,7 @@ const CybersecurityAnimation = () => {
             opacity: [0.1, 0.2, 0.1]
           }}
           transition={{ duration: 5, repeat: Infinity }}
-          className="w-[400px] h-[400px] bg-accent rounded-full blur-[100px]"
+          className="w-[400px] h-[400px] bg-[#00CFFF] rounded-full blur-[100px]"
         />
       </div>
 
@@ -106,7 +97,7 @@ const CybersecurityAnimation = () => {
       <motion.div
         animate={{ top: ['-5%', '105%'] }}
         transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-        className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/40 to-transparent shadow-[0_0_15px_hsl(var(--accent)/0.4)] z-20"
+        className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00CFFF]/40 to-transparent shadow-[0_0_15px_rgba(0,207,255,0.4)] z-20"
       />
     </div>
   );
@@ -169,10 +160,10 @@ export const ArticleHighlight = ({
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit"
                 >
-                  <Lock className="w-3.5 h-3.5" />
-                  <span>Security Protocol Verified</span>
+                  <span className="h-2 w-2 rounded-full bg-[#00CFFF] shrink-0" />
+                  <span>Hardware Security Verified</span>
                 </motion.div>
 
                 <h3 className="font-extrabold leading-tight tracking-tight text-black">
