@@ -152,6 +152,18 @@ export default function AboutPage() {
                     <p className="font-black text-black">We do not chase noise.</p>
                     <p className="font-black text-black">We seek meaning.</p>
                   </div>
+                  <div className="pt-12 mt-auto">
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      className="p-8 rounded-xl bg-[#DBDAD8] border border-black/20 flex items-center gap-6"
+                    >
+                      <Sparkles className="h-8 w-8 text-black shrink-0" />
+                      <div className="space-y-1">
+                        <p className="text-lg text-black/80 font-bold italic tracking-tight">Timeless wisdom. Modern perspective.</p>
+                        <p className="font-black text-black text-2xl uppercase tracking-tighter">Stronger future.</p>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
               </motion.div>
 
@@ -179,19 +191,6 @@ export default function AboutPage() {
                       Our mission is to make modern knowledge accessible, thoughtful, and useful — while preserving the timeless principles that help people think clearly, live consciously, and act wisely.
                     </p>
                   </div>
-                </div>
-
-                <div className="mt-auto pt-12">
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="p-8 rounded-xl bg-[#DBDAD8] border border-black/20 flex items-center gap-6"
-                  >
-                    <Sparkles className="h-8 w-8 text-black shrink-0" />
-                    <div className="space-y-1">
-                      <p className="text-lg text-black/80 font-bold italic tracking-tight">Timeless wisdom. Modern perspective.</p>
-                      <p className="font-black text-black text-2xl uppercase tracking-tighter">Stronger future.</p>
-                    </div>
-                  </motion.div>
                 </div>
               </motion.div>
             </div>

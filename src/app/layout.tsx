@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingCart } from "@/components/FloatingCart";
 import { CartDrawer } from "@/components/CartDrawer";
 import { FavoritesDrawer } from "@/components/FavoritesDrawer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default function RootLayout({
           <CartDrawer />
           <FavoritesDrawer />
           <FloatingCart />
+          <ScrollToTop />
           <Footer />
         </Providers>
       </body>
