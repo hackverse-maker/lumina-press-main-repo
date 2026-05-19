@@ -7,7 +7,7 @@
 @layer base {
   :root {
     --background: 185 19% 88%;
-    --foreground: 0 0% 40%; /* Grey text */
+    --foreground: 0 0% 10%; /* Dark black tone #1a1a1a */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
@@ -22,7 +22,7 @@
     --secondary-foreground: 0 0% 12%;
 
     --muted: 0 0% 60%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 18%; /* Dark readable grey #2e2e2e */
 
     --accent: 180 27% 23%; /* #2B4A4A */
     --accent-foreground: 0 0% 0%;
@@ -94,7 +94,7 @@
   }
 
   p {
-    @apply leading-relaxed text-foreground/80 mb-4;
+    @apply leading-relaxed text-foreground mb-4;
     font-size: clamp(14px, 2vw, 18px);
     overflow-wrap: normal;
   }
@@ -215,3 +215,24 @@
     animation-duration: 40s !important;
   }
 }
+
+/* Mobile-only Heading Center Alignment and Responsiveness Enhancements */
+@media (max-width: 767px) {
+  h1, h2, h3, h4, h5, h6,
+  .section-title,
+  .hero-heading,
+  .article-heading,
+  .book-page-heading,
+  [class*="section-title"],
+  [class*="hero-heading"],
+  [class*="article-heading"] {
+    text-align: center !important;
+  }
+
+  /* Force stack sections on small screens and prevent horizontal scroll */
+  body, html {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+}
+

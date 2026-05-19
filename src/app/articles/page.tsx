@@ -45,7 +45,7 @@ export default function ArticlesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-6xl md:text-8xl font-bold text-black mb-8 tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold text-black mb-8 tracking-tighter"
           >
             Articles
           </motion.h1>
@@ -53,7 +53,7 @@ export default function ArticlesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-3xl mx-auto text-lg md:text-xl text-black/70 leading-relaxed font-medium"
+            className="max-w-3xl mx-auto text-lg md:text-xl text-black/90 leading-relaxed font-medium"
           >
             Welcome to hundreds of the best articles on self-improvement, productivity, relationships, and living a better life. You can browse the articles <span className="italic underline underline-offset-4 decoration-black/20">by topic</span>, <span className="italic underline underline-offset-4 decoration-black/20">by date</span>, or search by keyword below.
           </motion.p>
@@ -111,24 +111,39 @@ export default function ArticlesPage() {
               >
                 {/* Category Header */}
                 <div className="mb-6">
-                  <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-black/40 mb-3">
+                  <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-black/65 mb-3">
                     {category}
                   </h3>
                   <div className="w-full h-[2px] bg-black" />
                 </div>
 
                 {/* Articles List */}
-                <div className="flex flex-col mb-8">
+                <div className="flex flex-col gap-4 mb-8">
                   {categoryArticles.map((article) => (
-                    <Link 
+                    <div 
                       key={article.slug}
-                      href={`/articles/${article.slug}`}
-                      className="group py-5 border-b border-black/10 flex flex-col transition-all duration-300"
+                      className="bg-white/60 border border-[#dcdcdc] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-sm hover:border-black/20 hover:bg-white text-left"
                     >
-                      <span className="text-xl md:text-2xl font-bold text-[#111] group-hover:text-black transition-colors leading-tight">
-                        {article.title}
-                      </span>
-                    </Link>
+                      <Link href={`/articles/${article.slug}`} className="group flex flex-col justify-between h-full">
+                        <div>
+                          <div className="flex items-center gap-3 text-[10px] font-bold text-black/65 uppercase tracking-widest mb-3">
+                            <span>{article.publishDate}</span>
+                          </div>
+                          
+                          <h4 className="text-lg md:text-xl font-bold text-black leading-tight mb-2 group-hover:underline underline-offset-4 decoration-black/25">
+                            {article.title}
+                          </h4>
+                          
+                          <p className="text-black/90 text-xs sm:text-sm leading-relaxed line-clamp-2 mb-4">
+                            {article.preview}
+                          </p>
+                        </div>
+                        
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-black/75 group-hover:text-black transition-colors flex items-center gap-1.5">
+                          Read Article <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </Link>
+                    </div>
                   ))}
                 </div>
 

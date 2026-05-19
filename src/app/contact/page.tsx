@@ -68,11 +68,11 @@ export default function ContactPage() {
                   {item.title}
                 </h3>
 
-                <p className="text-black/60 font-bold text-sm mb-2">
+                <p className="text-black/85 font-bold text-sm mb-2">
                   {item.email}
                 </p>
 
-                <p className="text-sm text-black/40 font-medium">
+                <p className="text-sm text-black/65 font-medium">
                   {item.description}
                 </p>
               </motion.a>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.5 }}
                   className="space-y-3"
                 >
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40 ml-4">Name</label>
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/65 ml-4">Name</label>
                   <input
                     type="text"
                     required
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="space-y-3"
                 >
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40 ml-4">Email</label>
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/65 ml-4">Email</label>
                   <input
                     type="email"
                     required
@@ -127,7 +127,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="space-y-3 mb-10"
               >
-                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40 ml-4">Message</label>
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/65 ml-4">Message</label>
                 <textarea
                   rows={6}
                   required

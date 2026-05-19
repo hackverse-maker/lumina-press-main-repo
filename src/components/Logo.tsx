@@ -1,27 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import logo from "@/assets/logo_white.png";
-import { motion } from "framer-motion";
 
 interface LogoProps {
   variant?: "light" | "dark";
 }
 
 export const Logo = ({ variant = "light" }: LogoProps) => (
-  <Link href="/" className="flex justify-center overflow-visible items-center group transition-transform hover:scale-105 active:scale-95 duration-300">
-    <motion.img
-      src={logo.src}
-      alt="Twelve Lords Logo"
-      className="h-[140px] w-[180px] object-cover"
-      animate={{
-        y: [0, -2, 0]
-      }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
+  <Link 
+    href="/" 
+    className="flex items-center group transition-all duration-300 hover:scale-[1.02] active:scale-95"
+  >
+    <span className="text-xl sm:text-2xl font-[350] tracking-[0.2em] text-white uppercase transition-colors group-hover:text-gray-300">
+      Twelve Lords
+    </span>
   </Link>
 );
+

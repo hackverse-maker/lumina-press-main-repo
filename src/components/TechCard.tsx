@@ -38,7 +38,7 @@ export const TechCard = ({ item, index = 0 }: TechCardProps) => {
             {item.title}
           </h3>
           
-          <p className="text-black/60 leading-relaxed font-medium">
+          <p className="text-black/85 leading-relaxed font-medium">
             {item.description}
           </p>
         </div>

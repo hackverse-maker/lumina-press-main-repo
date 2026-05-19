@@ -25,7 +25,7 @@ export default function BooksPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-6xl md:text-8xl font-bold text-black mb-8 tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold text-black mb-8 tracking-tighter"
           >
             Books
           </motion.h1>
@@ -45,8 +45,8 @@ export default function BooksPage() {
         <div className="container-tight">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 relative">
             
-            {/* Vertical Line for 2-column layout on desktop */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-black/20 hidden lg:block -translate-x-1/2" />
+            {/* Vertical Line for 2-column layout on desktop and tablet */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-black/20 hidden md:block -translate-x-1/2" />
 
             {bookData.map((book, index) => (
               <motion.div
@@ -54,10 +54,10 @@ export default function BooksPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex flex-col items-center text-center px-12 pb-24 relative"
+                className="flex flex-col items-center text-center px-4 sm:px-8 lg:px-12 pb-16 lg:pb-24 relative"
               >
                 {/* Book Image */}
-                <div className="relative w-full max-w-[320px] aspect-[3/4.5] mb-16 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.02]">
+                <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[3/4.5] mb-10 sm:mb-16 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.02]">
                   <img
                     src={book.image}
                     alt={book.title}
@@ -66,14 +66,14 @@ export default function BooksPage() {
                 </div>
 
                 {/* Horizontal Line above title */}
-                <div className="w-[80%] h-[1px] bg-black/40 mb-10" />
+                <div className="w-[80%] h-[1px] bg-black/40 mb-6 sm:mb-10" />
 
                 {/* Content */}
-                <h3 className="text-2xl md:text-3xl font-bold mb-8 text-black leading-tight uppercase tracking-tight max-w-sm">
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-black leading-tight uppercase tracking-tight max-w-sm">
                   {book.title}
                 </h3>
 
-                <p className="text-black/80 leading-relaxed font-medium text-base md:text-lg mb-10 max-w-md">
+                <p className="text-black/80 leading-relaxed font-medium text-base md:text-lg mb-6 sm:mb-10 max-w-md">
                   {book.description.split('. ')[0]}. {book.description.split('. ')[1]}.
                 </p>
 
@@ -87,14 +87,14 @@ export default function BooksPage() {
                         exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden"
                       >
-                        <p className="text-black/70 leading-relaxed font-medium text-sm mb-8 text-left">
+                        <p className="text-black/90 leading-relaxed font-medium text-sm mb-8 text-left">
                           {book.description}
                         </p>
                         {book.benefits && (
                           <div className="mb-10 space-y-3 text-left">
                             <h4 className="text-xs font-black uppercase tracking-widest text-black">Key Takeaways:</h4>
                             {book.benefits.map((benefit, i) => (
-                              <div key={i} className="flex items-start gap-2 text-sm font-medium text-black/60">
+                              <div key={i} className="flex items-start gap-2 text-sm font-medium text-black/85">
                                 <div className="w-1.5 h-1.5 rounded-full bg-black mt-1.5 shrink-0" />
                                 <span>{benefit}</span>
                               </div>
@@ -115,7 +115,7 @@ export default function BooksPage() {
                     
                     <Link
                       href={`/books/${book.id}`}
-                      className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40 hover:text-black transition-colors"
+                      className="text-[10px] font-black uppercase tracking-[0.3em] text-black/65 hover:text-black transition-colors"
                     >
                       View the book archive
                     </Link>
@@ -126,8 +126,8 @@ export default function BooksPage() {
 
             {/* Empty slots for visual balance if only one book */}
             {bookData.length === 1 && (
-              <div className="hidden lg:flex flex-col items-center justify-center p-24 opacity-10 grayscale pointer-events-none">
-                 <div className="w-full max-w-[320px] aspect-[3/4.5] border-2 border-dashed border-black mb-16" />
+              <div className="hidden md:flex flex-col items-center justify-center p-12 lg:p-24 opacity-10 grayscale pointer-events-none">
+                 <div className="w-full max-w-[280px] sm:max-w-[320px] aspect-[3/4.5] border-2 border-dashed border-black mb-16" />
                  <div className="w-[80%] h-[1px] bg-black mb-10" />
                  <div className="h-8 w-48 bg-black mb-8" />
                  <div className="h-20 w-full bg-black" />
@@ -141,16 +141,16 @@ export default function BooksPage() {
       <section className="bg-white py-24 border-t-[3px] border-black">
         <div className="container-tight px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter">Stay Notified</h2>
-          <p className="text-black/60 max-w-xl mx-auto mb-12 font-medium">
+          <p className="text-black/85 max-w-xl mx-auto mb-12 font-medium">
             Join our mailing list to receive updates on new releases and exclusive content.
           </p>
-          <form className="max-w-md mx-auto flex gap-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
             <input 
               type="email" 
               placeholder="Email address"
-              className="flex-1 border-[3px] border-black px-6 py-4 outline-none font-bold"
+              className="w-full sm:flex-1 border-[3px] border-black px-6 py-4 outline-none font-bold"
             />
-            <button className="bg-black text-white px-8 py-4 font-black uppercase text-xs tracking-widest hover:bg-black/80 transition-all">
+            <button className="w-full sm:w-auto bg-black text-white px-8 py-4 font-black uppercase text-xs tracking-widest hover:bg-black/80 transition-all flex items-center justify-center">
               Join
             </button>
           </form>

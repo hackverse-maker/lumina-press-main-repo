@@ -17,9 +17,9 @@ const XIcon = (props: any) => (
 const social = [
   { icon: Instagram, href: "https://www.instagram.com/twelvelords", label: "Instagram", color: "stroke-[url(#ig-grad)] text-[#E4405F]" },
   { icon: Facebook, href: "https://www.facebook.com/share/1CRfTGwmLb/", label: "Facebook", color: "text-[#1877F2]" },
-  { icon: XIcon, href: "https://twitter.com/twelvelords", label: "X / Twitter", color: "text-black dark:text-white" },
+  { icon: XIcon, href: "https://twitter.com/twelvelords", label: "X / Twitter", color: "text-white" },
   { icon: Youtube, href: "https://youtube.com/@twelvelords", label: "YouTube", color: "text-[#FF0000]" },
-  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok", color: "text-black dark:text-white" },
+  { icon: Music2, href: "https://www.tiktok.com/@twelvelords", label: "TikTok", color: "text-white" },
   { icon: Music, href: "https://open.spotify.com/episode/0DncvmZNsruO4zWw4KHB76", label: "Spotify", color: "text-[#1DB954]" },
   { icon: Podcast, href: "https://podcasts.apple.com/gb/podcast/the-weakest-link/id1895144412", label: "Apple Podcast", color: "text-[#872EC4]" },
 ];
@@ -56,22 +56,22 @@ export const Navbar = () => {
 
   return (
     <header
-      className="absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-white shadow-sm border-b-[3px] border-black"
+      className="absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-black shadow-sm border-b border-white/10"
     >
-      <div className="w-full px-8 sm:px-16 flex items-center justify-between py-3">
+      <div className="w-full px-6 sm:px-12 flex items-center justify-between py-4">
         <div className="flex-shrink-0">
           <Logo />
         </div>
 
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-8">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-[25px] font-semibold text-[#111] hover:text-black transition-colors group"
+              className="relative text-[14px] font-[400] uppercase tracking-[0.2em] text-white hover:text-gray-300 transition-colors group"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+              <span className="absolute -bottom-1 left-0 w-full h-px bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
             </Link>
           ))}
         </nav>
@@ -79,7 +79,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-3 sm:gap-6">
           <button
             onClick={() => setIsFavoritesOpen(true)}
-            className="relative text-foreground/70 hover:text-primary transition-colors p-2.5 group"
+            className="relative text-white hover:text-gray-300 transition-colors p-2.5 group"
             aria-label="Favorites"
           >
             <Heart className="h-5 w-5" />
@@ -91,7 +91,7 @@ export const Navbar = () => {
           </button>
 
           <button
-            className="lg:hidden h-11 w-11 flex items-center justify-center rounded-full bg-secondary/80 text-foreground z-[70] transition-all active:scale-95 hover:bg-secondary"
+            className="lg:hidden h-11 w-11 flex items-center justify-center rounded-full bg-white/10 text-white z-[70] transition-all active:scale-95 hover:bg-white/20"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
@@ -119,7 +119,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm z-[65] bg-white shadow-2xl border-l border-border lg:hidden flex flex-col overflow-hidden"
+              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm z-[65] bg-black shadow-2xl border-l border-white/10 lg:hidden flex flex-col overflow-hidden"
             >
               <div className="flex flex-col h-full pt-24 px-8 pb-12 overflow-y-auto">
                 <div className="flex flex-col gap-6">
@@ -133,7 +133,7 @@ export const Navbar = () => {
                       <Link
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="text-[18px] font-[350] text-foreground hover:text-primary transition-colors flex items-center justify-between group"
+                        className="text-[18px] font-[350] text-white hover:text-gray-200 transition-colors flex items-center justify-between group"
                       >
                         {link.label}
                         <span className="h-1 w-0 bg-primary group-hover:w-8 transition-all duration-300" />
@@ -146,7 +146,7 @@ export const Navbar = () => {
                   <div className="h-px w-full bg-gradient-to-r from-border to-transparent" />
 
                   <div className="space-y-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-foreground/40">Connect With Us</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/60">Connect With Us</span>
                     <div className="flex flex-wrap gap-4">
                       {social.map((s, i) => (
                         <motion.a
@@ -157,7 +157,7 @@ export const Navbar = () => {
                           transition={{ delay: 0.4 + (i * 0.05) }}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`h-10 w-10 rounded-full bg-secondary flex items-center justify-center transition-transform hover:scale-110 ${s.color}`}
+                          className={`h-10 w-10 rounded-full bg-white/10 flex items-center justify-center transition-transform hover:scale-110 ${s.color}`}
                         >
                           <s.icon className="h-5 w-5" />
                         </motion.a>
@@ -166,8 +166,8 @@ export const Navbar = () => {
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <span className="text-foreground/40 font-bold text-sm uppercase tracking-widest">Twelve Lords</span>
-                    <span className="text-foreground/30 text-xs">Crafted for thinkers and creators</span>
+                    <span className="text-white/60 font-bold text-sm uppercase tracking-widest">Twelve Lords</span>
+                    <span className="text-white/40 text-xs">Crafted for thinkers and creators</span>
                   </div>
                 </div>
               </div>

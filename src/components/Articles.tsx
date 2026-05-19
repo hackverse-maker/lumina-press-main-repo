@@ -19,7 +19,7 @@ export const Articles = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-red-600 text-sm font-bold tracking-[0.2em] uppercase mb-4"
+            className="inline-block text-black/85 text-xs font-bold tracking-[0.2em] uppercase mb-4"
           >
             Latest Insights
           </motion.span>
@@ -33,9 +33,9 @@ export const Articles = () => {
             Thought, Technology & the Modern World
           </motion.h2>
         </div>
-
+ 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y-4 border-black/10 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 text-left">
           {featuredArticles.map((article, index) => (
             <motion.div
               key={article.slug}
@@ -43,26 +43,26 @@ export const Articles = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative group p-8 md:p-10 lg:p-12 ${
-                index < featuredArticles.length - 1 ? "md:border-r-4 border-black/10" : ""
-              }`}
+              className="bg-white/60 border border-[#dcdcdc] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-sm hover:border-black/20 hover:bg-white"
             >
-              <Link href={`/articles/${article.slug}`} className="block h-full flex flex-col items-center">
-                <div className="flex items-center justify-center gap-4 text-[10px] font-bold text-black/50 uppercase tracking-widest mb-6">
-                  <span className="flex items-center gap-1.5"><User className="w-3 h-3 text-red-600" /> {article.author}</span>
-                  <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3 text-red-600" /> {article.publishDate}</span>
+              <Link href={`/articles/${article.slug}`} className="block h-full flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center gap-4 text-[10px] font-bold text-black/70 uppercase tracking-widest mb-6">
+                    <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5 text-black/55" /> {article.author}</span>
+                    <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-black/55" /> {article.publishDate}</span>
+                  </div>
+                  
+                  <h3 className="text-xl lg:text-2xl font-bold text-black transition-colors duration-300 leading-tight mb-4 group-hover:underline underline-offset-4 decoration-black/25">
+                    {article.title}
+                  </h3>
+                  
+                  <p className="text-black leading-relaxed text-sm line-clamp-4 mb-6">
+                    {article.preview}
+                  </p>
                 </div>
                 
-                <h3 className="text-xl lg:text-2xl font-bold text-black group-hover:text-red-600 transition-colors duration-300 leading-tight mb-6">
-                  {article.title}
-                </h3>
-                
-                <p className="text-black/70 leading-relaxed text-sm lg:text-base line-clamp-4 mb-8">
-                  {article.preview}
-                </p>
-                
-                <div className="mt-auto pt-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-black/40 group-hover:text-red-600 group-hover:gap-4 transition-all">
-                  Read More <ArrowRight className="w-4 h-4" />
+                <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black/75 group-hover:text-black transition-all">
+                  Read More <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             </motion.div>
@@ -78,7 +78,7 @@ export const Articles = () => {
           className="mt-16 flex justify-center"
         >
           <Link href="/articles">
-            <button className="bg-red-600 text-white hover:bg-red-700 px-10 py-4 flex items-center justify-center gap-3 text-base font-bold rounded-full transition-all">
+            <button className="bg-black text-white hover:bg-black/90 px-10 py-4 flex items-center justify-center gap-3 text-base font-bold rounded-full transition-all">
               Read Articles <ArrowRight className="w-5 h-5" />
             </button>
           </Link>
