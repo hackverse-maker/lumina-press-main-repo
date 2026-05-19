@@ -26,7 +26,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-6xl md:text-8xl font-black text-black mb-12 tracking-tighter uppercase"
           >
-            About Us
+            Twelve Lords
           </motion.h1>
 
           {/* Featured Quote Block */}
