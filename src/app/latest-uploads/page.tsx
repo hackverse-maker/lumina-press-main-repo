@@ -102,7 +102,7 @@ export default function LatestUploadsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-black/85 leading-relaxed font-medium max-w-2xl font-serif italic text-center mx-auto"
+              className="text-lg md:text-xl text-black leading-relaxed font-light max-w-2xl font-serif italic text-center mx-auto"
             >
               Deep dives, podcasts, and historical critiques designed to bridge the gap between technical mastery and philosophical wisdom.
             </motion.p>
@@ -155,13 +155,13 @@ export default function LatestUploadsPage() {
                   </h2>
 
                   {/* Description */}
-                  <p className="text-black/75 text-sm sm:text-base leading-relaxed mb-6 font-medium font-serif line-clamp-4">
+                  <p className="text-black text-sm sm:text-base leading-relaxed mb-6 font-light font-serif line-clamp-4">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Card Footer Details */}
-                <div className="pt-6 border-t border-black/10 flex flex-wrap items-center justify-between gap-4 text-xs font-bold uppercase tracking-wider text-black/60">
+                <div className="pt-6 border-t border-black/10 flex flex-wrap items-center justify-between gap-4 text-xs font-light uppercase tracking-wider text-black">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-red-600" />
                     <span>{item.duration}</span>
