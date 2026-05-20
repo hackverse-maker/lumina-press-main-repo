@@ -180,9 +180,9 @@ export default function LatestUploadsPage() {
       {/* Explore More CTA */}
       <section className="bg-[#DBDAD8] py-10 border-t-[3px] border-black">
         <div className="container-tight px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3 text-red-600">
-            <Youtube className="w-6 h-6 shrink-0" />
-            <span className="text-sm font-black uppercase tracking-[0.25em]">Subscribed to Twelve Lords?</span>
+          <div className="flex items-center gap-3 text-black">
+            <Youtube className="w-6 h-6 shrink-0 text-red-600" />
+            <span className="text-sm font-light uppercase tracking-[0.25em]">Subscribed to Twelve Lords?</span>
           </div>
           <button
             onClick={() => window.open("https://youtube.com/@twelvelords", "_blank", "noopener,noreferrer")}
