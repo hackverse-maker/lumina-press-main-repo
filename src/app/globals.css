@@ -35,7 +35,27 @@
     --input: 0 0% 92%;
     --ring: 180 27% 23%;
 
-    --radius: 1rem; /* 16px corners as per SaaS style */
+    --radius: 1rem; 
+    
+    .article-content p:first-of-type::first-letter {
+    float: left;
+    font-size: 3rem;
+    line-height: 1;
+    margin-right: 0.2rem;
+    font-weight: bold;
+    color: #000;
+  }
+    
+    .drop-cap::first-letter {
+      float: left;
+      font-size: 3rem;
+      line-height: 1;
+      margin-right: 0.2rem;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    /* 16px corners as per SaaS style */
 
   /* Shadows */
     --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.1);

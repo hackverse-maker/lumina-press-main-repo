@@ -48,7 +48,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
             {/* Article Content Area */}
             <div className="prose prose-lg prose-black max-w-none">
-              <div className="space-y-8 text-[#111] leading-[1.8] text-lg md:text-xl font-medium">
+              <div className="space-y-8 text-[#111] leading-[1.8] text-lg md:text-xl font-medium article-content">
                 {article.content.map((block, index) => {
                   if (block.startsWith("## ")) {
                     return (

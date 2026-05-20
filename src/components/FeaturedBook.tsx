@@ -120,14 +120,14 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                   <div className="flex flex-wrap justify-center gap-3">
                     {book.benefits.map((benefit, i) => (
                       <motion.div
-                        key={benefit}
+                        key={benefit.title}
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 + i * 0.1 }}
                         className="px-5 py-3 rounded-xl bg-accent/5 border border-accent/20 flex items-center gap-3 transition-colors hover:bg-accent/10 group"
                       >
                         <Check className="w-4 h-4 text-accent group-hover:scale-125 transition-transform" />
-                        <span className="text-xs font-bold text-foreground/90">{benefit}</span>
+                        <span className="text-xs font-bold text-foreground/90">{benefit.title}</span>
                       </motion.div>
                     ))}
                   </div>

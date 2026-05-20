@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { Menu, X, Heart, Instagram, Facebook, Twitter, Youtube, Music2, Music, Podcast } from "lucide-react";
+import { Menu, X, Heart, Instagram, Facebook, Twitter, Youtube, Music2, Music, Podcast, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useAppState } from "@/context/AppStateContext";
@@ -26,7 +26,7 @@ const social = [
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "Articles", href: "/articles" },
+  { label: "Study", href: "#", hasDropdown: true },
   { label: "Book", href: "/books" },
   { label: "Tech", href: "/tech" },
   { label: "About", href: "/about" },
@@ -37,6 +37,8 @@ export const Navbar = () => {
   const { favorites, setIsFavoritesOpen } = useAppState();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [studyDropdownOpen, setStudyDropdownOpen] = useState(false);
+  const [mobileStudyOpen, setMobileStudyOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -64,16 +66,65 @@ export const Navbar = () => {
         </div>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="relative text-[14px] font-[400] uppercase tracking-[0.2em] text-white hover:text-gray-300 transition-colors group"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-full h-px bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-            </Link>
-          ))}
+          {links.map((link) => {
+            if (link.hasDropdown) {
+              return (
+                <div
+                  key={link.label}
+                  className="relative py-2"
+                  onMouseEnter={() => setStudyDropdownOpen(true)}
+                  onMouseLeave={() => setStudyDropdownOpen(false)}
+                >
+                  <button
+                    className="flex items-center gap-1 text-[14px] font-[400] uppercase tracking-[0.2em] text-white hover:text-gray-300 transition-colors"
+                  >
+                    {link.label}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${studyDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {studyDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute left-1/2 -translate-x-1/2 mt-3 w-52 bg-black border border-white/10 rounded-xl shadow-premium overflow-hidden z-[100]"
+                      >
+                        <div className="py-2 flex flex-col bg-black">
+                          <Link
+                            href="/articles"
+                            className="px-5 py-3 text-[12px] font-[400] uppercase tracking-[0.2em] text-white hover:bg-white/10 hover:text-primary transition-all text-left flex items-center justify-between group/item"
+                          >
+                            <span>Articles</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-white scale-0 group-hover/item:scale-100 transition-transform" />
+                          </Link>
+                          <Link
+                            href="/latest-uploads"
+                            className="px-5 py-3 text-[12px] font-[400] uppercase tracking-[0.2em] text-white hover:bg-white/10 hover:text-primary transition-all text-left flex items-center justify-between group/item"
+                          >
+                            <span>Latest Uploads</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-white scale-0 group-hover/item:scale-100 transition-transform" />
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="relative text-[14px] font-[400] uppercase tracking-[0.2em] text-white hover:text-gray-300 transition-colors group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-full h-px bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-6">
@@ -123,23 +174,72 @@ export const Navbar = () => {
             >
               <div className="flex flex-col h-full pt-24 px-8 pb-12 overflow-y-auto">
                 <div className="flex flex-col gap-6">
-                  {links.map((link, i) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => setOpen(false)}
-                        className="text-[18px] font-[350] text-white hover:text-gray-200 transition-colors flex items-center justify-between group"
+                  {links.map((link, i) => {
+                    if (link.hasDropdown) {
+                      return (
+                        <div key={link.label} className="flex flex-col gap-3">
+                          <button
+                            onClick={() => setMobileStudyOpen(!mobileStudyOpen)}
+                            className="text-[18px] font-[350] text-white hover:text-gray-200 transition-colors flex items-center justify-between w-full text-left"
+                          >
+                            <span>{link.label}</span>
+                            <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileStudyOpen ? "rotate-180" : ""}`} />
+                          </button>
+                          
+                          <AnimatePresence>
+                            {mobileStudyOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden flex flex-col gap-4 pl-4 pt-1"
+                              >
+                                <Link
+                                  href="/articles"
+                                  onClick={() => {
+                                    setOpen(false);
+                                    setMobileStudyOpen(false);
+                                  }}
+                                  className="text-[16px] font-[300] text-white/70 hover:text-white transition-colors"
+                                >
+                                  Articles
+                                </Link>
+                                <Link
+                                  href="/latest-uploads"
+                                  onClick={() => {
+                                    setOpen(false);
+                                    setMobileStudyOpen(false);
+                                  }}
+                                  className="text-[16px] font-[300] text-white/70 hover:text-white transition-colors"
+                                >
+                                  Latest Uploads
+                                </Link>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.1 }}
                       >
-                        {link.label}
-                        <span className="h-1 w-0 bg-primary group-hover:w-8 transition-all duration-300" />
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={link.href}
+                          onClick={() => setOpen(false)}
+                          className="text-[18px] font-[350] text-white hover:text-gray-200 transition-colors flex items-center justify-between group"
+                        >
+                          {link.label}
+                          <span className="h-1 w-0 bg-primary group-hover:w-8 transition-all duration-300" />
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
                 <div className="mt-auto pt-10 flex flex-col gap-8">

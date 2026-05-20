@@ -31,10 +31,10 @@ export default function AboutPage() {
 
           {/* Featured Quote Block */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="max-w-3xl mx-auto my-12 p-8 sm:p-12 border-y-2 border-black/10 flex flex-col items-center justify-center bg-white/30 backdrop-blur-sm"
+            className="max-w-3xl mx-auto my-12 flex flex-col items-center justify-center"
           >
             <p className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-black leading-snug tracking-tight text-center max-w-2xl">
               “Timeless wisdom for a world moving too fast.”
@@ -60,7 +60,7 @@ export default function AboutPage() {
           >
             <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-transform duration-500 hover:scale-[1.005] overflow-hidden rounded-2xl">
               <img
-                src="/about_profile.png"
+                src="/about_profile.jpg"
                 alt="Muhammad Raza"
                 className="w-full h-full object-cover"
               />
