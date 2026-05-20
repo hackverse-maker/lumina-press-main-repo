@@ -30,13 +30,8 @@ export const FeaturedStory = () => {
               </div>
               <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-black">
                 <span>filed under</span>
-                <div className="flex items-center gap-2 text-black font-black uppercase">
-                  {article.category} {article.tags && article.tags.length > 0 && (
-                    <>
-                      <span className="text-black/30 font-normal">|</span>
-                      {article.tags.join(" | ")}
-                    </>
-                  )}
+                <div className="text-black font-black uppercase">
+                  {article.category}
                 </div>
               </div>
             </div>
