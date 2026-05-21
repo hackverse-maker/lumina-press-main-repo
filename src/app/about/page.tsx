@@ -40,7 +40,7 @@ export default function AboutPage() {
               “Timeless wisdom for a world moving too fast.”
             </p>
             <span className="mt-6 text-xs sm:text-sm font-bold tracking-[0.3em] uppercase text-black/85">
-              — Muhammad Raza
+              — Muhammad Raza, Cybersecurity Engineer
             </span>
           </motion.div>
         </div>
@@ -66,7 +66,7 @@ export default function AboutPage() {
               />
             </div>
             <span className="mt-4 text-xs font-semibold text-black/75 tracking-wider w-full text-left sm:text-center leading-relaxed">
-              Muhammad Raza — Founder & Cyber Engineer.
+              Muhammad Raza — Founder & Cybersecurity Engineer.
             </span>
           </motion.div>
 
@@ -79,7 +79,7 @@ export default function AboutPage() {
             className="prose prose-lg text-black font-[400] text-base sm:text-lg leading-relaxed sm:leading-loose space-y-8"
           >
             <p className="first-letter:text-5xl first-letter:font-black first-letter:text-black first-letter:float-left first-letter:mr-3 first-letter:mt-1">
-              TwelveLords is an innovative platform led by Muhammad Raza — a Cyber Engineer, Author, and Entrepreneur dedicated to advancing technology, strengthening cybersecurity awareness, and bringing timeless philosophical insights into the modern world.
+              TwelveLords is an innovative platform led by Muhammad Raza — a Cybersecurity Engineer, Author, and Entrepreneur dedicated to advancing technology, strengthening cybersecurity awareness, and bringing timeless philosophical insights into the modern world.
             </p>
             
             <p>

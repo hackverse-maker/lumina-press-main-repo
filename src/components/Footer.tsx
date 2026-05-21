@@ -46,7 +46,7 @@ export const Footer = () => {
               </Link>
               
               <p className="text-[14px] text-white/80 leading-relaxed font-normal max-w-sm font-serif">
-                Twelve Lords is an innovative platform led by Muhammad Raza — a Cyber Engineer, Author, and Entrepreneur. We bridge the gap between technical mastery and philosophical wisdom, helping you navigate the digital frontier with awareness and purpose.
+                Twelve Lords is an innovative platform led by Muhammad Raza — a Cybersecurity Engineer, Author, and Entrepreneur. We bridge the gap between technical mastery and philosophical wisdom, helping you navigate the digital frontier with awareness and purpose.
               </p>
 
               <Link 
@@ -87,7 +87,7 @@ export const Footer = () => {
                   Contact
                 </Link>
                 <Link href="/tech" className="text-white hover:text-gray-300 transition-colors">
-                  Purpose App
+                  About Tech
                 </Link>
               </div>
               
@@ -96,13 +96,7 @@ export const Footer = () => {
                   Books
                 </Link>
                 <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
-                  Podcast
-                </Link>
-                <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
                   Sign Up
-                </Link>
-                <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
-                  Sponsorships
                 </Link>
               </div>
             </div>

@@ -53,7 +53,7 @@ export default function BookDetailPage() {
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-[#F5F5F7]">
-      <div className="container-tight relative z-10 pt-32 pb-12">
+      <div className="container-tight relative z-10 pt-20 pb-8">
         {/* Navigation */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -70,7 +70,7 @@ export default function BookDetailPage() {
           </Button>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-start">
           {/* Left: Content (Black Side) */}
           <div className="space-y-12 order-2 lg:order-1">
             <motion.div
@@ -87,8 +87,12 @@ export default function BookDetailPage() {
                 <span className="flex items-center gap-2 text-black/60"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
               </div>
 
-              <h1 className="text-4xl md:text-7xl font-display font-black leading-tight text-black tracking-tighter shadow-sm whitespace-pre-line">
-                {book.title}
+              <h1 className="text-4xl md:text-7xl font-display font-black leading-tight tracking-tighter shadow-sm whitespace-pre-line">
+                {book.id === "self-as-witness" ? (
+                  <span className="text-orange-500">{book.title}</span>
+                ) : (
+                  <span className="text-black">{book.title}</span>
+                )}
               </h1>
 
               {book.subtitle && (

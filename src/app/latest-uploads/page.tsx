@@ -111,7 +111,7 @@ export default function LatestUploadsPage() {
       </section>
 
       {/* Grid Content Section */}
-      <section className="py-12 px-6">
+      <section className="py-12 px-6 bg-orange-500">
         <div className="container-tight">
           <motion.div
             variants={containerVariants}

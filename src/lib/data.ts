@@ -46,14 +46,14 @@ export const books: Book[] = [
     id: "self-as-witness",
     title: "THE SELF AS WITNESS",
     subtitle: "Exploring How the Self Becomes Both Subject and Suspect in Its Own Gaze",
-    author: "Raza",
+    author: "Muhammad Raza",
     genre: "NON-FICTION",
     publishDate: "2026",
     description: "The Self as Witness explores the timeless struggle for self-mastery—the internal battle that has defined the human condition across history. Drawing from the wisdom of great thinkers, it distills profound philosophies into a clear, practical framework. Rather than remaining abstract, this book transforms ancient insight into actionable discipline, guiding you to apply self-awareness and control in your everyday life.",
     benefits: [
       {
         title: "Recognition of the Inner Adversary",
-        description: "Cultivate the ability to identify the “inner suspect”—the hidden patterns, impulses, and tendencies that undermine your discipline and clarity."
+        description: "Cultivate the ability to identify the \"inner suspect\"—the hidden patterns, impulses, and tendencies that undermine your discipline and clarity."
       },
       {
         title: "Deep Self-Awareness and Insight",
@@ -62,6 +62,10 @@ export const books: Book[] = [
       {
         title: "A Structured Strategy for Inner Mastery",
         description: "Formulate a disciplined and practical framework to confront, regulate, and ultimately transcend the limitations of your inner self."
+      },
+      {
+        title: "Witnessing the Self Beyond Impulse",
+        description: "Learn to observe your impulses without being controlled by them, creating the space needed for conscious choice and authentic self-direction."
       }
     ],
     image: "/images/books/self-as-witness-v2.png",
