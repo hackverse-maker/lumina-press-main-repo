@@ -19,6 +19,7 @@ import { useAppState } from "@/context/AppStateContext";
 import { books } from "@/lib/data";
 import { useState } from "react";
 import Image from "next/image";
+import { CyberCableShowcase } from "@/components/CyberCableShowcase";
 
 export default function CyberCableProductPage() {
   const router = useRouter();
@@ -53,6 +54,13 @@ export default function CyberCableProductPage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-hidden">
       <div className="relative z-10">
+        {/* Premium Dark Showcase Section */}
+        <CyberCableShowcase 
+          onAddToCart={handleAddToCart}
+          isInCart={isInCart}
+          added={added}
+        />
+
         {/* Navigation */}
         <div className="container-tight pt-16 pb-8">
           <motion.button 
