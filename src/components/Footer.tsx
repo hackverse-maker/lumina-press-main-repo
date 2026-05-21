@@ -56,7 +56,7 @@ export const Footer = () => {
                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white transition-all shrink-0">
                   <span className="text-sm font-[300] transform group-hover:translate-x-0.5 transition-transform">→</span>
                 </div>
-                LEARN MORE ABOUT RAZA
+                LEARN MORE ABOUT MUHAMMAD RAZA
               </Link>
             </div>
             
@@ -81,7 +81,7 @@ export const Footer = () => {
                   Newsletter
                 </Link>
                 <Link href="/about" className="text-white hover:text-gray-300 transition-colors border-b border-white pb-0.5 font-bold tracking-[0.15em]">
-                  About Raza
+                  About Muhammad Raza
                 </Link>
                 <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
                   Contact
