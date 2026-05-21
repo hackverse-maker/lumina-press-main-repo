@@ -34,7 +34,7 @@ const uploads: UploadItem[] = [
     category: "History & Philosophy",
     duration: "12 min watch",
     date: "October 31, 2025",
-    speaker: "Twelve Lords Editorial",
+    speaker: "Muhammad Raza — Editorial",
     color: "from-zinc-900 to-stone-950",
   },
   {
@@ -44,7 +44,7 @@ const uploads: UploadItem[] = [
     category: "Educational Critique",
     duration: "10 min watch",
     date: "April 21, 2026",
-    speaker: "Twelve Lords Editorial",
+    speaker: "Muhammad Raza — Editorial",
     color: "from-zinc-900 to-stone-950",
   }
 ];
@@ -111,7 +111,7 @@ export default function LatestUploadsPage() {
       </section>
 
       {/* Grid Content Section */}
-      <section className="py-12 px-6">
+      <section className="py-12 px-6 bg-orange-500">
         <div className="container-tight">
           <motion.div
             variants={containerVariants}

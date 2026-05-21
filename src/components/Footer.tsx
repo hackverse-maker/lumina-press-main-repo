@@ -46,7 +46,7 @@ export const Footer = () => {
               </Link>
               
               <p className="text-[14px] text-white/80 leading-relaxed font-normal max-w-sm font-serif">
-                Twelve Lords is an innovative platform led by Muhammad Raza — a Cyber Engineer, Author, and Entrepreneur. We bridge the gap between technical mastery and philosophical wisdom, helping you navigate the digital frontier with awareness and purpose.
+                Twelve Lords is an innovative platform led by Muhammad Raza — a Cybersecurity Engineer, Author, and Entrepreneur. We bridge the gap between technical mastery and philosophical wisdom, helping you navigate the digital frontier with awareness and purpose.
               </p>
 
               <Link 
@@ -56,7 +56,7 @@ export const Footer = () => {
                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white transition-all shrink-0">
                   <span className="text-sm font-[300] transform group-hover:translate-x-0.5 transition-transform">→</span>
                 </div>
-                LEARN MORE ABOUT RAZA
+                LEARN MORE ABOUT MUHAMMAD RAZA
               </Link>
             </div>
             
@@ -81,13 +81,13 @@ export const Footer = () => {
                   Newsletter
                 </Link>
                 <Link href="/about" className="text-white hover:text-gray-300 transition-colors border-b border-white pb-0.5 font-bold tracking-[0.15em]">
-                  About Raza
+                  About Muhammad Raza
                 </Link>
                 <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
                   Contact
                 </Link>
                 <Link href="/tech" className="text-white hover:text-gray-300 transition-colors">
-                  Purpose App
+                  About Tech
                 </Link>
               </div>
               
@@ -96,13 +96,7 @@ export const Footer = () => {
                   Books
                 </Link>
                 <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
-                  Podcast
-                </Link>
-                <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
                   Sign Up
-                </Link>
-                <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
-                  Sponsorships
                 </Link>
               </div>
             </div>

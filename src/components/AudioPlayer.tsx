@@ -34,6 +34,7 @@ export const AudioPlayer = ({ content }: AudioPlayerProps) => {
     } else {
       if (synthesisRef.current.paused) {
         synthesisRef.current.resume();
+        setIsPlaying(true);
       } else {
         const textToRead = content.join(" ").replace(/##\s+/g, "").replace(/>\s+/g, "");
         const utterance = new SpeechSynthesisUtterance(textToRead);
@@ -41,19 +42,19 @@ export const AudioPlayer = ({ content }: AudioPlayerProps) => {
         
         utterance.onend = () => {
           setIsPlaying(false);
-          setProgress(100);
+          setProgress(0);
         };
 
         utterance.onboundary = (event) => {
           const totalLength = textToRead.length;
           const currentProgress = (event.charIndex / totalLength) * 100;
-          setProgress(currentProgress);
+          setProgress(Math.min(currentProgress, 100));
         };
 
         utteranceRef.current = utterance;
         synthesisRef.current.speak(utterance);
+        setIsPlaying(true);
       }
-      setIsPlaying(true);
     }
   };
 

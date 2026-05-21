@@ -46,14 +46,14 @@ export const books: Book[] = [
     id: "self-as-witness",
     title: "THE SELF AS WITNESS",
     subtitle: "Exploring How the Self Becomes Both Subject and Suspect in Its Own Gaze",
-    author: "Raza",
+    author: "Muhammad Raza",
     genre: "NON-FICTION",
     publishDate: "2026",
     description: "The Self as Witness explores the timeless struggle for self-mastery—the internal battle that has defined the human condition across history. Drawing from the wisdom of great thinkers, it distills profound philosophies into a clear, practical framework. Rather than remaining abstract, this book transforms ancient insight into actionable discipline, guiding you to apply self-awareness and control in your everyday life.",
     benefits: [
       {
         title: "Recognition of the Inner Adversary",
-        description: "Cultivate the ability to identify the “inner suspect”—the hidden patterns, impulses, and tendencies that undermine your discipline and clarity."
+        description: "Cultivate the ability to identify the \"inner suspect\"—the hidden patterns, impulses, and tendencies that undermine your discipline and clarity."
       },
       {
         title: "Deep Self-Awareness and Insight",
@@ -62,6 +62,10 @@ export const books: Book[] = [
       {
         title: "A Structured Strategy for Inner Mastery",
         description: "Formulate a disciplined and practical framework to confront, regulate, and ultimately transcend the limitations of your inner self."
+      },
+      {
+        title: "Witnessing the Self Beyond Impulse",
+        description: "Learn to observe your impulses without being controlled by them, creating the space needed for conscious choice and authentic self-direction."
       }
     ],
     image: "/images/books/self-as-witness-v2.png",
@@ -135,9 +139,9 @@ export const articles: Article[] = [
     category: "Social Analysis",
     subtitle: "Every generation is told it is the future of the nation. But what happens when that future is shaped by fear?",
     thumb: "/cybersecurity-featured.png",
-    author: "Twelve Lords Editorial",
+    author: "Muhammad Raza — Editorial",
     authorImage: "/images/books/self-as-witness-v2.png",
-    authorBio: "Twelve Lords Editorial team provides deep-dives into social and educational issues affecting the modern world.",
+    authorBio: "Muhammad Raza leads the Twelve Lords Editorial team, providing deep-dives into social and educational issues affecting the modern world.",
     publishDate: "May 20, 2026",
     readTime: "12 min read",
     preview: "Across many schools and madrassas in Pakistan, corporal punishment remains an embedded part of discipline.",
@@ -171,9 +175,9 @@ export const articles: Article[] = [
     category: "Educational Critique",
     subtitle: "At 9:00 a.m. sharp, millions of students sit in silence. But is this system truly fair?",
     thumb: "/cybersecurity-featured.png",
-    author: "Twelve Lords Editorial",
+    author: "Muhammad Raza — Editorial",
     authorImage: "/images/books/self-as-witness-v2.png",
-    authorBio: "Twelve Lords Editorial team provides deep-dives into social and educational issues affecting the modern world.",
+    authorBio: "Muhammad Raza leads the Twelve Lords Editorial team, providing deep-dives into social and educational issues affecting the modern world.",
     publishDate: "May 20, 2026",
     readTime: "10 min read",
     preview: "At 9:00 a.m. sharp, millions of students sit in silence. But is this system truly fair, or is it merely testing how well a student can perform while half-asleep?",

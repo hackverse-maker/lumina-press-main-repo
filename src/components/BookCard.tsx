@@ -65,7 +65,7 @@ export const BookCard = ({ book, index = 0, showButtons = false }: BookCardProps
           <span>{book.publishDate}</span>
         </div>
         <Link href={`/books/${book.id}`}>
-          <h3 className="font-display font-bold text-lg leading-tight transition-colors duration-300 text-black">
+          <h3 className={`font-display font-bold text-lg leading-tight transition-colors duration-300 ${book.id === "self-as-witness" ? "text-orange-500" : "text-black"}`}>
             {book.title.split(' ').slice(0, -1).join(' ')} <span className="">{book.title.split(' ').pop()}</span>
           </h3>
         </Link>

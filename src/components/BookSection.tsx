@@ -31,7 +31,7 @@ export const BookSection = () => {
             className="text-white space-y-6 sm:space-y-8 order-1"
           >
             <div>
-              <h2 className="text-4xl sm:text-6xl lg:text-[72px] font-semibold font-sans mb-4 sm:mb-6 leading-[1.1] tracking-tighter uppercase text-white">
+              <h2 className="text-4xl sm:text-6xl lg:text-[72px] font-semibold font-sans mb-4 sm:mb-6 leading-[1.1] tracking-tighter uppercase text-orange-500">
                 <span className="block">THE SELF</span>
                 <span className="block">AS WITNESS</span>
               </h2>
