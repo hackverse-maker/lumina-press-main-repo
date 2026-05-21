@@ -58,11 +58,11 @@ export default function CyberCableProductPage() {
           <motion.button 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            onClick={() => router.back()}
+            onClick={() => router.push('/tech')}
             className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-bold uppercase tracking-widest text-xs group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back
+            Back to Tech
           </motion.button>
         </div>
 
