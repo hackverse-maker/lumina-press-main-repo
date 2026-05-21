@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useAppState } from "@/context/AppStateContext";
 import { books } from "@/lib/data";
 import { useState } from "react";
+import CyberCableShowcase from "@/components/CyberCableShowcase";
 import Image from "next/image";
 
 export default function CyberCableProductPage() {
@@ -67,27 +68,9 @@ export default function CyberCableProductPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="container-tight pb-20 px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-square rounded-[2rem] sm:rounded-[3rem] bg-primary/5 border border-primary/10 flex items-center justify-center overflow-hidden group shadow-2xl"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
-              <img 
-                src="/images/cablepost.jpg.jpeg" 
-                alt="Twelve Lords Cyber Cable" 
-                className="w-[85%] h-[85%] object-contain filter drop-shadow-[0_0_50px_rgba(253,181,17,0.3)] transition-transform duration-700 group-hover:scale-110"
-              />
-              
-              {/* Animated HUD elements */}
-              <div className="absolute top-6 sm:top-8 left-6 sm:left-8 font-mono text-[8px] sm:text-[10px] text-primary/40 space-y-1">
-                <div className="flex items-center gap-2"><span className="h-1 sm:h-1.5 w-1 sm:w-1.5 bg-primary rounded-full animate-pulse"/> SYSTEM_READY</div>
-                <div>SECURE_HARDWARE: ACTIVE</div>
-              </div>
-            </motion.div>
+        <section className="container-tight px-4 sm:px-6 pb-16 sm:pb-24">
+          <CyberCableShowcase />
+        
 
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
               <motion.div {...fadeIn}>
