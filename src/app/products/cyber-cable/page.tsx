@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CyberCableShowcase from "@/components/CyberCableShowcase";
-import Image from "next/image";
 
 export default function CyberCableProductPage() {
   const router = useRouter();
@@ -26,44 +25,19 @@ export default function CyberCableProductPage() {
   return (
     <main className="min-h-screen overflow-hidden">
       <div className="relative z-10">
-        {/* Back Button */}
-        <div className="pt-32 sm:pt-36 md:pt-40 px-4 sm:px-6 lg:px-8">
-          <motion.button 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-white hover:text-[#00D9FF] transition-colors font-bold uppercase tracking-widest text-xs group"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back
-          </motion.button>
-        </div>
-
         {/* Hero Section with Premium Dark Cyber Theme */}
-        <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-0 mt-16 sm:mt-20 md:mt-24">
-          {/* Premium Dark Gradient Background with Cyber Aesthetic */}
-          <div className="absolute inset-0 -z-10">
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: `
-                  radial-gradient(circle at top left, rgba(0,217,255,0.15), transparent 35%),
-                  radial-gradient(circle at bottom right, rgba(4,174,227,0.08), transparent 40%),
-                  linear-gradient(135deg, #050816 0%, #0A1224 50%, #0B121E 100%)
-                `
-              }}
-            />
-            {/* Subtle animated grid */}
-            <div 
-              className="absolute inset-0 opacity-[0.03]" 
-              style={{ 
-                backgroundImage: 'radial-gradient(circle at 2px 2px, #00D9FF 1px, transparent 0)', 
-                backgroundSize: '50px 50px' 
-              }} 
-            />
-          </div>
-
+        <section className="relative bg-gradient-to-b from-[#050816] via-[#0A1224] to-[#0B121E] overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
           <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Back Button */}
+            <motion.button 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={() => router.back()}
+              className="flex items-center gap-2 text-white hover:text-[#00D9FF] transition-colors font-bold uppercase tracking-widest text-xs group mb-6 sm:mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              Back
+            </motion.button>
             <CyberCableShowcase />
           </div>
         </section>
