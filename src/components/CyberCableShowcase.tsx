@@ -1,11 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShoppingCart, CheckCircle2, Shield, Zap, Lock, Cpu } from "lucide-react";
+import { ShoppingCart, CheckCircle2, Shield, Zap, Lock, Cpu, Heart } from "lucide-react";
 import { useState } from "react";
+import { useAppState } from "@/context/AppStateContext";
+import { books } from "@/lib/data";
 
 export default function CyberCableShowcase() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const { addToCart, cart, setIsCartOpen } = useAppState();
+  const [added, setAdded] = useState(false);
+
+  const product = books.find(b => b.id === "cyber-cable");
+  const isInCart = cart.some(item => item.id === "cyber-cable");
+
+  const handleAddToCart = () => {
+    if (!isInCart && product) {
+      addToCart(product);
+      setAdded(true);
+      setTimeout(() => {
+        setAdded(false);
+        setIsCartOpen(true);
+      }, 1000);
+    } else {
+      setIsCartOpen(true);
+    }
+  };
 
   const features = [
     { icon: Shield, title: "Default Mode", subtitle: "Charge-Only", color: "from-cyan-500/20 to-transparent" },
@@ -108,6 +128,35 @@ export default function CyberCableShowcase() {
                   </motion.div>
                 ))}
               </div>
+
+              {/* Action Buttons */}
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+                <button 
+                  onClick={handleAddToCart}
+                  className="group relative px-10 py-4 sm:px-12 sm:py-5 rounded-2xl text-white font-black text-lg sm:text-lg transition-all hover:scale-105 flex items-center justify-center gap-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #12343B, #0A6C74)',
+                    boxShadow: '0 0 20px rgba(0,217,255,0.25)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(0,217,255,0.45)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 20px rgba(0,217,255,0.25)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  {added ? <CheckCircle2 className="w-6 h-6" /> : <ShoppingCart className="w-6 h-6" />}
+                  <span>{isInCart ? "In Your Cart" : "Add to Cart"}</span>
+                </button>
+                <button 
+                  className="group relative px-4 py-4 sm:px-5 sm:py-5 rounded-2xl border-2 border-[#00D9FF] text-[#00D9FF] font-black transition-all hover:scale-105 hover:bg-[#00D9FF]/10 flex items-center justify-center gap-2"
+                >
+                  <Heart className="w-5 h-5" />
+                  <span className="hidden sm:inline">Favorite</span>
+                </button>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>

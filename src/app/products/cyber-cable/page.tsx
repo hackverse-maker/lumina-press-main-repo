@@ -2,47 +2,19 @@
 
 import { motion } from "framer-motion";
 import { 
-  ArrowLeft, 
-  ShoppingCart, 
-  ShieldCheck, 
-  Zap, 
-  Lock, 
-  Cpu, 
-  Activity, 
-  Check,
-  CheckCircle2,
+  ArrowLeft,
+  Zap,
+  Lock,
   HardDrive,
-  Usb
+  Activity,
+  CheckCircle2
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useAppState } from "@/context/AppStateContext";
-import { books } from "@/lib/data";
-import { useState } from "react";
 import CyberCableShowcase from "@/components/CyberCableShowcase";
 import Image from "next/image";
 
 export default function CyberCableProductPage() {
   const router = useRouter();
-  const { addToCart, cart, setIsCartOpen } = useAppState();
-  const [added, setAdded] = useState(false);
-
-  const product = books.find(b => b.id === "cyber-cable");
-  const isInCart = cart.some(item => item.id === "cyber-cable");
-
-  if (!product) return null;
-
-  const handleAddToCart = () => {
-    if (!isInCart) {
-      addToCart(product);
-      setAdded(true);
-      setTimeout(() => {
-        setAdded(false);
-        setIsCartOpen(true);
-      }, 1000);
-    } else {
-      setIsCartOpen(true);
-    }
-  };
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -93,74 +65,6 @@ export default function CyberCableProductPage() {
 
           <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <CyberCableShowcase />
-        
-
-            <div className="space-y-6 sm:space-y-8 text-center max-w-4xl mx-auto">
-              <motion.div {...fadeIn}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D9FF]/10 border border-[#00D9FF]/30 text-[#00D9FF] text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto w-fit">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Hardware-Level Security</span>
-                </div>
-                <h1 className="font-display font-black leading-tight tracking-tighter text-white text-4xl sm:text-5xl md:text-7xl">
-                  Twelve Lords <span className="text-[#00D9FF]">Cyber Cable</span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-[#EAF6FF] leading-tight">
-                  Secure Charging. Controlled Data. <br className="hidden sm:block" />
-                  <span className="text-[#4CC9F0]">Total Protection.</span>
-                </p>
-              </motion.div>
-
-              <motion.p 
-                {...fadeIn} 
-                transition={{ delay: 0.2 }}
-                className="text-base sm:text-lg text-[#A9B4C7] leading-relaxed font-medium max-w-2xl mx-auto"
-              >
-                The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
-              </motion.p>
-
-              <motion.div 
-                {...fadeIn}
-                transition={{ delay: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto"
-              >
-                <div className="p-4 rounded-2xl bg-white/5 border border-[#00D9FF]/20 backdrop-filter backdrop-blur-[12px] space-y-2 hover:border-[#00D9FF]/40 hover:bg-white/10 transition-all duration-300">
-                  <Usb className="w-5 h-5 text-[#00D9FF]" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#EAF6FF]">Default Mode</p>
-                  <p className="text-sm text-[#A9B4C7] font-semibold">Charge-Only</p>
-                </div>
-                <div className="p-4 rounded-2xl bg-white/5 border border-[#00D9FF]/20 backdrop-filter backdrop-blur-[12px] space-y-2 hover:border-[#00D9FF]/40 hover:bg-white/10 transition-all duration-300">
-                  <Zap className="w-5 h-5 text-[#00D9FF]" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#EAF6FF]">Power Delivery</p>
-                  <p className="text-sm text-[#A9B4C7] font-semibold">Up to 60W</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                {...fadeIn}
-                transition={{ delay: 0.4 }}
-                className="pt-4 pb-8 md:pb-12"
-              >
-                <button 
-                  onClick={handleAddToCart}
-                  className="w-full lg:w-auto group relative px-10 py-5 sm:px-12 sm:py-6 rounded-2xl text-white font-black text-lg sm:text-xl transition-all hover:scale-105 flex items-center justify-center gap-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #12343B, #0A6C74)',
-                    boxShadow: '0 0 20px rgba(0,217,255,0.25)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 0 30px rgba(0,217,255,0.45)';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 0 20px rgba(0,217,255,0.25)';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }}
-                >
-                  {added ? <CheckCircle2 className="w-6 h-6" /> : <ShoppingCart className="w-6 h-6" />}
-                  <span>{isInCart ? "In Your Cart" : "Add to Cart"}</span>
-                </button>
-              </motion.div>
-            </div>
           </div>
         </section>
 
@@ -283,16 +187,6 @@ export default function CyberCableProductPage() {
             <p className="text-muted-foreground text-sm sm:text-lg">
               By separating power from data and introducing controlled communication, it eliminates unnecessary exposure and provides a reliable defense against modern USB-based threats.
             </p>
-            
-            <div className="pt-6 sm:pt-8">
-              <button 
-                onClick={handleAddToCart}
-                className="group relative px-10 py-5 sm:px-16 sm:py-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary text-white font-black text-xl sm:text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(253,181,17,0.6)] w-full sm:w-auto overflow-hidden"
-              >
-                Secure Yours Now
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[1.5rem] sm:rounded-[2rem] pointer-events-none" />
-              </button>
-            </div>
           </motion.div>
 
         </section>
