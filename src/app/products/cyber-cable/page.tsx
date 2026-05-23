@@ -95,9 +95,9 @@ export default function CyberCableProductPage() {
             <CyberCableShowcase />
         
 
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+            <div className="space-y-6 sm:space-y-8 text-center max-w-4xl mx-auto">
               <motion.div {...fadeIn}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D9FF]/10 border border-[#00D9FF]/30 text-[#00D9FF] text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto lg:mx-0 w-fit">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D9FF]/10 border border-[#00D9FF]/30 text-[#00D9FF] text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto w-fit">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Hardware-Level Security</span>
                 </div>
@@ -113,7 +113,7 @@ export default function CyberCableProductPage() {
               <motion.p 
                 {...fadeIn} 
                 transition={{ delay: 0.2 }}
-                className="text-base sm:text-lg text-[#A9B4C7] leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0"
+                className="text-base sm:text-lg text-[#A9B4C7] leading-relaxed font-medium max-w-2xl mx-auto"
               >
                 The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
               </motion.p>
@@ -121,7 +121,7 @@ export default function CyberCableProductPage() {
               <motion.div 
                 {...fadeIn}
                 transition={{ delay: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto"
               >
                 <div className="p-4 rounded-2xl bg-white/5 border border-[#00D9FF]/20 backdrop-filter backdrop-blur-[12px] space-y-2 hover:border-[#00D9FF]/40 hover:bg-white/10 transition-all duration-300">
                   <Usb className="w-5 h-5 text-[#00D9FF]" />
@@ -138,7 +138,7 @@ export default function CyberCableProductPage() {
               <motion.div 
                 {...fadeIn}
                 transition={{ delay: 0.4 }}
-                className="pt-4"
+                className="pt-4 pb-8 md:pb-12"
               >
                 <button 
                   onClick={handleAddToCart}
@@ -287,10 +287,10 @@ export default function CyberCableProductPage() {
             <div className="pt-6 sm:pt-8">
               <button 
                 onClick={handleAddToCart}
-                className="group relative px-10 py-5 sm:px-16 sm:py-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary text-white font-black text-xl sm:text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(253,181,17,0.6)] w-full sm:w-auto"
+                className="group relative px-10 py-5 sm:px-16 sm:py-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary text-white font-black text-xl sm:text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(253,181,17,0.6)] w-full sm:w-auto overflow-hidden"
               >
                 Secure Yours Now
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[1.5rem] sm:rounded-[2rem]" />
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[1.5rem] sm:rounded-[2rem] pointer-events-none" />
               </button>
             </div>
           </motion.div>

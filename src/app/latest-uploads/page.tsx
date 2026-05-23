@@ -77,7 +77,7 @@ export default function LatestUploadsPage() {
   return (
     <main className="min-h-screen bg-white text-black pb-24">
       {/* Hero Section */}
-      <section className="bg-white pt-32 pb-16 md:pt-36 md:pb-20 px-6 border-b-[3px] border-black mt-16 sm:mt-20 md:mt-24">
+      <section className="bg-white pt-32 pb-16 md:pt-36 md:pb-20 px-6 mt-16 sm:mt-20 md:mt-24">
         <div className="container-tight relative flex flex-col items-center text-center">
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
             <motion.span
