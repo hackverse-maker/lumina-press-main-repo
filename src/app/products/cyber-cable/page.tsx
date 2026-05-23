@@ -55,7 +55,7 @@ export default function CyberCableProductPage() {
     <main className="min-h-screen overflow-hidden">
       <div className="relative z-10">
         {/* Back Button */}
-        <div className="fixed top-20 left-6 z-50">
+        <div className="pt-32 sm:pt-36 md:pt-40 px-4 sm:px-6 lg:px-8">
           <motion.button 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}

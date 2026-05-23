@@ -102,7 +102,7 @@ export default function LatestUploadsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-black leading-relaxed font-light max-w-2xl font-serif italic text-center mx-auto"
+              className="text-lg md:text-xl text-black leading-relaxed font-semibold max-w-2xl font-serif italic text-center mx-auto"
             >
               Deep dives, podcasts, and historical critiques designed to bridge the gap between technical mastery and philosophical wisdom.
             </motion.p>
@@ -155,7 +155,7 @@ export default function LatestUploadsPage() {
                   </h2>
 
                   {/* Description */}
-                  <p className="text-black text-sm sm:text-base leading-relaxed mb-6 font-light font-serif line-clamp-4">
+                  <p className="text-black text-sm sm:text-base leading-relaxed mb-6 font-medium font-serif line-clamp-4">
                     {item.description}
                   </p>
                 </div>
@@ -182,7 +182,7 @@ export default function LatestUploadsPage() {
         <div className="container-tight px-6 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="flex items-center gap-3 text-black">
             <Youtube className="w-6 h-6 shrink-0 text-red-600" />
-            <span className="text-sm font-light uppercase tracking-[0.25em]">Subscribed to Twelve Lords?</span>
+            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-black">Subscribed to Twelve Lords?</span>
           </div>
           <button
             onClick={() => window.open("https://youtube.com/@twelvelords", "_blank", "noopener,noreferrer")}
