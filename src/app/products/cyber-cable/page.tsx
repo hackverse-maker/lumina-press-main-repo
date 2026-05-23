@@ -68,7 +68,7 @@ export default function CyberCableProductPage() {
         </div>
 
         {/* Hero Section with Premium Dark Cyber Theme */}
-        <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
+        <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-0 mt-16 sm:mt-20 md:mt-24">
           {/* Premium Dark Gradient Background with Cyber Aesthetic */}
           <div className="absolute inset-0 -z-10">
             <div 

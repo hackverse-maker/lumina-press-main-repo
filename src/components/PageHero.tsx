@@ -77,7 +77,7 @@ const CodingAnimation = () => (
 
 export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
   return (
-    <section className="relative pt-clamp pb-clamp overflow-hidden">
+    <section className="relative mt-20 sm:mt-24 md:mt-28 pt-clamp pb-clamp overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col items-center text-center space-y-8">

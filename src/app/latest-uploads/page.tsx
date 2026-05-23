@@ -75,9 +75,9 @@ const itemVariants: Variants = {
 export default function LatestUploadsPage() {
 
   return (
-    <main className="min-h-screen bg-[#DBDAD8] text-black pb-24">
+    <main className="min-h-screen bg-white text-black pb-24">
       {/* Hero Section */}
-      <section className="bg-[#DBDAD8] pt-32 pb-16 md:pt-36 md:pb-20 px-6 border-b-[3px] border-black mt-[10px]">
+      <section className="bg-white pt-32 pb-16 md:pt-36 md:pb-20 px-6 border-b-[3px] border-black mt-16 sm:mt-20 md:mt-24">
         <div className="container-tight relative flex flex-col items-center text-center">
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
             <motion.span
@@ -178,15 +178,15 @@ export default function LatestUploadsPage() {
       </section>
 
       {/* Explore More CTA */}
-      <section className="bg-[#DBDAD8] py-10 border-t-[3px] border-black">
-        <div className="container-tight px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <section className="bg-white py-12 sm:py-16 border-t-[3px] border-black">
+        <div className="container-tight px-6 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="flex items-center gap-3 text-black">
             <Youtube className="w-6 h-6 shrink-0 text-red-600" />
             <span className="text-sm font-light uppercase tracking-[0.25em]">Subscribed to Twelve Lords?</span>
           </div>
           <button
             onClick={() => window.open("https://youtube.com/@twelvelords", "_blank", "noopener,noreferrer")}
-            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest transition-all shadow-md active:scale-95 flex items-center gap-2 border-2 border-black"
+            className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 sm:px-12 sm:py-5 rounded-full font-black uppercase text-xs tracking-widest transition-all shadow-md hover:shadow-lg hover:translate-y-[-2px] active:scale-95 flex items-center gap-2 border-2 border-red-600 hover:border-red-700"
           >
             Visit Our Main Channel <ArrowUpRight className="w-4 h-4" />
           </button>
