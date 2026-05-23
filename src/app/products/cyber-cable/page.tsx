@@ -52,7 +52,7 @@ export default function CyberCableProductPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="min-h-screen overflow-hidden">
       <div className="relative z-10">
         {/* Back Button */}
         <div className="fixed top-20 left-6 z-50">
@@ -60,37 +60,60 @@ export default function CyberCableProductPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-bold uppercase tracking-widest text-xs group"
+            className="flex items-center gap-2 text-white hover:text-[#00D9FF] transition-colors font-bold uppercase tracking-widest text-xs group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             Back
           </motion.button>
         </div>
 
-        {/* Hero Section */}
-        <section className="container-tight px-4 sm:px-6 pb-16 sm:pb-24">
-          <CyberCableShowcase />
+        {/* Hero Section with Premium Dark Cyber Theme */}
+        <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
+          {/* Premium Dark Gradient Background with Cyber Aesthetic */}
+          <div className="absolute inset-0 -z-10">
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: `
+                  radial-gradient(circle at top left, rgba(0,217,255,0.15), transparent 35%),
+                  radial-gradient(circle at bottom right, rgba(4,174,227,0.08), transparent 40%),
+                  linear-gradient(135deg, #050816 0%, #0A1224 50%, #0B121E 100%)
+                `
+              }}
+            />
+            {/* Subtle animated grid */}
+            <div 
+              className="absolute inset-0 opacity-[0.03]" 
+              style={{ 
+                backgroundImage: 'radial-gradient(circle at 2px 2px, #00D9FF 1px, transparent 0)', 
+                backgroundSize: '50px 50px' 
+              }} 
+            />
+          </div>
+
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <CyberCableShowcase />
         
 
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
               <motion.div {...fadeIn}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto lg:mx-0 w-fit">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D9FF]/10 border border-[#00D9FF]/30 text-[#00D9FF] text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto lg:mx-0 w-fit">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Hardware-Level Security</span>
                 </div>
-                <h1 className="font-display font-black leading-tight tracking-tighter text-black">
-                  Twelve Lords <span className="">Cyber Cable</span>
+                <h1 className="font-display font-black leading-tight tracking-tighter text-white text-4xl sm:text-5xl md:text-7xl">
+                  Twelve Lords <span className="text-[#00D9FF]">Cyber Cable</span>
                 </h1>
-                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-black leading-tight">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-[#EAF6FF] leading-tight">
                   Secure Charging. Controlled Data. <br className="hidden sm:block" />
-                  <span>Total Protection.</span>
+                  <span className="text-[#4CC9F0]">Total Protection.</span>
                 </p>
               </motion.div>
 
               <motion.p 
                 {...fadeIn} 
                 transition={{ delay: 0.2 }}
-                className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0"
+                className="text-base sm:text-lg text-[#A9B4C7] leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0"
               >
                 The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
               </motion.p>
@@ -100,15 +123,15 @@ export default function CyberCableProductPage() {
                 transition={{ delay: 0.3 }}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0"
               >
-                <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Usb className="w-5 h-5 text-primary" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider">Default Mode</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Charge-Only</p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-[#00D9FF]/20 backdrop-filter backdrop-blur-[12px] space-y-2 hover:border-[#00D9FF]/40 hover:bg-white/10 transition-all duration-300">
+                  <Usb className="w-5 h-5 text-[#00D9FF]" />
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#EAF6FF]">Default Mode</p>
+                  <p className="text-sm text-[#A9B4C7] font-semibold">Charge-Only</p>
                 </div>
-                <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Zap className="w-5 h-5 text-primary" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider">Power Delivery</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Up to 60W</p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-[#00D9FF]/20 backdrop-filter backdrop-blur-[12px] space-y-2 hover:border-[#00D9FF]/40 hover:bg-white/10 transition-all duration-300">
+                  <Zap className="w-5 h-5 text-[#00D9FF]" />
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#EAF6FF]">Power Delivery</p>
+                  <p className="text-sm text-[#A9B4C7] font-semibold">Up to 60W</p>
                 </div>
               </motion.div>
 
@@ -119,11 +142,22 @@ export default function CyberCableProductPage() {
               >
                 <button 
                   onClick={handleAddToCart}
-                  className="w-full lg:w-auto group relative px-10 py-5 sm:px-12 sm:py-6 rounded-2xl bg-primary text-white font-black text-lg sm:text-xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(253,181,17,0.5)] flex items-center justify-center gap-3"
+                  className="w-full lg:w-auto group relative px-10 py-5 sm:px-12 sm:py-6 rounded-2xl text-white font-black text-lg sm:text-xl transition-all hover:scale-105 flex items-center justify-center gap-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #12343B, #0A6C74)',
+                    boxShadow: '0 0 20px rgba(0,217,255,0.25)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(0,217,255,0.45)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 20px rgba(0,217,255,0.25)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
                 >
                   {added ? <CheckCircle2 className="w-6 h-6" /> : <ShoppingCart className="w-6 h-6" />}
                   <span>{isInCart ? "In Your Cart" : "Add to Cart"}</span>
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-2xl" />
                 </button>
               </motion.div>
             </div>
@@ -131,7 +165,7 @@ export default function CyberCableProductPage() {
         </section>
 
         {/* Detailed Content */}
-        <section className="container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
+        <section className="bg-background container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
           
           {/* Introduction */}
           <motion.div {...fadeIn} className="max-w-3xl mx-auto space-y-6 text-center lg:text-left">

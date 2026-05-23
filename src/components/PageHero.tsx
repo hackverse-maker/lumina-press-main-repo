@@ -77,16 +77,16 @@ const CodingAnimation = () => (
 
 export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
   return (
-    <section className="relative pt-12 md:pt-20 pb-20 overflow-hidden">
+    <section className="relative pt-clamp pb-clamp overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
-      <div className="container-tight relative">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="max-w-3xl space-y-4">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-8xl font-sans font-bold md:font-black tracking-tighter text-[#1a1a1a] leading-[1.1] uppercase"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-sans font-bold md:font-black tracking-tighter text-[#1a1a1a] leading-[1.1] uppercase"
             >
               {title}
             </motion.h1>
@@ -95,7 +95,7 @@ export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-base md:text-xl font-light text-muted-foreground leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-muted-foreground leading-relaxed"
               >
                 {subtitle}
               </motion.p>
