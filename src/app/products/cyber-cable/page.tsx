@@ -2,47 +2,18 @@
 
 import { motion } from "framer-motion";
 import { 
-  ArrowLeft, 
-  ShoppingCart, 
-  ShieldCheck, 
-  Zap, 
-  Lock, 
-  Cpu, 
-  Activity, 
-  Check,
-  CheckCircle2,
+  ArrowLeft,
+  Zap,
+  Lock,
   HardDrive,
-  Usb
+  Activity,
+  CheckCircle2
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useAppState } from "@/context/AppStateContext";
-import { books } from "@/lib/data";
-import { useState } from "react";
 import CyberCableShowcase from "@/components/CyberCableShowcase";
-import Image from "next/image";
 
 export default function CyberCableProductPage() {
   const router = useRouter();
-  const { addToCart, cart, setIsCartOpen } = useAppState();
-  const [added, setAdded] = useState(false);
-
-  const product = books.find(b => b.id === "cyber-cable");
-  const isInCart = cart.some(item => item.id === "cyber-cable");
-
-  if (!product) return null;
-
-  const handleAddToCart = () => {
-    if (!isInCart) {
-      addToCart(product);
-      setAdded(true);
-      setTimeout(() => {
-        setAdded(false);
-        setIsCartOpen(true);
-      }, 1000);
-    } else {
-      setIsCartOpen(true);
-    }
-  };
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -52,86 +23,27 @@ export default function CyberCableProductPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="min-h-screen overflow-hidden">
       <div className="relative z-10">
-        {/* Back Button */}
-        <div className="fixed top-20 left-6 z-50">
-          <motion.button 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-bold uppercase tracking-widest text-xs group"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back
-          </motion.button>
-        </div>
-
-        {/* Hero Section */}
-        <section className="container-tight px-4 sm:px-6 pb-16 sm:pb-24">
-          <CyberCableShowcase />
-        
-
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <motion.div {...fadeIn}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto lg:mx-0 w-fit">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Hardware-Level Security</span>
-                </div>
-                <h1 className="font-display font-black leading-tight tracking-tighter text-black">
-                  Twelve Lords <span className="">Cyber Cable</span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-black leading-tight">
-                  Secure Charging. Controlled Data. <br className="hidden sm:block" />
-                  <span>Total Protection.</span>
-                </p>
-              </motion.div>
-
-              <motion.p 
-                {...fadeIn} 
-                transition={{ delay: 0.2 }}
-                className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0"
-              >
-                The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
-              </motion.p>
-
-              <motion.div 
-                {...fadeIn}
-                transition={{ delay: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0"
-              >
-                <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Usb className="w-5 h-5 text-primary" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider">Default Mode</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Charge-Only</p>
-                </div>
-                <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Zap className="w-5 h-5 text-primary" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider">Power Delivery</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Up to 60W</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                {...fadeIn}
-                transition={{ delay: 0.4 }}
-                className="pt-4"
-              >
-                <button 
-                  onClick={handleAddToCart}
-                  className="w-full lg:w-auto group relative px-10 py-5 sm:px-12 sm:py-6 rounded-2xl bg-primary text-white font-black text-lg sm:text-xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(253,181,17,0.5)] flex items-center justify-center gap-3"
-                >
-                  {added ? <CheckCircle2 className="w-6 h-6" /> : <ShoppingCart className="w-6 h-6" />}
-                  <span>{isInCart ? "In Your Cart" : "Add to Cart"}</span>
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-2xl" />
-                </button>
-              </motion.div>
-            </div>
+        {/* Hero Section with Premium Dark Cyber Theme */}
+        <section className="relative bg-gradient-to-b from-[#050816] via-[#0A1224] to-[#0B121E] overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Back Button */}
+            <motion.button 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={() => router.back()}
+              className="flex items-center gap-2 text-white hover:text-[#00D9FF] transition-colors font-bold uppercase tracking-widest text-xs group mb-6 sm:mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              Back
+            </motion.button>
+            <CyberCableShowcase />
           </div>
         </section>
 
         {/* Detailed Content */}
-        <section className="container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
+        <section className="bg-background container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
           
           {/* Introduction */}
           <motion.div {...fadeIn} className="max-w-3xl mx-auto space-y-6 text-center lg:text-left">
@@ -249,16 +161,6 @@ export default function CyberCableProductPage() {
             <p className="text-muted-foreground text-sm sm:text-lg">
               By separating power from data and introducing controlled communication, it eliminates unnecessary exposure and provides a reliable defense against modern USB-based threats.
             </p>
-            
-            <div className="pt-6 sm:pt-8">
-              <button 
-                onClick={handleAddToCart}
-                className="group relative px-10 py-5 sm:px-16 sm:py-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary text-white font-black text-xl sm:text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(253,181,17,0.6)] w-full sm:w-auto"
-              >
-                Secure Yours Now
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[1.5rem] sm:rounded-[2rem]" />
-              </button>
-            </div>
           </motion.div>
 
         </section>

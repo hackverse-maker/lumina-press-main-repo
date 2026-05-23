@@ -24,7 +24,7 @@ export const CyberCableSection = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-[#0B121E] border-y border-white/5" id="cyber-cable">
+    <section className="relative py-20 md:py-32 px-4 overflow-hidden bg-[#0B121E]" id="cyber-cable">
       {/* Background Digital Grid */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #00CFFF 1px, transparent 0)', backgroundSize: '40px 40px' }} />
