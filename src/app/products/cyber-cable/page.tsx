@@ -2,47 +2,18 @@
 
 import { motion } from "framer-motion";
 import { 
-  ArrowLeft, 
-  ShoppingCart, 
-  ShieldCheck, 
-  Zap, 
-  Lock, 
-  Cpu, 
-  Activity, 
-  Check,
-  CheckCircle2,
+  ArrowLeft,
+  Zap,
+  Lock,
   HardDrive,
-  Usb
+  Activity,
+  CheckCircle2
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useAppState } from "@/context/AppStateContext";
-import { books } from "@/lib/data";
-import { useState } from "react";
-import { CyberCableShowcase } from "@/components/CyberCableShowcase";
-import Image from "next/image";
+import CyberCableShowcase from "@/components/CyberCableShowcase";
 
 export default function CyberCableProductPage() {
   const router = useRouter();
-  const { addToCart, cart, setIsCartOpen } = useAppState();
-  const [added, setAdded] = useState(false);
-
-  const product = books.find(b => b.id === "cyber-cable");
-  const isInCart = cart.some(item => item.id === "cyber-cable");
-
-  if (!product) return null;
-
-  const handleAddToCart = () => {
-    if (!isInCart) {
-      addToCart(product);
-      setAdded(true);
-      setTimeout(() => {
-        setAdded(false);
-        setIsCartOpen(true);
-      }, 1000);
-    } else {
-      setIsCartOpen(true);
-    }
-  };
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -52,31 +23,27 @@ export default function CyberCableProductPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="min-h-screen overflow-hidden">
       <div className="relative z-10">
-        {/* Back Button */}
-        <div className="fixed top-20 left-6 z-50">
-          <motion.button 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-bold uppercase tracking-widest text-xs group"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back
-          </motion.button>
-        </div>
-
-        <section className="container-tight px-4 sm:px-6 pb-16 sm:pb-24">
-          <CyberCableShowcase 
-            onAddToCart={handleAddToCart}
-            isInCart={isInCart}
-            added={added}
-          />
+        {/* Hero Section with Premium Dark Cyber Theme */}
+        <section className="relative bg-gradient-to-b from-[#050816] via-[#0A1224] to-[#0B121E] overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Back Button */}
+            <motion.button 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={() => router.back()}
+              className="flex items-center gap-2 text-white hover:text-[#00D9FF] transition-colors font-bold uppercase tracking-widest text-xs group mb-6 sm:mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              Back
+            </motion.button>
+            <CyberCableShowcase />
+          </div>
         </section>
 
         {/* Detailed Content */}
-        <section className="container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
+        <section className="bg-background container-tight py-16 sm:py-20 border-t border-border/50 space-y-16 sm:space-y-24 px-4 sm:px-6">
           
           {/* Introduction */}
           <motion.div {...fadeIn} className="max-w-3xl mx-auto space-y-6 text-center lg:text-left">
@@ -194,16 +161,6 @@ export default function CyberCableProductPage() {
             <p className="text-muted-foreground text-sm sm:text-lg">
               By separating power from data and introducing controlled communication, it eliminates unnecessary exposure and provides a reliable defense against modern USB-based threats.
             </p>
-            
-            <div className="pt-6 sm:pt-8">
-              <button 
-                onClick={handleAddToCart}
-                className="group relative px-10 py-5 sm:px-16 sm:py-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary text-white font-black text-xl sm:text-2xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(253,181,17,0.6)] w-full sm:w-auto"
-              >
-                Secure Yours Now
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-[1.5rem] sm:rounded-[2rem]" />
-              </button>
-            </div>
           </motion.div>
 
         </section>

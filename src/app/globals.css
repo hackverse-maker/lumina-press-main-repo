@@ -193,6 +193,14 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-12;
   }
 
+  .pt-clamp {
+    padding-top: clamp(32px, 8vw, 64px);
+  }
+
+  .pb-clamp {
+    padding-bottom: clamp(32px, 8vw, 64px);
+  }
+
   .text-balance {
     text-wrap: balance;
   }
