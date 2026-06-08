@@ -34,7 +34,7 @@ const uploads: UploadItem[] = [
     category: "History & Philosophy",
     duration: "12 min watch",
     date: "October 31, 2025",
-    speaker: "Muhammad Raza — Editorial",
+    speaker: "Muhammad Raza",
     color: "from-zinc-900 to-stone-950",
   },
   {
@@ -44,7 +44,7 @@ const uploads: UploadItem[] = [
     category: "Educational Critique",
     duration: "10 min watch",
     date: "April 21, 2026",
-    speaker: "Muhammad Raza — Editorial",
+    speaker: "Muhammad Raza",
     color: "from-zinc-900 to-stone-950",
   }
 ];

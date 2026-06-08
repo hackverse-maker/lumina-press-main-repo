@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { useAppState } from "@/context/AppStateContext";
 import { books } from "@/lib/data";
 import { useState } from "react";
-import CyberCableShowcase from "@/components/CyberCableShowcase";
+import { CyberCableShowcase } from "@/components/CyberCableShowcase";
 import Image from "next/image";
 
 export default function CyberCableProductPage() {
@@ -67,67 +67,12 @@ export default function CyberCableProductPage() {
           </motion.button>
         </div>
 
-        {/* Hero Section */}
         <section className="container-tight px-4 sm:px-6 pb-16 sm:pb-24">
-          <CyberCableShowcase />
-        
-
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <motion.div {...fadeIn}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4 mx-auto lg:mx-0 w-fit">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Hardware-Level Security</span>
-                </div>
-                <h1 className="font-display font-black leading-tight tracking-tighter text-black">
-                  Twelve Lords <span className="">Cyber Cable</span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl font-bold mt-4 text-black leading-tight">
-                  Secure Charging. Controlled Data. <br className="hidden sm:block" />
-                  <span>Total Protection.</span>
-                </p>
-              </motion.div>
-
-              <motion.p 
-                {...fadeIn} 
-                transition={{ delay: 0.2 }}
-                className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0"
-              >
-                The Cyber Cable introduces a hardware-enforced security architecture that separates charging from data communication, ensuring that your device only exchanges data when explicitly authorized.
-              </motion.p>
-
-              <motion.div 
-                {...fadeIn}
-                transition={{ delay: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0"
-              >
-                <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Usb className="w-5 h-5 text-primary" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider">Default Mode</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Charge-Only</p>
-                </div>
-                <div className="p-4 rounded-2xl bg-secondary/50 border border-border space-y-2">
-                  <Zap className="w-5 h-5 text-primary" />
-                  <p className="text-[10px] font-bold uppercase tracking-wider">Power Delivery</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Up to 60W</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                {...fadeIn}
-                transition={{ delay: 0.4 }}
-                className="pt-4"
-              >
-                <button 
-                  onClick={handleAddToCart}
-                  className="w-full lg:w-auto group relative px-10 py-5 sm:px-12 sm:py-6 rounded-2xl bg-primary text-white font-black text-lg sm:text-xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(253,181,17,0.5)] flex items-center justify-center gap-3"
-                >
-                  {added ? <CheckCircle2 className="w-6 h-6" /> : <ShoppingCart className="w-6 h-6" />}
-                  <span>{isInCart ? "In Your Cart" : "Add to Cart"}</span>
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-2xl" />
-                </button>
-              </motion.div>
-            </div>
-          </div>
+          <CyberCableShowcase 
+            onAddToCart={handleAddToCart}
+            isInCart={isInCart}
+            added={added}
+          />
         </section>
 
         {/* Detailed Content */}

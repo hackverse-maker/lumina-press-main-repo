@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { Menu, X, Heart, Instagram, Facebook, Twitter, Youtube, Music2, Music, Podcast, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -39,6 +40,8 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [studyDropdownOpen, setStudyDropdownOpen] = useState(false);
   const [mobileStudyOpen, setMobileStudyOpen] = useState(false);
+  const pathname = usePathname();
+  const isTechPage = pathname === "/tech";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -58,7 +61,9 @@ export const Navbar = () => {
 
   return (
     <header
-      className="absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-black shadow-sm border-b border-white/10"
+      className={`absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-black shadow-sm ${
+        isTechPage ? "" : "border-b border-white/10"
+      }`}
     >
       <div className="w-full px-6 sm:px-12 flex items-center justify-between py-4">
         <div className="flex-shrink-0">
