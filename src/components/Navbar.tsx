@@ -58,7 +58,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className="absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-black shadow-sm"
+      className="absolute top-0 inset-x-0 z-50 transition-all duration-500 flex flex-col bg-black"
     >
       <div className="w-full px-6 sm:px-12 flex items-center justify-between py-4">
         <div className="flex-shrink-0">
